@@ -155,7 +155,7 @@ export default function AboutUs() {
                     <div className="mt-6">
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900">Why choose us</h2>
                         <p className="mt-4 text-base text-gray-500">
-                            UpMySalary doesn't just help you increase your salary, our services are designed to support your career success. We have trained recruiters worldwide to succeed in finding quality talent. As many individuals find it difficult to land interviews without a traditional background and career path, UpMySalary helps people rebrand (resume and LinkedIn), story-tell (interview talk-track), and transform (visibly) into the person of a hiring managers dreams. 
+                            UpMySalary doesnt just help you increase your salary, our services are designed to support your career success. We have trained recruiters worldwide to succeed in finding quality talent. As many individuals find it difficult to land interviews without a traditional background and career path, UpMySalary helps people rebrand (resume and LinkedIn), story-tell (interview talk-track), and transform (visibly) into the person of a hiring managers dreams. 
                         </p>
                         <p className="mt-4 text-base text-gray-500">
                             We encourage employees to ramp up their abilities, upgrade their resumes and LinkedIn profiles to leverage their skills to maximize their earnings. Training videos and presentations that we provide employers have helped nourish employees in the corporate workplace. You can find countless reasons to rely on us, a few of them are:
@@ -257,7 +257,7 @@ export default function AboutUs() {
                         <div className="mt-6 space-y-6 text-gray-500">
                             <p className="text-base">
                                 Our vision is to inspire and make job seekers more passionate about their career journey. We envision celebrating personal growth by empowering people to put their efforts in the right direction for their career opportunities. With the innovative services, we envision becoming the leading counseling and career development services provider. 
-                                Our vision enables us to deliver service excellence with a touch of finesse, act with integrity by putting the candidate's priority first. We offer easy-to-implement solutions and personalized services as part of a shared vision. Moreover, trust, equity, transparency, and integrity are the core values that drive us to set our vision. 
+                                Our vision enables us to deliver service excellence with a touch of finesse, act with integrity by putting the candidates priority first. We offer easy-to-implement solutions and personalized services as part of a shared vision. Moreover, trust, equity, transparency, and integrity are the core values that drive us to set our vision. 
                             </p>
                         </div>
                     </div>
