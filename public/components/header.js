@@ -1,11 +1,13 @@
-import { Fragment, useContext } from 'react';
+import { Fragment } from 'react';
+import { useSelector } from 'react-redux';
 import { Popover, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon, ShoppingBagIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { CartContext } from '../context/cart-context';
+
 
 const navigation = [
   { name: 'About', href: '/about' },
+  { name: 'Services', href: '/services' },
   { name: 'Resume', href: '/resume' },
   { name: 'Linkedin', href: '/linkedin' },
   { name: 'Courses', href: '/courses' },
@@ -13,10 +15,17 @@ const navigation = [
 
 const Header = () => {
 
-  const { cartTotal } = useContext(CartContext);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  
+  const cartTotal = cartItems.reduce(
+    (accumalatedQuantity, cartItem) =>
+      accumalatedQuantity + cartItem.quantity,
+    0
+);
+
     return (
         <Popover>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 shadow-sm pb-8">
             <nav className="relative flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
               <div className="flex flex-1 items-center md:absolute md:inset-y-0 md:left-0">
                 <div className="flex w-full items-center justify-between md:w-auto">

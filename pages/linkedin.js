@@ -1,21 +1,23 @@
-import { useContext } from 'react';
+import { useDispatch } from 'react-redux';
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
-import { CartContext } from '../public/context/cart-context';
+import { addItem } from '../redux/cart-reducer';
+
 
 export default function LinkedIn() {
 
-    const { addItem } = useContext(CartContext);
+    const dispatch = useDispatch();
 
     const linkedin = {
         id:2,
-        title:"Linkedin Service",
-        price:100,
-        description:'Online visibility is essential for networking with the right recruiters and hiring managers. Your goal is to be presented with job opportunities!'
+        name:'LinkedIn Service ($150.00)',
+        price:150,
+        description:'Online visibility is essential for networking with the right recruiters and hiring managers. Your goal is to be presented with job opportunities!',
+        image: '../assets/linkedin.jpg'
     }
 
     const addToCart = () => {
-        addItem(linkedin);
+        dispatch(addItem(linkedin));
     }
 
 

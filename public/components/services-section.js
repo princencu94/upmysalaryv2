@@ -1,6 +1,4 @@
 
-
-
 import Link from 'next/link';
 
 const services = [
@@ -23,10 +21,10 @@ const services = [
         '../assets/linkedin.jpg',
     },
     {
-      title: 'Courses',
+      title: 'Mock interviews ',
       href: '#',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint harum rerum voluptatem quo recusandae magni placeat saepe molestiae, sed excepturi cumque corporis perferendis hic.',
+        'The adage is true - practice makes perfect! You can ace your mock interview by practicing with us. We help to boost your confidence by critiquing and improving how you share your value with others.',
       imageUrl:
         '../assets/courses.jpg',
     },
@@ -34,8 +32,8 @@ const services = [
 
 export default function ServiceSection() {
   return (
-   
-    <div className="relative bg-gray-50 px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-40">
+   <>
+    <div className="relative  px-4 pt-16 pb-16 sm:px-6 lg:px-8 lg:pt-24 lg:pb-20">
       <div className="absolute inset-0">
         <div className="h-1/3 bg-white sm:h-2/3" />
       </div>
@@ -43,7 +41,7 @@ export default function ServiceSection() {
         <div className="text-center">
           <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl">Our Services</h2>
           <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
+          On one end, we have our turnkey resume and LinkedIn solutions and mock interview roleplaying. On the other, we have coaching programs and 1:1 coaching opportunities that walk clients step-by-step towards specific monetary and career goals
           </p>
         </div>
         <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
@@ -65,9 +63,23 @@ export default function ServiceSection() {
             </div>
           ))}
         </div>
+        
+        
       </div>
-    </div>
 
+      
 
+    </div >
+
+      <div className='flex flex-row justify-center -mt-8 mb-14 z-50' >  
+            <Link href="/services">
+        <a
+          className="text-center z-60 rounded-md border border-transparent px-5 py-3 text-base font-medium text-green-900 hover:bg-indigo-50 sm:w-auto"
+        >
+          More Services
+        </a>
+        </Link>
+      </div>  
+      </>     
   )
 }

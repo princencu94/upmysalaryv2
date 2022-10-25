@@ -1,15 +1,27 @@
+import { useState, useEffect } from 'react';
+
 import HeroSection from '../public/components/hero-section';
 import ServiceSection from '../public/components/services-section';
 import Footer from '../public/components/footer';
+import HowItWorks from '../public/components/howitworks';
+
+
+
+
+
 
 export default function Home() {
+  
   return (
     <>
+ 
      {/* Hero Section */}
     <HeroSection/>
    
     {/* // Service Section */}
     <ServiceSection/>
+      
+    <HowItWorks/>
               {/* Testimonial section */}
               <div className="bg-gradient-to-r from-green-600 to-blue-900 pb-16 lg:relative lg:z-10 lg:pb-0">
             <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-8 lg:px-8">

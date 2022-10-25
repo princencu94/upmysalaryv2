@@ -1,8 +1,8 @@
-import { useContext } from 'react';
-
+import { useDispatch } from 'react-redux'
+import { addItem } from '../redux/cart-reducer';
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
-import { CartContext } from '../public/context/cart-context';
+
 import { BoltIcon, TrophyIcon , LightBulbIcon } from '@heroicons/react/24/outline';
 
 
@@ -34,21 +34,20 @@ const features = [
 
 export default function Resume() {
 
-    const { addItem } = useContext(CartContext);
+ 
 
     const resume = {
         id:1,
-        title:"Resume Service",
-        price:120,
-        description:'I create a compelling resume that aligns with where you are looking to go. This is a turnkey solution that requires one (1) 30-minute Zoom Consultation within 4 days of booking the service.'
+        name:"Resume Service ($200.00)",
+        price:200,
+        description:'I create a compelling resume that aligns with where you are looking to go. This is a turnkey solution that requires one (1) 30-minute Zoom Consultation within 4 days of booking the service.',
+        image: '../assets/resume.jpg',
     }
 
-    const addToCart = () => {
-        addItem(resume)
-    }
-
-
+    const dispatch = useDispatch();
     return (
+
+        
         <>
         <div className="pt-5">
         <Header/>
@@ -201,7 +200,7 @@ export default function Resume() {
                 <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
                 <div className="inline-flex rounded-md shadow">
                     <button
-                    onClick={addToCart}
+                    onClick={() => dispatch(addItem(resume))}
                     className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700"
                     >
                     Order Now

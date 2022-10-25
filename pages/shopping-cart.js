@@ -1,24 +1,22 @@
-import { useContext, useEffect, useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
-import { CartContext } from "../public/context/cart-context";
-
-
+import { removeItem } from '../redux/cart-reducer';
 
 export default function ShoppingCart() {
     
-    const router = useRouter()
-    const { removeItem, cartItems, cartTotalPrice } = useContext(CartContext);
-  
-    
-    const removeCartItem = (product) => {
-        removeItem(product);
-    }
+    const router = useRouter();
 
-  
+    const cartItems = useSelector(state => state.cart.cartItems);
+    const cartTotalPrice = cartItems.reduce(
+      (accumalatedQuantity, cartItem) =>
+        accumalatedQuantity + cartItem.quantity * cartItem.price,
+      0
+  );
 
+  const dispatch = useDispatch()
 
     return (
         <>
@@ -42,8 +40,8 @@ export default function ShoppingCart() {
                 <li key={product.id} className="flex py-6">
                   <div className="flex-shrink-0">
                     <img
-                      src="../assets/resume.jpg"
-                      alt="Random"
+                      src={product.image}
+                      alt={product.name}
                       className="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32"
                     />
                   </div>
@@ -58,14 +56,14 @@ export default function ShoppingCart() {
                         </h4>
                         <p className="ml-4 text-sm font-medium text-gray-900">${product.price}</p>
                       </div>
-                      <p className="mt-1 text-sm text-gray-500">{product.description}</p>
+                      <p className="mt-1 text-sm text-gray-500">{product.description.slice(0, 150)}</p>
                     </div>
 
                     <div className="mt-4 flex flex-1 items-end justify-between">
                       <p className="flex items-center space-x-2 text-sm text-gray-700">
                       </p>
                       <div className="ml-4">
-                        <button onClick={ () => removeCartItem(product)} className="text-sm font-medium text-blue-900 hover:text-blue-500">
+                        <button onClick={() => dispatch(removeItem(product))} className="text-sm font-medium text-blue-900 hover:text-blue-500">
                           <span>Remove</span>
                         </button>
                       </div>
@@ -86,7 +84,7 @@ export default function ShoppingCart() {
               <dl className="space-y-4">
                 <div className="flex items-center justify-between">
                   <dt className="text-base font-medium text-gray-900">Subtotal</dt>
-                  <dd className="ml-4 text-base font-medium text-gray-900">{cartTotalPrice}</dd>
+                  <dd className="ml-4 text-base font-medium text-gray-900">${cartTotalPrice}</dd>
                 </div>
               </dl>
               <p className="mt-1 text-sm text-gray-500">Cancellations are offered at 85% of payment made.</p>

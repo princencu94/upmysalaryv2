@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
-import { Disclosure } from '@headlessui/react';
-import { LockClosedIcon } from '@heroicons/react/20/solid';
+import React, { useRef } from "react";
 
-import { CartContext } from "../public/context/cart-context";
+import { Disclosure } from '@headlessui/react';
+import { useSelector } from 'react-redux'
 import {
   PaymentElement,
   useStripe,
@@ -13,12 +12,24 @@ import {
 
 
 
-export default function CheckoutForm() {
 
-    const { cartItems, cartTotalPrice } = useContext(CartContext);
+export default function CheckoutForm() {
+ 
+  const cartItems = useSelector(state => state.cart.cartItems);
+
+  const cartTotalPrice = cartItems.reduce(
+    (accumalatedQuantity, cartItem) =>
+      accumalatedQuantity + cartItem.quantity * cartItem.price,
+    0
+  );
+
+  const form = useRef();
+
+
   const stripe = useStripe();
   const elements = useElements();
-
+  const [email, setEmail] = React.useState('');
+  const [fullname, setFullname] = React.useState('');
   const [message, setMessage] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -38,6 +49,7 @@ export default function CheckoutForm() {
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent.status) {
         case "succeeded":
+      
           setMessage("Payment succeeded!");
           break;
         case "processing":
@@ -68,7 +80,8 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000",
+        return_url: "http://localhost:3000/complete",
+        receipt_email: email,
       },
     });
 
@@ -92,7 +105,7 @@ export default function CheckoutForm() {
         <h1 className="sr-only">Checkout</h1>
 
         {/* Mobile order summary */}
-        <section aria-labelledby="order-heading" className="bg-blue-700 px-4 py-6 sm:px-6 lg:hidden">
+        <section aria-labelledby="order-heading" className="bg-blue-900 px-4 py-6 sm:px-6 lg:hidden">
           <Disclosure as="div" className="mx-auto max-w-lg">
             {({ open }) => (
               <>
@@ -110,15 +123,15 @@ export default function CheckoutForm() {
                     {cartItems.map((product) => (
                       <li key={product.id} className="flex space-x-6 py-6">
                         <img
-                          src="../assets/resume.jpg"
-                          alt="Random"
+                          src={product.image}
+                          alt={product.name}
                           className="h-40 w-40 flex-none rounded-md bg-gray-200 object-cover object-center"
                         />
                         <div className="flex flex-col justify-between space-y-4">
                           <div className="space-y-1 text-sm font-medium">
-                            <h3 className="text-gray-900">{product.name}</h3>
-                            <p className="text-gray-900">{product.price}</p>
-                            <p className="text-gray-500">{product.description}</p>
+                            <h3 className="text-white">{product.name}</h3>
+                            <p className="text-white">{product.price}</p>
+                            <p className="text-white">{product.description.slice(0, 150)}</p>
                           </div>
 
                         </div>
@@ -144,7 +157,7 @@ export default function CheckoutForm() {
         </section>
 
         {/* Order summary */}
-        <section aria-labelledby="summary-heading" className="hidden w-full max-w-md flex-col bg-blue-700 lg:flex">
+        <section aria-labelledby="summary-heading" className="hidden w-full max-w-md flex-col bg-blue-900 lg:flex">
           <h2 id="summary-heading" className="sr-only">
             Order summary
           </h2>
@@ -153,15 +166,15 @@ export default function CheckoutForm() {
             {cartItems.map((product) => (
               <li key={product.id} className="flex space-x-6 py-6">
                 <img
-                          src="../assets/resume.jpg"
-                          alt="Random"
+                          src={product.image}
+                          alt={product.name}
                           className="h-40 w-40 flex-none rounded-md bg-gray-200 object-cover object-center"
                         />
                         <div className="flex flex-col justify-between space-y-4">
                           <div className="space-y-1 text-sm font-medium">
-                            <h3 className="text-gray-900">{product.name}</h3>
-                            <p className="text-gray-900">{product.price}</p>
-                            <p className="text-gray-500">{product.description}</p>
+                            <h3 className="text-white">{product.name}</h3>
+                            <p className="text-white">${product.price}</p>
+                            <p className="text-white">{product.description.slice(0, 150)}</p>
                           </div>
 
                         </div>
@@ -191,19 +204,35 @@ export default function CheckoutForm() {
 
           <div className="mx-auto max-w-lg lg:pt-16">
 
-            <form className="mt-6" id="payment-form" onSubmit={handleSubmit}>
+            <form className="mt-6" id="payment-form" ref={form} onSubmit={handleSubmit} >
               <div className="grid grid-cols-12 gap-y-6 gap-x-4 mb-3">
+              <div className="col-span-full">
+                  <label htmlFor="full-name" className="block text-sm font-medium text-gray-700">
+                    Full Name
+                  </label>
+                  <div className="mt-1">
+                    <input
+                      id="fullname"
+                      type="text"
+                      name="fullname"
+                      placeholder="Full Name"
+                      className="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
+                    />
+                  </div>
+                </div>
                 <div className="col-span-full">
                   <label htmlFor="email-address" className="block text-sm font-medium text-gray-700">
                     Email address
                   </label>
                   <div className="mt-1">
                     <input
-                      type="email"
-                      id="email-address"
-                      name="email-address"
-                      autoComplete="email"
-                      className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                      id="email"
+                      type="text"
+                      name="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter email address"
+                      className="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
                     />
                   </div>
                 </div>
@@ -211,12 +240,12 @@ export default function CheckoutForm() {
               </div>
               <div>
               <PaymentElement id="payment-element" />
-                <button disabled={isLoading || !stripe || !elements} 
+                <button type="submit" disabled={isLoading || !stripe || !elements} 
                 id="submit"
                 className=" mt-6 w-full rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                 >
                     <span id="button-text">
-                    {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+                    {isLoading ? <div className="spinner" id="spinner">{message}</div> : "Pay now"}
                     </span>
                 </button>
                 {/* Show any error or success messages */}
