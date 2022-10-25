@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
-import Link from 'next/link';
+import Image from 'next/image';
 import { addItem } from "../redux/cart-reducer";
 
 
@@ -99,7 +99,7 @@ export default function Services() {
                     </div>
                     <div className="mt-12 sm:mt-16 lg:mt-0">
                         <div className="-mr-48 pl-4 sm:pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
-                        <img
+                        <Image
                             className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
                             src="../assets/elite-performer.jpg"
                             alt="Black Elite Man Smiling"
@@ -135,7 +135,7 @@ export default function Services() {
                     </div>
                     <div className="mt-12 sm:mt-16 lg:col-start-1 lg:mt-0">
                         <div className="-ml-48 pr-4 sm:pr-6 md:-ml-16 lg:relative lg:m-0 lg:h-full lg:px-0">
-                        <img
+                        <Image
                             className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
                             src="../assets/group-coaching.jpg"
                             alt="A group of people being Coached via Zoom"
@@ -157,7 +157,7 @@ export default function Services() {
                     {services.map((service) => (
                         <div key={service.title} className="flex flex-col overflow-hidden rounded-lg ">
                         <div className="flex-shrink-0">
-                            <img className="h-80 w-full object-cover" src={service.imageUrl} alt="" />
+                            <Image className="h-80 w-full object-cover" src={service.imageUrl} alt="" />
                         </div>
                         <div className="flex flex-1 flex-col justify-between  pt-6">
                             <div className="flex-1">

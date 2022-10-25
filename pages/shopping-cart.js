@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import { useRouter } from 'next/router';
-
+import Image from 'next/image';
 import { removeItem } from '../redux/cart-reducer';
 
 export default function ShoppingCart() {
@@ -39,7 +39,7 @@ export default function ShoppingCart() {
               {cartItems.map((product) => (
                 <li key={product.id} className="flex py-6">
                   <div className="flex-shrink-0">
-                    <img
+                    <Image
                       src={product.image}
                       alt={product.name}
                       className="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32"

@@ -1,5 +1,6 @@
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
+import Image from 'next/image';
 
 const faqs = [
 
@@ -7,7 +8,7 @@ const faqs = [
     {
       question: 'Variety of Specific Programs For Groups or Individuals',
       answer:
-        'UpMySalary specializes in developing specific programs for individuals or groups across a range of levels. No matter which group you belong to, we have something helpful to offer. It\'s our priority to help our clients make enough money, and we\'re constantly directing our efforts to this end.',
+        'UpMySalary specializes in developing specific programs for individuals or groups across a range of levels. No matter which group you belong to, we have something helpful to offer. Its  our priority to help our clients make enough money, and we are constantly directing our efforts to this end.',
     },
     {
         question: 'Flexible Resume Services',
@@ -96,7 +97,7 @@ export default function AboutUs() {
                                The strategies and solutions we provide are endorsed by recruiters and hiring managers alike, because they work! And this allows us to enjoy bragging about our success stories.  As an expert in our field, we have equipped tens of professionals with well-structured resumes, LinkedIn overhauls, and guidance in navigating the highly competitive job market. 
                             </p>
                             <p>
-                                UpMySalary Is backed by a team of experts who thrive on rolling up their sleeves to cater to the individual's needs, all at the guidance of people who are currently USA hiring managers. We discourage the "one-size-fits-all" approach and employ a personal approach to ensure a boost in one’s salary. With the intent to eradicate subpar candidates and mediocre efforts to land ones dream pay, UpMySalary may have just what you need to boost your salary in the next 90-days.
+                                UpMySalary Is backed by a team of experts who thrive on rolling up their sleeves to cater to the individual's needs, all at the guidance of people who are currently USA hiring managers. We discourage the "one-size-fits-all" approach and employ a personal approach to ensure a boost in ones salary. With the intent to eradicate subpar candidates and mediocre efforts to land ones dream pay, UpMySalary may have just what you need to boost your salary in the next 90-days.
                             </p>
 
                         </div>
@@ -151,7 +152,7 @@ export default function AboutUs() {
                     <div className="mt-6">
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900">Why choose us</h2>
                         <p className="mt-4 text-base text-gray-500">
-                            UpMySalary doesn't just help you increase your salary, our services are designed to support your career success. We have trained recruiters worldwide to succeed in finding quality talent. As many individuals find it difficult to land interviews without a traditional background and career path, UpMySalary helps people rebrand (resume and LinkedIn), story-tell (interview talk-track), and transform (visibly) into the person of a hiring manager’s dreams. 
+                            UpMySalary doesn't just help you increase your salary, our services are designed to support your career success. We have trained recruiters worldwide to succeed in finding quality talent. As many individuals find it difficult to land interviews without a traditional background and career path, UpMySalary helps people rebrand (resume and LinkedIn), story-tell (interview talk-track), and transform (visibly) into the person of a hiring managers dreams. 
                         </p>
                         <p className="mt-4 text-base text-gray-500">
                             We encourage employees to ramp up their abilities, upgrade their resumes and LinkedIn profiles to leverage their skills to maximize their earnings. Training videos and presentations that we provide employers have helped nourish employees in the corporate workplace. You can find countless reasons to rely on us, a few of them are:
@@ -173,7 +174,7 @@ export default function AboutUs() {
                 </div>
                 <div className="mt-12 sm:mt-16 lg:mt-0">
                     <div className="-mr-48 pl-4 sm:pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
-                    <img
+                    <Image
                         className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
                         src="../assets/why-choose-us.jpg"
                         alt="Why Choose Us"
@@ -195,7 +196,7 @@ export default function AboutUs() {
                     <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
                         {/* Testimonial card*/}
                         <div className="relative overflow-hidden rounded-2xl pt-64 pb-10 shadow-xl">
-                        <img
+                        <Image
                             className="absolute inset-0 h-full w-full object-cover"
                             src="../assets/zana-4.jpeg"
                             alt=""
@@ -215,7 +216,7 @@ export default function AboutUs() {
                                 <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                                 </svg>
                                 <p className="relative">
-                                    Don’t go back to less, because you don’t know how to get to more. Sometimes you need someone on the outside to show you what you can’t see about yourself. And that’s where your value starts to add up. When you know your worth, you move differently.
+                                    Dont go back to less, because you dont know how to get to more. Sometimes you need someone on the outside to show you what you cant see about yourself. And thats where your value starts to add up. When you know your worth, you move differently.
                                 </p>
                             </div>
 
@@ -239,7 +240,7 @@ export default function AboutUs() {
                             Our goal is to mentor people through the career development process and to inspire them to exceed middle-class standards. We want to equip you with profiles that will help you to get out of the stressful phase of seeking a job. We aim to align our clients with their salary expectations. Furthermore, equipping our clients with communication skills to ace the interviews, providing them with quality, value, and satisfaction is our top priority. UpMySalary accomplishes its mission by helping others find ways to overcome bias during the interview process to achieve their financial goals.
                         </p>
                         <p className="text-base leading-7">
-                            Whether you are looking for a job, want to update your resume or social media profile, or need career counseling, our goal is to provide you with customized and unique services that will give you a head start on your career journey. We realize how crucial it is to meet the evolving standards of different markets. Therefore, we are striving hard to remain competitive by catering to our customer’s needs. 
+                            Whether you are looking for a job, want to update your resume or social media profile, or need career counseling, our goal is to provide you with customized and unique services that will give you a head start on your career journey. We realize how crucial it is to meet the evolving standards of different markets. Therefore, we are striving hard to remain competitive by catering to our customers needs. 
                         </p>
                         
                         </div>

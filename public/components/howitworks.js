@@ -1,5 +1,5 @@
 import headerBg from '../assets/bg-head.jpg';
-import Image from 'next/image'
+
 const faqs = [
     {
       id: 1,

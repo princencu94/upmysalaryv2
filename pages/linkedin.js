@@ -101,7 +101,7 @@ export default function LinkedIn() {
                     </span>
                 </h1>
                 <p className="mt-8 text-xl leading-8 text-gray-500">
-                    Online visibility is essential for networking with the right recruiters and hiring managers. Your goal is to be presented with job opportunities! With me, after our 30-45 minute intake call, I will be ready to jumpstart your LinkedIn profile so that you can network like a boss. What's needed to make the most out of this service?
+                    Online visibility is essential for networking with the right recruiters and hiring managers. Your goal is to be presented with job opportunities! With me, after our 30-45 minute intake call, I will be ready to jumpstart your LinkedIn profile so that you can network like a boss. Whats needed to make the most out of this service?
                 </p>
                 </div>
                 <div className="prose prose-lg prose-indigo mx-auto mt-6 text-gray-500">

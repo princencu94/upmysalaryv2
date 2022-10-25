@@ -7,9 +7,7 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
-
-
-
+import Image from 'next/image';
 
 
 
@@ -122,7 +120,7 @@ export default function CheckoutForm() {
                   <ul role="list" className="divide-y divide-gray-200 border-b border-gray-200">
                     {cartItems.map((product) => (
                       <li key={product.id} className="flex space-x-6 py-6">
-                        <img
+                        <Image
                           src={product.image}
                           alt={product.name}
                           className="h-40 w-40 flex-none rounded-md bg-gray-200 object-cover object-center"
@@ -165,7 +163,7 @@ export default function CheckoutForm() {
           <ul role="list" className="flex-auto divide-y divide-gray-200 overflow-y-auto px-6">
             {cartItems.map((product) => (
               <li key={product.id} className="flex space-x-6 py-6">
-                <img
+                <Image
                           src={product.image}
                           alt={product.name}
                           className="h-40 w-40 flex-none rounded-md bg-gray-200 object-cover object-center"

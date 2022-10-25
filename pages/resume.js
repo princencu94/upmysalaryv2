@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 import { addItem } from '../redux/cart-reducer';
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
-
+import Image from 'next/image';
 import { BoltIcon, TrophyIcon , LightBulbIcon } from '@heroicons/react/24/outline';
 
 
@@ -136,7 +136,7 @@ export default function Resume() {
                 </p>
                 
                 <p>
-                    How am I awesome at this? With over 13 years of staffing, recruiting, hiring, firing & career professional development experience, across 12 industries and having managed recruiting teams and supported over 200 companies nationwide with hiring and growing teams, primarily supporting 6-figure professionals, I'm a pro at making people's value shine & stand out.
+                    How am I awesome at this? With over 13 years of staffing, recruiting, hiring, firing & career professional development experience, across 12 industries and having managed recruiting teams and supported over 200 companies nationwide with hiring and growing teams, primarily supporting 6-figure professionals, Im a pro at making peoples value shine & stand out.
                 </p>
 
                 <p>
@@ -175,7 +175,7 @@ export default function Resume() {
                 </div>
 
                 <div className="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
-                    <img
+                    <Image
                     className="relative mx-auto rounded-lg"
                     width={490}
                     src="../assets/resume-inner.jpg"
