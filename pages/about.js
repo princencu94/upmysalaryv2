@@ -2,6 +2,9 @@ import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import Image from 'next/image';
 
+import WhyChooseImage from '../public/assets/why-choose-us.jpg';
+import ZanaImage from '../public/assets/zana-4.jpeg'
+
 const faqs = [
 
 
@@ -39,7 +42,7 @@ const faqs = [
 export default function AboutUs() {
     return (
         <>
-        <section  className="mt-8">
+        <section className="mt-8">
             <Header/>
         </section>
         
@@ -97,7 +100,7 @@ export default function AboutUs() {
                                The strategies and solutions we provide are endorsed by recruiters and hiring managers alike, because they work! And this allows us to enjoy bragging about our success stories.  As an expert in our field, we have equipped tens of professionals with well-structured resumes, LinkedIn overhauls, and guidance in navigating the highly competitive job market. 
                             </p>
                             <p>
-                                UpMySalary Is backed by a team of experts who thrive on rolling up their sleeves to cater to the individual's needs, all at the guidance of people who are currently USA hiring managers. We discourage the "one-size-fits-all" approach and employ a personal approach to ensure a boost in ones salary. With the intent to eradicate subpar candidates and mediocre efforts to land ones dream pay, UpMySalary may have just what you need to boost your salary in the next 90-days.
+                                UpMySalary Is backed by a team of experts who thrive on rolling up their sleeves to cater to the individuals needs, all at the guidance of people who are currently USA hiring managers. We discourage the <italic>one-size-fits-all</italic> approach and employ a personal approach to ensure a boost in ones salary. With the intent to eradicate subpar candidates and mediocre efforts to land ones dream pay, UpMySalary may have just what you need to boost your salary in the next 90-days.
                             </p>
 
                         </div>
@@ -176,7 +179,7 @@ export default function AboutUs() {
                     <div className="-mr-48 pl-4 sm:pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
                     <Image
                         className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                        src="../assets/why-choose-us.jpg"
+                        src={WhyChooseImage}
                         alt="Why Choose Us"
                     />
                     </div>
@@ -198,7 +201,7 @@ export default function AboutUs() {
                         <div className="relative overflow-hidden rounded-2xl pt-64 pb-10 shadow-xl">
                         <Image
                             className="absolute inset-0 h-full w-full object-cover"
-                            src="../assets/zana-4.jpeg"
+                            src={ZanaImage}
                             alt=""
                         />
                         <div className="absolute inset-0 bg-blue-500 mix-blend-multiply" />
