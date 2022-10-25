@@ -3,6 +3,12 @@ import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import Image from 'next/image';
 import { addItem } from "../redux/cart-reducer";
+import ElitePerformerImage from '../public/assets/elite-performer.jpg';
+import GroupCoachImage from '../public/assets/group-coaching.jpg';
+import SalaryBoostImage from '../public/assets/salary-boost.jpg';
+import ResumeBoostImage from '../public/assets/resume.jpg';
+import LinkedinImage from '../public/assets/linkedin.jpg';
+import MockInterviewsImages from '../public/assets/courses.jpg';
 
 
 
@@ -15,7 +21,7 @@ const services = [
           It involves taking action to improve your physical, spiritual, mental, and emotional well-being and quality of life. Our experts will guide you through all the phases, and you will be better prepared to polish your personality. 
           `,
         imageUrl:
-          '../assets/salary-boost.jpg',
+          SalaryBoostImage,
         price:1249.99
       },
 
@@ -26,7 +32,7 @@ const services = [
         'Our resume writing services assist job applicants in enhancing their image on paper. This is often the first thing a hiring manager or recruiter sees before choosing to give a candidate a call or send an email. We effectively share the accomplishments and unique contributions a person brings to the work environment, and our methodology aids in demonstrating a candidate’s competency and value. Few writing services are like our offering. Because of the deep dive we take to draw out the best in a person, a person will not need multiple different resumes in their job hunt and will rather be able to tweak this masterpiece for years to come. We can provide you with assistance in creating a compelling resume that puts you on path to reaching your career goals. This is a turnkey solution that requires a 30-minute Zoom Consultation.',
         
       imageUrl:
-        '../assets/resume.jpg',
+        ResumeBoostImage,
         price:200.00
     },
     {
@@ -38,7 +44,7 @@ const services = [
         The more professional a person’s LinkedIn page is, the more people will want to connect with them. LinkedIn is a space for sharing industry knowledge, expertise, and for connecting to opportunities that may not be listed anywhere else. LinkedIn is the largest networking platform, and if you see yourself advancing your corporate office career, then it increases your likelihood of connecting to opportunities by up to 10X!
         `,
       imageUrl:
-        '../assets/linkedin.jpg',
+        LinkedinImage,
         price:150.00
     },
     {
@@ -49,7 +55,7 @@ const services = [
 
         With our feedback, you will be better prepared to ace your next interview. Our mock interview sessions enable you to master the art of interviewing like a Rockstar. `,
       imageUrl:
-        '../assets/courses.jpg',
+        MockInterviewsImages,
         price:75.00
     },
   ]
@@ -101,7 +107,8 @@ export default function Services() {
                         <div className="-mr-48 pl-4 sm:pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
                         <Image
                             className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                            src="../assets/elite-performer.jpg"
+                            src={ElitePerformerImage}
+                            fill
                             alt="Black Elite Man Smiling"
                         />
                         </div>
@@ -137,7 +144,7 @@ export default function Services() {
                         <div className="-ml-48 pr-4 sm:pr-6 md:-ml-16 lg:relative lg:m-0 lg:h-full lg:px-0">
                         <Image
                             className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
-                            src="../assets/group-coaching.jpg"
+                            src={GroupCoachImage}
                             alt="A group of people being Coached via Zoom"
                         />
                         </div>

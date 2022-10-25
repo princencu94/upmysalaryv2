@@ -121,8 +121,10 @@ export default function CheckoutForm() {
                     {cartItems.map((product) => (
                       <li key={product.id} className="flex space-x-6 py-6">
                         <Image
-                          src={product.image}
+                          src={`/${product.image} `}
                           alt={product.name}
+                          width={150}
+                          height={150}
                           className="h-40 w-40 flex-none rounded-md bg-gray-200 object-cover object-center"
                         />
                         <div className="flex flex-col justify-between space-y-4">
@@ -163,9 +165,11 @@ export default function CheckoutForm() {
           <ul role="list" className="flex-auto divide-y divide-gray-200 overflow-y-auto px-6">
             {cartItems.map((product) => (
               <li key={product.id} className="flex space-x-6 py-6">
-                <Image
-                          src={product.image}
+                        <Image
+                          src={`/${product.image} `}
                           alt={product.name}
+                          width={300}
+                          height={100}
                           className="h-40 w-40 flex-none rounded-md bg-gray-200 object-cover object-center"
                         />
                         <div className="flex flex-col justify-between space-y-4">

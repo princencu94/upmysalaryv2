@@ -40,8 +40,10 @@ export default function ShoppingCart() {
                 <li key={product.id} className="flex py-6">
                   <div className="flex-shrink-0">
                     <Image
-                      src={product.image}
+                      src={`/${product.image} `}
                       alt={product.name}
+                      width={100}
+                      height={100}
                       className="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32"
                     />
                   </div>

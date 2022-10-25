@@ -2,6 +2,7 @@ import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import Link from 'next/link';
 import Image from 'next/image';
+import SalaryBoosterImage from '../public/assets/salary-booster.png'
 
 export default function Courses() {
     return (
@@ -20,7 +21,7 @@ export default function Courses() {
                 <Link href='https://paygrowth.upmysalary.com/'>
                 <Image
                     className="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5"
-                    src="../assets/salary-booster.png"
+                    src={SalaryBoosterImage}
                     alt=""
                 />
                 </Link>

@@ -198,7 +198,7 @@ export default function AboutUs() {
                     
                     <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
                         {/* Testimonial card*/}
-                        <div className="relative overflow-hidden rounded-2xl pt-64 pb-10 shadow-xl">
+                        <div className="relative overflow-hidden rounded-2xl  pb-10 shadow-xl">
                         <Image
                             className="absolute inset-0 h-full w-full object-cover"
                             src={ZanaImage}

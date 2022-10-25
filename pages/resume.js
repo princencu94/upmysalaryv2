@@ -4,6 +4,7 @@ import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import Image from 'next/image';
 import { BoltIcon, TrophyIcon , LightBulbIcon } from '@heroicons/react/24/outline';
+import ResumeImage from '../public/assets/resume-inner.jpg'
 
 
 const features = [
@@ -41,7 +42,7 @@ export default function Resume() {
         name:"Resume Service ($200.00)",
         price:200,
         description:'I create a compelling resume that aligns with where you are looking to go. This is a turnkey solution that requires one (1) 30-minute Zoom Consultation within 4 days of booking the service.',
-        image: '../assets/resume.jpg',
+        image: '../public/assets/resume.jpg',
     }
 
     const dispatch = useDispatch();
@@ -177,8 +178,7 @@ export default function Resume() {
                 <div className="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
                     <Image
                     className="relative mx-auto rounded-lg"
-                    width={490}
-                    src="../assets/resume-inner.jpg"
+                    src={ResumeImage}
                     alt=""
                     />
                 </div>

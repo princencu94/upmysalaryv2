@@ -13,7 +13,7 @@ export default function LinkedIn() {
         name:'LinkedIn Service ($150.00)',
         price:150,
         description:'Online visibility is essential for networking with the right recruiters and hiring managers. Your goal is to be presented with job opportunities!',
-        image: '../assets/linkedin.jpg'
+        image: '../public/assets/linkedin.jpg'
     }
 
     const addToCart = () => {
