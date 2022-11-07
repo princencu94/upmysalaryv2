@@ -78,7 +78,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000/complete",
+        return_url: "http://localhost:3000/schedule",
         receipt_email: email,
       },
     });
@@ -179,7 +179,7 @@ export default function CheckoutForm() {
                             <p className="text-white">{product.description.slice(0, 150)}</p>
                           </div>
 
-                        </div>
+                        </div>#1E3A8A,  #16A34A
               </li>
             ))}
           </ul>

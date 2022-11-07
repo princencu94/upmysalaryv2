@@ -10,6 +10,13 @@ import ResumeBoostImage from '../public/assets/resume.jpg';
 import LinkedinImage from '../public/assets/linkedin.jpg';
 import MockInterviewsImages from '../public/assets/courses.jpg';
 
+import ResumeIcon from '../public/assets/resume.png';
+import LinkedIcon from '../public/assets/linkedin.png';
+import MockIcon from '../public/assets/video-call.png';
+import BoostIcon from '../public/assets/boost.png';
+import GroupIcon from '../public/assets/meeting.png';
+import EliteIcon from '../public/assets/vip-person.png';
+
 
 
 const services = [
@@ -21,7 +28,7 @@ const services = [
           It involves taking action to improve your physical, spiritual, mental, and emotional well-being and quality of life. Our experts will guide you through all the phases, and you will be better prepared to polish your personality. 
           `,
         imageUrl:
-          SalaryBoostImage,
+          BoostIcon,
         price:1249.99
       },
 
@@ -32,7 +39,7 @@ const services = [
         'Our resume writing services assist job applicants in enhancing their image on paper. This is often the first thing a hiring manager or recruiter sees before choosing to give a candidate a call or send an email. We effectively share the accomplishments and unique contributions a person brings to the work environment, and our methodology aids in demonstrating a candidate’s competency and value. Few writing services are like our offering. Because of the deep dive we take to draw out the best in a person, a person will not need multiple different resumes in their job hunt and will rather be able to tweak this masterpiece for years to come. We can provide you with assistance in creating a compelling resume that puts you on path to reaching your career goals. This is a turnkey solution that requires a 30-minute Zoom Consultation.',
         
       imageUrl:
-        ResumeBoostImage,
+        ResumeIcon,
         price:200.00
     },
     {
@@ -44,7 +51,7 @@ const services = [
         The more professional a person’s LinkedIn page is, the more people will want to connect with them. LinkedIn is a space for sharing industry knowledge, expertise, and for connecting to opportunities that may not be listed anywhere else. LinkedIn is the largest networking platform, and if you see yourself advancing your corporate office career, then it increases your likelihood of connecting to opportunities by up to 10X!
         `,
       imageUrl:
-        LinkedinImage,
+        LinkedIcon,
         price:150.00
     },
     {
@@ -55,8 +62,39 @@ const services = [
 
         With our feedback, you will be better prepared to ace your next interview. Our mock interview sessions enable you to master the art of interviewing like a Rockstar. `,
       imageUrl:
-        MockInterviewsImages,
+        MockIcon,
         price:75.00
+    },
+  ]
+
+  const enquireServices = [
+    {
+        title: 'Elite Performer Coaching Program',
+        id: 5,
+        description:
+          `
+            The Elite Performer Coaching Program aims to improve and promote contemporary global players. This program has a great deal of flexibility that reconfigures each candidate’s level of professionalism and transforms them into a powerhouse capable of attaining the role of their desire.
+
+            
+            Our elite performer coaching program is a 3-month program where you work one on one with Zana to reach the new opportunity of your desire. As you are transformed, you can carry each skill learned through to opportunities for the duration of your life. Through our coaching, you become clear-headed and un-stuck about how to reach your next opportunity. As such, you are motivated, productive, and taking specific action steps that lead you to your desired opportunity.
+          `,
+        imageUrl:
+            EliteIcon,
+            price:75.00
+    },
+    {
+        title: 'Group Coaching',
+        id: 6,
+        description:
+          `
+            Group coaching is done virtually through Zoom. Live calls are invitation only and allow candidates to ask questions directly according to their area of need. There is an established standard of success to describe what an individual who is successful looks like. And this knowledge is passed on to candidates during these calls. The goal is to transform their understanding of how others are ranking their capabilities and helping deliver the message that adjustment is needed for these individuals to reach their desired outcome.
+
+
+            The coaching team at UpMySalary hosts different live calls for specific areas of professional development that directly impact a candidate’s perceived value to a corporation: Written Communication, Teamwork and Interpersonal Skills Training, Online Visibility before getting hired, , Job Performance,   The groups discuss how to increase knowledge of major issues, act, and be held accountable. The group coaching is the base of coaching abilities that put the coaching discussion into a compact group environment.
+          `,
+        imageUrl:
+          GroupIcon,
+          price:75.00
     },
   ]
 
@@ -66,10 +104,10 @@ export default function Services() {
 
     return (
         <>
-        <div className="mt-8">
+        <div className="lg:mt-8">
             <Header/>
         </div>
-        <div className="mt-32">
+        <div className="mt-24">
             <h1>
                 <span className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-blue-900 sm:text-4xl">
                     Services
@@ -77,96 +115,54 @@ export default function Services() {
             </h1>
         </div>
                 
-        <section>
-            <div className="relative overflow-hidden bg-white pt-16 pb-32">
-                <div className="relative">
-                    <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
-                    <div className="mx-auto max-w-xl px-4 sm:px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0">
-                        <div>
-                        
-                        <div className="mt-6">
-                            <h2 className="text-3xl font-bold tracking-tight text-blue-900">Elite Performer Coaching Program</h2>
-                            <p className="mt-4 text-base text-gray-500">
-                                The Elite Performer Coaching Program aims to improve and promote contemporary global players. This program has a great deal of flexibility that reconfigures each candidate’s level of professionalism and transforms them into a powerhouse capable of attaining the role of their desire. 
-                            </p>
-                            <p className="mt-4 text-base text-gray-500">
-                                Our elite performer coaching program is a 3-month program where you work one on one with Zana to reach the new opportunity of your desire. As you are transformed, you can carry each skill learned through to opportunities for the duration of your life. Through our coaching, you become clear-headed and un-stuck about how to reach your next opportunity. As such, you are motivated, productive, and taking specific action steps that lead you to your desired opportunity.
-                            </p>
-                            <div className="inline-flex rounded-md shadow mt-6">
-                            <button
-                            className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-2 text-base font-medium text-white hover:bg-indigo-700"
-                            >
-                            Enquire now
-                            </button>
-                        </div>
-                        </div>
-                        </div>
-                       
-                    </div>
-                    <div className="mt-12 sm:mt-16 lg:mt-0">
-                        <div className="-mr-48 pl-4 sm:pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
-                        <Image
-                            className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                            src={ElitePerformerImage}
-                            fill
-                            alt="Black Elite Man Smiling"
-                        />
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div className="mt-24">
-                    <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
-                    <div className="mx-auto max-w-xl px-4 sm:px-6 lg:col-start-2 lg:mx-0 lg:max-w-none lg:py-32 lg:px-0">
-                        <div>
-                        <div>
-                            
-                        </div>
-                        <div className="mt-6">
-                            <h2 className="text-3xl font-bold tracking-tight text-blue-900">Group Coaching</h2>
-                            <p className="mt-4 text-base text-gray-500">
-                                Group coaching is done virtually through Zoom. Live calls are invitation only and allow candidates to ask questions directly according to their area of need. There is an established standard of success to describe what an individual who is successful looks like. And this knowledge is passed on to candidates during these calls. The goal is to transform their understanding of how others are ranking their capabilities and helping deliver the message that adjustment is needed for these individuals to reach their desired outcome. 
-                            </p>
-                            <p className="mt-4 text-base text-gray-500">
-                                The coaching team at UpMySalary hosts different live calls for specific areas of professional development that directly impact a candidate’s perceived value to a corporation: Written Communication, Teamwork and Interpersonal Skills Training, Online Visibility before getting hired, , Job Performance,   The groups discuss how to increase knowledge of major issues, act, and be held accountable. The group coaching is the base of coaching abilities that put the coaching discussion into a compact group environment. 
-                            </p>
-                            <div className="inline-flex rounded-md shadow mt-6">
-                            <button
-                            className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-2 text-base font-medium text-white hover:bg-indigo-700"
-                            >
-                            Enquire now
-                            </button>
-                        </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div className="mt-12 sm:mt-16 lg:col-start-1 lg:mt-0">
-                        <div className="-ml-48 pr-4 sm:pr-6 md:-ml-16 lg:relative lg:m-0 lg:h-full lg:px-0">
-                        <Image
-                            className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
-                            src={GroupCoachImage}
-                            alt="A group of people being Coached via Zoom"
-                        />
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section className="bg-blue-50 pt-20">
-            <div className="relative px-4 pt-16 pb-16 sm:px-6 lg:px-10 lg:pt-0 lg:pb-20">
+        <section className=" pt-20">
+            <div className="relative px-4 py-26 sm:px-6 lg:px-10 lg:pt-10 lg:pb-28">
                 <div className="absolute inset-0">
                     <div className="h-1/3  sm:h-2/3" />
                 </div>
                 <div className="relative mx-auto max-w-7xl">
-                    <div className="mx-auto  grid max-w-lg gap-20 lg:max-w-none lg:grid-cols-2">
-                    {services.map((service) => (
-                        <div key={service.title} className="flex flex-col overflow-hidden rounded-lg ">
-                        <div className="flex-shrink-0">
-                            <Image className="h-80 w-full object-cover" src={service.imageUrl} alt="" />
+                    <div className="mx-auto  grid max-w-lg gap-10 lg:max-w-none lg:grid-cols-2">
+                    {enquireServices.map((service) => (
+                        <div key={service.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg p-9 bg-blue-900 hover:bg-green-900 cursor-auto">
+                        <div className="flex h-12 w-12 items-center justify-center text-white">
+                            <Image fill className="h-6 w-6"src={service.imageUrl} alt={service.title} />
                         </div>
-                        <div className="flex flex-1 flex-col justify-between  pt-6">
+                        <div className="flex flex-1 flex-col justify-between pt-6">
+                            <div className="flex-1">
+
+                                <p className="text-xl font-semibold text-white">{service.title}</p>
+                                <p className="mt-3 text-base text-white">{service.description}</p>
+
+                            </div>
+                        </div>
+                        <div className="inline-flex rounded-md  mt-8">
+                            <button
+                            className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-2 text-base font-medium text-blue-900  hover:border hover:border-green-900 hover:text-green-900"
+                            >
+                                Enquire Now
+                            </button>
+                        </div>
+                        </div>
+                        
+                    ))}
+                    </div>
+                </div>
+            </div >
+        </section>
+
+        <section className="bg-gray-50 pt-20">
+            <div className="relative px-4 py-26 sm:px-6 lg:px-10 lg:pt-10 lg:pb-28">
+                <div className="absolute inset-0">
+                    <div className="h-1/3  sm:h-2/3" />
+                </div>
+                <div className="relative mx-auto max-w-7xl">
+                    <div className="mx-auto  grid max-w-lg gap-10 lg:max-w-none lg:grid-cols-2">
+                    {services.map((service) => (
+                        <div key={service.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg shadow-blue-900 p-9 hover:bg-blue-50 cursor-auto">
+                        <div className="flex h-12 w-12 items-center justify-center  text-white">
+                            <Image fill className="h-6 w-6"src={service.imageUrl} alt={service.title} />
+                        </div>
+                        <div className="flex flex-1 flex-col justify-between pt-6">
                             <div className="flex-1">
 
                                 <p className="text-xl font-semibold text-blue-900">{service.title}</p>
@@ -174,10 +170,10 @@ export default function Services() {
 
                             </div>
                         </div>
-                        <div className="inline-flex rounded-md shadow mt-8">
+                        <div className="inline-flex rounded-md  mt-8">
                             <button
                             onClick={() => dispatch(addItem({id: service.id , name: service.title, description:service.description, price:service.price, image:service.imageUrl}))}
-                            className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-2 text-base font-medium text-white hover:bg-indigo-700"
+                            className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-5 py-2 text-base font-medium text-white hover:bg-white hover:border hover:border-blue-900 hover:text-blue-900"
                             >
                             Order Now
                             </button>

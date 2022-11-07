@@ -3,7 +3,8 @@ import Footer from "../public/components/footer";
 import Image from 'next/image';
 
 import WhyChooseImage from '../public/assets/why-choose-us.jpg';
-import ZanaImage from '../public/assets/zana-4.jpeg'
+import ZanaImage from '../public/assets/zana-4.jpeg';
+import BackCTA from '../public/assets/wave_background_33.jpg';
 
 const faqs = [
 
@@ -113,8 +114,17 @@ export default function AboutUs() {
 
         {/* CTA */}
         <section className="-mt-20">
-            <div className="bg-blue-900">
-                <div className="mx-auto max-w-2xl py-12 px-4 text-center sm:px-6 lg:py-16 lg:px-8">
+            <div className="relative">
+                <div className="absolute inset-0">
+                    <Image
+                    fill
+                    className="h-full w-full object-cover "
+                    src={BackCTA}
+                    alt=""
+                    />
+                    <div className="absolute inset-0 bg-blue-900  mix-blend-multiply" aria-hidden="true" />
+                </div>
+                <div className=" relative mx-auto max-w-2xl py-12 px-4 text-center sm:px-6 lg:py-16 lg:px-8">
                     <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                     <span className="block">Ready to dive in?</span>
                     <span className="block">Get started Today and Advance</span>
@@ -162,6 +172,9 @@ export default function AboutUs() {
                         </p>
                     </div>
                     </div>
+                    
+                </div>
+                <div className="mt-0 sm:mt-16 lg:mt-0">
                     <div className="mt-8 border-t border-gray-200 pt-6">
                         <div className="mt-12 lg:col-span-2 lg:mt-0">
                             <dl className="space-y-12">
@@ -173,15 +186,6 @@ export default function AboutUs() {
                             ))}
                             </dl>
                         </div>
-                    </div>
-                </div>
-                <div className="mt-12 sm:mt-16 lg:mt-0">
-                    <div className="-mr-48 pl-4 sm:pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
-                    <Image
-                        className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                        src={WhyChooseImage}
-                        alt="Why Choose Us"
-                    />
                     </div>
                 </div>
                 </div>

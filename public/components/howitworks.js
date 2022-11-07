@@ -35,11 +35,12 @@ const faqs = [
   
   export default function HowItWorks() {
     return (
-      <div className="bg-blue-900 ">
-        <div className="relative mx-auto max-w-7xl py-14 px-4 sm:py-24 sm:px-6 lg:px-8">
+      <div className="relative">
+
+        <div className="mx-auto max-w-7xl py-14 px-4 sm:py-24 sm:px-6 lg:px-8">
           <div className="lg:mx-auto lg:max-w-2xl lg:text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-green-600 sm:text-4xl">How does it Work?</h2>
-            <p className="mt-4 text-gray-400">
+            <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl">How does it Work?</h2>
+            <p className="mx-auto mt-3 mb-16 max-w-2xl text-xl text-black sm:mt-4">
                 Our process begins by learning about your professional goals and learning more about you. From career coaching to resume building, we develop people professionally to heighten their market value. So, of all the services we offer, it comes down to your unique experience and being paired with the services that will be most impactful. 
             </p>
           </div>
@@ -47,8 +48,8 @@ const faqs = [
             <dl className="space-y-10 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:gap-y-10 lg:space-y-0">
               {faqs.map((faq) => (
                 <div key={faq.id}>
-                  <dt className="font-semibold text-white">{faq.question}</dt>
-                  <dd className="mt-3 text-gray-400">{faq.answer}</dd>
+                  <dt className="font-semibold text-blue-900 text-lg">{faq.question}</dt>
+                  <dd className="mt-3 text-black">{faq.answer}</dd>
                 </div>
               ))}
             </dl>

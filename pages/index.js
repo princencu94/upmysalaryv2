@@ -3,10 +3,7 @@ import ServiceSection from '../public/components/services-section';
 import Footer from '../public/components/footer';
 import HowItWorks from '../public/components/howitworks';
 import Image from 'next/image';
-
 import ZanaImage from '../public/assets/zana-4.jpeg';
-
-
 
 export default function Home() {
   
@@ -19,9 +16,9 @@ export default function Home() {
     {/* // Service Section */}
     <ServiceSection/>
       
-    <HowItWorks/>
+    
               {/* Testimonial section */}
-              <div className="bg-gradient-to-r from-green-600 to-blue-900 pb-16 lg:relative lg:z-10 lg:pb-0">
+              <div className="bg-gradient-to-r from-green-600 to-blue-900 pb-16 mb-10 mt-32 lg:relative lg:z-10 lg:pb-0">
             <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-8 lg:px-8">
               <div className="relative lg:-my-8">
                 <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden" />
@@ -30,6 +27,9 @@ export default function Home() {
                     <Image
                       className="object-cover lg:h-full lg:w-full"
                       src={ZanaImage}
+                      fill
+                      height={1300}
+                      width={1000}
                       alt=""
                     />
                   </div>
@@ -62,6 +62,7 @@ export default function Home() {
             </div>
           </div>
 
+          <HowItWorks/>
           <Footer/>
     </>
     

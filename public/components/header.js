@@ -8,8 +8,8 @@ import Link from 'next/link';
 const navigation = [
   { name: 'About', href: '/about' },
   { name: 'Services', href: '/services' },
-  { name: 'Resume', href: '/resume' },
-  { name: 'Linkedin', href: '/linkedin' },
+  { name: 'Support Tools', href: '/support-tools' },
+  { name: 'Ebooks', href: '/ebooks' },
   { name: 'Courses', href: '/courses' },
 ]
 
@@ -24,8 +24,9 @@ const Header = () => {
 );
 
     return (
+        <div>
         <Popover>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 shadow-sm pb-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 shadow-sm -my-10 lg:my-0 lg:pb-6 ">
             <nav className="relative flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
               <div className="flex flex-1 items-center md:absolute md:inset-y-0 md:left-0">
                 <div className="flex w-full items-center justify-between md:w-auto">
@@ -33,7 +34,7 @@ const Header = () => {
                     <a>
                     <span className="sr-only">UpMySalary</span>
                     <img
-                      className="h-24 w-auto sm:h-36"
+                      className="mt-5 -ml-7 h-32 w-auto sm:h-36"
                       src="../assets/logo-1.png"
                       alt=""
                     />
@@ -79,8 +80,8 @@ const Header = () => {
                 <div className="flex items-center justify-between px-5 pt-4">
                   <div>
                     <img
-                      className="h-40 w-auto"
-                      src="../assets/logo.png"
+                      className="mt-5 -ml-7 h-32 w-auto sm:h-36"
+                      src="../assets/logo-1.png"
                       alt=""
                     />
                   </div>
@@ -93,20 +94,21 @@ const Header = () => {
                 </div>
                 <div className="px-2 pt-2 pb-3">
                   {navigation.map((item) => (
-                    <Link
+                    <a
                       key={item.name}
                       href={item.href}
-                      className="block rounded-md px-3 py-2 text-base font-medium text-blue-700 hover:bg-gray-50 hover:text-gray-900"
+                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                     >
-                      <a>{item.name}</a>
-                    </Link>
+                      {item.name}
+                    </a>
                   ))}
                 </div>
-                <ShoppingBagIcon/>
+                <p className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-blue-900 hover:bg-gray-100"><Link href="shopping-cart">Cart</Link> <span>{cartTotal}</span></p>
               </div>
             </Popover.Panel>
           </Transition>
         </Popover>
+        </div>
     )
 }
 
