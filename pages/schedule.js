@@ -1,8 +1,17 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import { InlineWidget } from "react-calendly";
+import { clearCart } from "../redux/cart-reducer";
+
 
 export default function Schedule() {
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(clearCart());
+    },[]);
     return (
         <>
         <div className="pt-5">
@@ -17,7 +26,7 @@ export default function Schedule() {
                 </span>
             </h1>
             </div>
-            <div className="">
+            <div className="mt-20">
             <InlineWidget url="https://calendly.com/zana-m" />
             </div>
             

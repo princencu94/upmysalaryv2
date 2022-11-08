@@ -121,7 +121,7 @@ export default function CheckoutForm() {
                     {cartItems.map((product) => (
                       <li key={product.id} className="flex space-x-6 py-6">
                         <Image
-                          src={`/${product.image} `}
+                          src={`../public/assets/${product.image} `}
                           alt={product.name}
                           width={150}
                           height={150}

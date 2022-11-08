@@ -2,13 +2,7 @@ import { useDispatch } from "react-redux";
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import Image from 'next/image';
-import { addItem } from "../redux/cart-reducer";
-import ElitePerformerImage from '../public/assets/elite-performer.jpg';
-import GroupCoachImage from '../public/assets/group-coaching.jpg';
-import SalaryBoostImage from '../public/assets/salary-boost.jpg';
-import ResumeBoostImage from '../public/assets/resume.jpg';
-import LinkedinImage from '../public/assets/linkedin.jpg';
-import MockInterviewsImages from '../public/assets/courses.jpg';
+import { addItem, clearCart } from "../redux/cart-reducer";
 
 import ResumeIcon from '../public/assets/resume.png';
 import LinkedIcon from '../public/assets/linkedin.png';
@@ -16,6 +10,7 @@ import MockIcon from '../public/assets/video-call.png';
 import BoostIcon from '../public/assets/boost.png';
 import GroupIcon from '../public/assets/meeting.png';
 import EliteIcon from '../public/assets/vip-person.png';
+import toast from 'react-hot-toast';
 
 
 
@@ -102,6 +97,17 @@ export default function Services() {
 
     const dispatch = useDispatch();
 
+   
+
+    const handleCart = (service) => {
+        
+        const { id , title, description, price, imageUrl} = service;
+        if(dispatch(addItem({id: id , name: title, description:description, price:price, image:imageUrl}))) {
+            toast.success('Added to Cart');
+        }
+
+    }
+
     return (
         <>
         <div className="lg:mt-8">
@@ -150,7 +156,7 @@ export default function Services() {
             </div >
         </section>
 
-        <section className="bg-gray-50 pt-20">
+        <section id="services" className="bg-gray-50 pt-20">
             <div className="relative px-4 py-26 sm:px-6 lg:px-10 lg:pt-10 lg:pb-28">
                 <div className="absolute inset-0">
                     <div className="h-1/3  sm:h-2/3" />
@@ -172,7 +178,7 @@ export default function Services() {
                         </div>
                         <div className="inline-flex rounded-md  mt-8">
                             <button
-                            onClick={() => dispatch(addItem({id: service.id , name: service.title, description:service.description, price:service.price, image:service.imageUrl}))}
+                            onClick={() => handleCart(service)}
                             className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-5 py-2 text-base font-medium text-white hover:bg-white hover:border hover:border-blue-900 hover:text-blue-900"
                             >
                             Order Now

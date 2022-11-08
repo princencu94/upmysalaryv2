@@ -1,20 +1,22 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import BookCover from '../assets/book-cover.jpg';
 const products = [
     {
       id: 1,
       name: 'Ebook 1',
       href: 'ebook/1',
       price: '$256',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg',
-      imageAlt: 'Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.',
+      imageSrc: BookCover,
+      imageAlt: 'Book Cover',
     },
     {
       id: 2,
       name: 'Ebook 2',
       href: 'ebook/2',
       price: '$32',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg',
-      imageAlt: 'Front of plain black t-shirt.',
+      imageSrc: BookCover,
+      imageAlt: 'Book Cover',
     },
   ]
   
@@ -30,9 +32,10 @@ const products = [
                 key={product.id}
                 className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
               >
-                <div className="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96">
-                  <img
+                <div className="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96 overflow-hidden">
+                  <Image
                     src={product.imageSrc}
+                    objectFit='contain'
                     alt={product.imageAlt}
                     className="h-full w-full object-cover object-center sm:h-full sm:w-full"
                   />

@@ -7,6 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { persistor } from '../redux/store';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { Toaster } from 'react-hot-toast';
 
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
@@ -42,6 +43,7 @@ const options = {
       <PersistGate loading={null} persistor={persistor}>
             {clientSecret && (
                 <Elements options={options} stripe={stripePromise}>
+                  <Toaster position="top-right"/>
                   <Component {...pageProps} />
                 </Elements>
             )} 

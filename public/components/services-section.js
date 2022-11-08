@@ -33,7 +33,7 @@ const services = [
 
     {
       title: 'Resume',
-      href: '/resume',
+      href: '/services/#services',
       description:
         'Our resume writing services assist job applicants in enhancing their image on paper. This is often the first thing a hiring manager or recruiter sees before choosing to give a candidate a call or send an email.',
       icon:
@@ -41,7 +41,7 @@ const services = [
     },
     {
       title: 'Linkedin',
-      href: 'linkedin',
+      href: '/services/#services',
       description:
         'Online visibility is essential for networking with the right recruiters and hiring managers. Your goal is to be presented with job opportunities! With me, after our 30-45 minute intake call.',
       icon:
@@ -49,7 +49,7 @@ const services = [
     },
     {
       title: 'Mock interviews ',
-      href: '#',
+      href: '/services/#services',
       description:
         'The adage is true - practice makes perfect! You can ace your mock interview by practicing with us. We help to boost your confidence by critiquing and improving how you share your value with others.',
       icon:

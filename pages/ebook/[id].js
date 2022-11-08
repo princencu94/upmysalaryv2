@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import Header from '../../public/components/header';
 import Footer from '../../public/components/footer';
+import BookCover from '../../public/assets/book-cover.jpg';
+import Image from 'next/image';
 
 const products = [
 
@@ -11,8 +13,8 @@ const products = [
         price: '$220',
         description:
             'The Application UI Icon Pack comes with over 200 icons in 3 styles: outline, filled, and branded. This playful icon pack is tailored for complex application user interfaces with a friendly and legible look.',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg',
-        imageAlt: 'Sample of 30 icons with friendly and fun details in outline, filled, and brand color styles.',
+        imageSrc: BookCover,
+        imageAlt: 'Book Cover',
         paylink:'',
         payany:'https://buy.stripe.com/test_28o4gS3Tz9l3eR25kl'
       },
@@ -24,8 +26,8 @@ const products = [
         price: '$220',
         description:
             'The Application UI Icon Pack comes with over 200 icons in 3 styles: outline, filled, and branded. This playful icon pack is tailored for complex application user interfaces with a friendly and legible look.',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg',
-        imageAlt: 'Sample of 30 icons with friendly and fun details in outline, filled, and brand color styles.',
+        imageSrc: BookCover,
+        imageAlt: 'Book Cover',
         paylink:'',
         payany:'https://buy.stripe.com/test_28o4gS3Tz9l3eR25kl'
       },
@@ -53,8 +55,8 @@ export default function Ebook() {
         <div className="lg:grid lg:grid-cols-8 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
           {/* Product image */}
           <div className="lg:col-span-4 lg:row-end-1">
-            <div className="aspect-w-4 aspect-h-3 overflow-hidden rounded-lg bg-gray-100">
-              <img src={product.imageSrc} alt={product.imageAlt} className="object-cover object-center" />
+            <div className="aspect-w-4 aspect-h-3 overflow-hidden rounded-lg ">
+              <Image objectFit='contain' src={product.imageSrc} alt={product.imageAlt} className="object-cover object-center rounded-lg" />
             </div>
           </div>
 
