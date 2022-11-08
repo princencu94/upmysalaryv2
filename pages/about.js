@@ -96,7 +96,7 @@ export default function AboutUs() {
                                 Whether you are a student, entry-level job seeker, or an experienced person who wants to transition to a new career and needs professional grooming, we help a variety of professionals increase their visibility, get more interviews, and secure higher pay within a reasonable amount of time.  
                             </p>
                         </div>
-                        <div className="prose prose-lg prose-indigo mt-6 text-gray-500 lg:mt-0">
+                        <div className="prose prose-lg prose-indigo mt-6 mb-14 lg:mb-0 text-gray-500 lg:mt-0">
                             <p>
                                The strategies and solutions we provide are endorsed by recruiters and hiring managers alike, because they work! And this allows us to enjoy bragging about our success stories.  As an expert in our field, we have equipped tens of professionals with well-structured resumes, LinkedIn overhauls, and guidance in navigating the highly competitive job market. 
                             </p>
@@ -162,26 +162,26 @@ export default function AboutUs() {
                 <div className="mx-auto max-w-xl px-4 sm:px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-4">
                     <div>
                     
-                    <div className="mt-6">
-                        <h2 className="text-3xl font-bold tracking-tight text-gray-900">Why choose us</h2>
-                        <p className="mt-4 text-base text-gray-500">
+                    <div className="mt-6 ">
+                        <h2 className=" text-3xl font-bold tracking-tight text-blue-900 sm:text-4xl">Why choose us</h2>
+                        <p className="mt-4 text-lg text-gray-500">
                             UpMySalary doesnt just help you increase your salary, our services are designed to support your career success. We have trained recruiters worldwide to succeed in finding quality talent. As many individuals find it difficult to land interviews without a traditional background and career path, UpMySalary helps people rebrand (resume and LinkedIn), story-tell (interview talk-track), and transform (visibly) into the person of a hiring managers dreams. 
                         </p>
-                        <p className="mt-4 text-base text-gray-500">
+                        <p className="mt-4 text-lg text-gray-500">
                             We encourage employees to ramp up their abilities, upgrade their resumes and LinkedIn profiles to leverage their skills to maximize their earnings. Training videos and presentations that we provide employers have helped nourish employees in the corporate workplace. You can find countless reasons to rely on us, a few of them are:
                         </p>
                     </div>
                     </div>
                     
                 </div>
-                <div className="mt-0 sm:mt-16 lg:mt-0">
-                    <div className="mt-8 border-t border-gray-200 pt-6">
+                <div className="mt-0 sm:mt-16 mx-4">
+                    <div className="mt-8 border-y border-gray-200 py-6">
                         <div className="mt-12 lg:col-span-2 lg:mt-0">
                             <dl className="space-y-12">
                             {faqs.map((faq) => (
                                 <div key={faq.question}>
-                                <dt className="text-base font-medium leading-6 text-black">{faq.question}</dt>
-                                <dd className="mt-2 text-sm text-gray-500">{faq.answer}</dd>
+                                <dt className="text-lg font-medium leading-6 text-black">{faq.question}</dt>
+                                <dd className="mt-2 text-base text-gray-500">{faq.answer}</dd>
                                 </div>
                             ))}
                             </dl>
@@ -239,14 +239,14 @@ export default function AboutUs() {
                     <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
                     {/* Content area */}
                     <div className="pt-12 sm:pt-16 lg:pt-20">
-                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                        <h2 className="text-3xl font-bold tracking-tight text-blue-900 sm:text-4xl">
                             Mission
                         </h2>
                         <div className="mt-6 space-y-6 text-gray-500">
-                        <p className="text-base">
+                        <p className="text-lg">
                             Our goal is to mentor people through the career development process and to inspire them to exceed middle-class standards. We want to equip you with profiles that will help you to get out of the stressful phase of seeking a job. We aim to align our clients with their salary expectations. Furthermore, equipping our clients with communication skills to ace the interviews, providing them with quality, value, and satisfaction is our top priority. UpMySalary accomplishes its mission by helping others find ways to overcome bias during the interview process to achieve their financial goals.
                         </p>
-                        <p className="text-base leading-7">
+                        <p className="text-lg leading-7">
                             Whether you are looking for a job, want to update your resume or social media profile, or need career counseling, our goal is to provide you with customized and unique services that will give you a head start on your career journey. We realize how crucial it is to meet the evolving standards of different markets. Therefore, we are striving hard to remain competitive by catering to our customers needs. 
                         </p>
                         
@@ -255,11 +255,11 @@ export default function AboutUs() {
 
                     {/* Vision section */}
                     <div className="mt-10">
-                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                        <h2 className="text-3xl font-bold tracking-tight text-blue-900 sm:text-4xl">
                             Vision
                         </h2>
                         <div className="mt-6 space-y-6 text-gray-500">
-                            <p className="text-base">
+                            <p className="text-lg">
                                 Our vision is to inspire and make job seekers more passionate about their career journey. We envision celebrating personal growth by empowering people to put their efforts in the right direction for their career opportunities. With the innovative services, we envision becoming the leading counseling and career development services provider. 
                                 Our vision enables us to deliver service excellence with a touch of finesse, act with integrity by putting the candidates priority first. We offer easy-to-implement solutions and personalized services as part of a shared vision. Moreover, trust, equity, transparency, and integrity are the core values that drive us to set our vision. 
                             </p>
