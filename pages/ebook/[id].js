@@ -87,7 +87,7 @@ export default function Ebook() {
                   type="submit"
                   className="flex w-full items-center justify-center rounded-md border border-blue-900 bg-white to-blue-900 py-3 px-8 text-base font-medium text-blue-900 hover:bg-gradient-to-r from-green-600 to-blue-900 hover:text-white focus:outline-none focus:ring-2 "
                 >
-                  Can't Afford it
+                  Can not Afford it
                 </button>
               </div>
 
