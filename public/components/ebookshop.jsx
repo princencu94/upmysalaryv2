@@ -1,22 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import BookCover from '../assets/book-cover.jpg';
+import BookCover from '../assets/ebook-cover.jpg';
 const products = [
     {
       id: 1,
-      name: 'Ebook 1',
-      href: 'ebook/1',
-      price: '$256',
+      name: 'Staffing Companies(Ebook)',
+      href: 'staffing-companies/1',
+      price: '$25.00',
       imageSrc: BookCover,
-      imageAlt: 'Book Cover',
-    },
-    {
-      id: 2,
-      name: 'Ebook 2',
-      href: 'ebook/2',
-      price: '$32',
-      imageSrc: BookCover,
-      imageAlt: 'Book Cover',
+      imageAlt: 'Staffing Companies',
     },
   ]
   
@@ -35,13 +27,14 @@ const products = [
                 <div className="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96 overflow-hidden">
                   <Image
                     src={product.imageSrc}
-                    objectFit='contain'
+                    width={500}
+                    height={550}
                     alt={product.imageAlt}
                     className="h-full w-full object-cover object-center sm:h-full sm:w-full"
                   />
                 </div>
                 <div className="flex flex-1 flex-col space-y-2 p-4">
-                  <h3 className="text-sm font-medium text-blue-900">
+                  <h3 className="text-lg font-bold text-blue-900">
                     <Link href={product.href}>
                         <a >
                         <span aria-hidden="true" className="absolute inset-0" />

@@ -2,7 +2,8 @@ import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import Image from 'next/image';
 
-import WhyChooseImage from '../public/assets/why-choose-us.jpg';
+import Stats from "../public/components/stats";
+
 import ZanaImage from '../public/assets/zana-4.jpeg';
 import BackCTA from '../public/assets/wave_background_33.jpg';
 
@@ -192,6 +193,10 @@ export default function AboutUs() {
             </div>
 
             </div>
+        </section>
+
+        <section>
+            <Stats/>
         </section>
 
          {/* Mission Statement */}

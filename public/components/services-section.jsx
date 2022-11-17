@@ -64,7 +64,7 @@ export default function ServiceSection() {
             <div className="mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="text-center">
               <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl">Our Services</h2>
-              <p className="mx-auto mt-3 mb-16 max-w-2xl text-xl text-black sm:mt-4">
+              <p className="mx-auto mt-3 mb-16 max-w-2xl text-lg text-black sm:mt-4">
               On one end, we have our turnkey resume and LinkedIn solutions and mock interview roleplaying. On the other, we have coaching programs and 1:1 coaching opportunities that walk clients step-by-step towards specific monetary and career goals
               </p>
             </div>

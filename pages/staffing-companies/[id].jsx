@@ -1,18 +1,18 @@
 import { useRouter } from 'next/router';
 import Header from '../../public/components/header';
 import Footer from '../../public/components/footer';
-import BookCover from '../../public/assets/book-cover.jpg';
+import BookCover from '../../public/assets/ebook-cover.jpg';
 import Image from 'next/image';
 
 const products = [
 
     {
         id:1,
-        name: 'Ebook 1',
-        version: { name: '1.0', date: 'June 5, 2021', datetime: '2021-06-05' },
-        price: '$220',
+        name: 'Staffing Companies(Ebook)',
+        price: '$25.00',
         description:
-            'The Application UI Icon Pack comes with over 200 icons in 3 styles: outline, filled, and branded. This playful icon pack is tailored for complex application user interfaces with a friendly and legible look.',
+            `After working with over 200 companies across the US, from small business owners to Fortune 500s, l've learned a thing or two about what it takes to reach the next level in your finances
+            .And l'm here sharing my expert coaching, tips and tricks to securing a higher income while establishing a stronger sense of stability in your life`,
         imageSrc: BookCover,
         imageAlt: 'Book Cover',
         paylink:'',
@@ -22,7 +22,6 @@ const products = [
     {
         id:2,
         name: 'Ebook 2',
-        version: { name: '1.0', date: 'June 5, 2021', datetime: '2021-06-05' },
         price: '$220',
         description:
             'The Application UI Icon Pack comes with over 200 icons in 3 styles: outline, filled, and branded. This playful icon pack is tailored for complex application user interfaces with a friendly and legible look.',
@@ -87,7 +86,7 @@ export default function Ebook() {
                   type="submit"
                   className="flex w-full items-center justify-center rounded-md border border-blue-900 bg-white to-blue-900 py-3 px-8 text-base font-medium text-blue-900 hover:bg-gradient-to-r from-green-600 to-blue-900 hover:text-white focus:outline-none focus:ring-2 "
                 >
-                  Can not Afford it
+                  Pay What You Can Afford
                 </button>
               </div>
 

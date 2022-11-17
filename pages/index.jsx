@@ -4,6 +4,7 @@ import Footer from '../public/components/footer';
 import HowItWorks from '../public/components/howitworks';
 import Image from 'next/image';
 import ZanaImage from '../public/assets/zana-4.jpeg';
+import Reviews from '../public/components/reviews';
 
 export default function Home() {
   
@@ -63,6 +64,7 @@ export default function Home() {
           </div>
 
           <HowItWorks/>
+          <Reviews/>
           <Footer/>
     </>
     
