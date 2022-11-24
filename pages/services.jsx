@@ -15,17 +15,7 @@ import toast from 'react-hot-toast';
 
 
 const services = [
-    {
-        title: 'The Salary Boost Accelerator ($1,249.99)',
-        id: 4,
-        description:
-          `We offer these programs because we realize that we cannot serve everyone so we want to make you self-reliant. Yet, many features including, skills and knowledge that we will deliver in this program can benefit anyone who wills to engage in them. Since they are sort of self-guided programs, they are not based on therapeutic relationships of any kind. 
-          It involves taking action to improve your physical, spiritual, mental, and emotional well-being and quality of life. Our experts will guide you through all the phases, and you will be better prepared to polish your personality. 
-          `,
-        imageUrl:
-          BoostIcon,
-        price:1249.99
-      },
+    
 
     {
       title: 'Resume Service ($200.00)',
@@ -64,6 +54,17 @@ const services = [
 
   const enquireServices = [
     {
+      title: 'The Salary Boost Accelerator ($1,249.99)',
+      id: 4,
+      description:
+        `We offer these programs because we realize that we cannot serve everyone so we want to make you self-reliant. Yet, many features including, skills and knowledge that we will deliver in this program can benefit anyone who wills to engage in them. Since they are sort of self-guided programs, they are not based on therapeutic relationships of any kind. 
+        It involves taking action to improve your physical, spiritual, mental, and emotional well-being and quality of life. Our experts will guide you through all the phases, and you will be better prepared to polish your personality. 
+        `,
+      imageUrl:
+        BoostIcon,
+      price:1249.99
+    },
+    {
         title: 'Elite Performer Coaching Program',
         id: 5,
         description:
@@ -75,7 +76,7 @@ const services = [
           `,
         imageUrl:
             EliteIcon,
-            price:75.00
+            price:0
     },
     {
         title: 'Group Coaching',
@@ -89,7 +90,7 @@ const services = [
           `,
         imageUrl:
           GroupIcon,
-          price:75.00
+          price:0
     },
   ]
 
@@ -110,7 +111,7 @@ export default function Services() {
 
     return (
         <>
-        <div className="lg:mt-8">
+        <div className="sticky top-0 z-50">
             <Header/>
         </div>
         <div className="mt-24">
@@ -120,51 +121,15 @@ export default function Services() {
                 </span>
             </h1>
         </div>
-                
-        <section className=" pt-20">
+        <section id="services" className=" pt-20">
             <div className="relative px-4 py-26 sm:px-6 lg:px-10 lg:pt-10 lg:pb-28">
                 <div className="absolute inset-0">
                     <div className="h-1/3  sm:h-2/3" />
                 </div>
                 <div className="relative mx-auto max-w-7xl">
-                    <div className="mx-auto  grid max-w-lg gap-10 lg:max-w-none lg:grid-cols-2">
-                    {enquireServices.map((service) => (
-                        <div key={service.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg p-9 bg-blue-900 hover:bg-green-900 cursor-auto">
-                        <div className="flex h-12 w-12 items-center justify-center text-white">
-                            <Image fill className="h-6 w-6"src={service.imageUrl} alt={service.title} />
-                        </div>
-                        <div className="flex flex-1 flex-col justify-between pt-6">
-                            <div className="flex-1">
-
-                                <p className="text-xl font-semibold text-white">{service.title}</p>
-                                <p className="mt-3 text-base text-white">{service.description}</p>
-
-                            </div>
-                        </div>
-                        <div className="inline-flex rounded-md  mt-8">
-                            <button
-                            className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-2 text-base font-medium text-blue-900  hover:border hover:border-green-900 hover:text-green-900"
-                            >
-                                Enquire Now
-                            </button>
-                        </div>
-                        </div>
-                        
-                    ))}
-                    </div>
-                </div>
-            </div >
-        </section>
-
-        <section id="services" className="bg-gray-50 pt-20">
-            <div className="relative px-4 py-26 sm:px-6 lg:px-10 lg:pt-10 lg:pb-28">
-                <div className="absolute inset-0">
-                    <div className="h-1/3  sm:h-2/3" />
-                </div>
-                <div className="relative mx-auto max-w-7xl">
-                    <div className="mx-auto  grid max-w-lg gap-10 lg:max-w-none lg:grid-cols-2">
+                    <div className="mx-auto  grid max-w-lg gap-10 lg:max-w-none lg:grid-cols-3">
                     {services.map((service) => (
-                        <div key={service.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg shadow-blue-900 p-9 hover:bg-blue-50 cursor-auto">
+                        <div key={service.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg shadow-blue-900 p-9 hover:bg-blue-50 cursor-auto ">
                         <div className="flex h-12 w-12 items-center justify-center  text-white">
                             <Image fill className="h-6 w-6"src={service.imageUrl} alt={service.title} />
                         </div>
@@ -172,7 +137,7 @@ export default function Services() {
                             <div className="flex-1">
 
                                 <p className="text-xl font-semibold text-blue-900">{service.title}</p>
-                                <p className="mt-3 text-base text-black">{service.description}</p>
+                                <p className="mt-3 text-base text-black overflow-y-auto h-40">{service.description}</p>
 
                             </div>
                         </div>
@@ -191,6 +156,56 @@ export default function Services() {
                 </div>
             </div >
         </section>
+
+        <section className=" bg-gray-50 pt-20">
+            <div className="relative px-4 py-26 sm:px-6 lg:px-10 lg:pt-10 lg:pb-28">
+                <div className="absolute inset-0">
+                    <div className="h-1/3  sm:h-2/3" />
+                </div>
+                <div className="relative mx-auto max-w-7xl">
+                    <div className="mx-auto  grid max-w-lg gap-10 lg:max-w-none lg:grid-cols-3">
+                    {enquireServices.map((service) => (
+                        <div key={service.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg p-9 bg-blue-900 hover:bg-green-900 cursor-auto">
+                        <div className="flex h-12 w-12 items-center justify-center text-white">
+                            <Image fill className="h-6 w-6"src={service.imageUrl} alt={service.title} />
+                        </div>
+                        <div className="flex flex-1 flex-col justify-between pt-6">
+                            <div className="flex-1">
+
+                                <p className="text-xl font-semibold text-white">{service.title}</p>
+                                <p className="mt-3 text-base text-white overflow-y-auto h-40">{service.description}</p>
+
+                            </div>
+                        </div>
+                        <div className="inline-flex rounded-md  mt-8">
+                          {
+                            service.price != 0 ?
+                            <button
+                            onClick={() => handleCart(service)}
+                            className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-2 text-base font-medium text-blue-900  hover:border hover:border-green-900 hover:text-green-900"
+                            >
+                            Order Now
+                            </button>
+
+                            :
+                            <button
+                            className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-2 text-base font-medium text-blue-900  hover:border hover:border-green-900 hover:text-green-900"
+                            >
+                                Enquire Now
+                            </button>
+
+                          }
+                            
+                        </div>
+                        </div>
+                        
+                    ))}
+                    </div>
+                </div>
+            </div >
+        </section>
+
+        
         <Footer/>
         </>
     )

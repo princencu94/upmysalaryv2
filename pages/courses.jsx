@@ -7,8 +7,11 @@ import SalaryBoosterImage from '../public/assets/salary-booster.png'
 export default function Courses() {
     return (
         <>
-        <div className="pt-5">
-        <Header/>
+        <section className="sticky top-0 z-50">
+            <Header/>
+        </section>
+        <div>
+        
         <div className="relative overflow-hidden bg-white pt-16 sm:pt-24 lg:pt-32">
             <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-5xl lg:px-8">
                 <div>

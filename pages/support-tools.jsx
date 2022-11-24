@@ -5,7 +5,7 @@ import VideoTools from "../public/components/video-tools";
 export default function SupportTools() {
     return (
         <>
-        <div className="pt-5">
+        <div className="sticky top-0 z-50">
             <Header/>
         </div>
         <div className="pt-5 pb-36 mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">

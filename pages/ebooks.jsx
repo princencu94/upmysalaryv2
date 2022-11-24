@@ -5,7 +5,7 @@ import EbookShop from "../public/components/ebookshop";
 export default function Ebooks() {
     return (
         <>
-        <div className="pt-5">
+        <div className="sticky top-0 z-50">
             <Header/>
         </div>
         <div className="pt-5 pb-20 mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">

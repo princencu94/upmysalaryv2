@@ -24,9 +24,9 @@ const Header = () => {
 );
 
     return (
-        <div>
+        <div className='bg-white z-50 '>
         <Popover>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 shadow-sm -my-10 lg:my-0 lg:pb-6 ">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 shadow-sm lg:py-6">
             <nav className="relative flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
               <div className="flex flex-1 items-center md:absolute md:inset-y-0 md:left-0">
                 <div className="flex w-full items-center justify-between md:w-auto">
@@ -57,7 +57,11 @@ const Header = () => {
               </div>
               <div className="hidden md:absolute md:inset-y-0 md:right-0 md:flex md:items-center md:justify-end lg:justify-end text-blue-900">
                 <span className="inline-flex h-8">
-                    <p><Link href="shopping-cart">Cart</Link> <span>{cartTotal}</span></p>
+                    <p><Link href="shopping-cart">Cart</Link> 
+                    <span className="ml-2 inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+                      {cartTotal}
+                    </span>
+                    </p>
                 </span>
               </div>
             </nav>

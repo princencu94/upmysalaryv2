@@ -44,7 +44,7 @@ const faqs = [
 export default function AboutUs() {
     return (
         <>
-        <section className="mt-8">
+        <section className="sticky top-0 z-50">
             <Header/>
         </section>
         

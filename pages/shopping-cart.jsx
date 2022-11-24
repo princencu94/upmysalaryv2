@@ -20,7 +20,7 @@ export default function ShoppingCart() {
 
     return (
         <>
-        <div className="pt-5">
+        <div className="sticky top-0 z-50">
             <Header/>
         </div>
         {/* Shopping Cart Start */}

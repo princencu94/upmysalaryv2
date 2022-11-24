@@ -5,12 +5,15 @@ import HowItWorks from '../public/components/howitworks';
 import Image from 'next/image';
 import ZanaImage from '../public/assets/zana-4.jpeg';
 import Reviews from '../public/components/reviews';
+import Header from '../public/components/header';
 
 export default function Home() {
   
   return (
     <>
- 
+      <section className='sticky top-0 z-50'>
+        <Header/>
+      </section>
      {/* Hero Section */}
     <HeroSection/>
    

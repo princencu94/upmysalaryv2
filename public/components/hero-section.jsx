@@ -15,19 +15,18 @@ export default function HeroSection() {
         <div className="absolute inset-0  mix-blend-multiply" aria-hidden="true" />
       </div>
 
-
+      
       <div className="relative pt-6 pb-16 sm:pb-24">
-        <Header/>
-
+      
         <main className="mx-auto mt-16 max-w-7xl px-4 sm:mt-24">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl max-w-4xl mx-auto">
               <span className="block xl:inline">Up My Salary, Not My Stress!</span>{'  '}
             </h1>
             <h1 className='text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl md:text-4xl max-w-3xl mx-auto mt-3'>
-              <span className="block xl:inline">I help people make more</span>{'  '}
-              <span className="block xl:inline">money and protect </span>{'  '}
-              <span className="block text-blue-900 xl:inline">their income</span>
+              <span className="block xl:inline">Helping people Up Their Value,</span>{'  '}
+              <span className="block xl:inline">Make More Money, </span>{'  '}
+              <span className="block text-blue-900 xl:inline">and Protect Their Income</span>
             </h1>
             
             <div className="mx-auto mt-5 max-w-md sm:flex sm:justify-center md:mt-8">
