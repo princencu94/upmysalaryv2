@@ -1,37 +1,28 @@
 import { useRouter } from 'next/router';
+import { useDispatch } from "react-redux";
+import toast from 'react-hot-toast';
 import Header from '../../public/components/header';
 import Footer from '../../public/components/footer';
 import BookCover from '../../public/assets/ebook-cover.jpg';
 import Image from 'next/image';
+import Link from 'next/link';
+
+
+import { addItem } from "../../redux/cart-reducer";
 
 const products = [
 
     {
-        id:1,
+        id:'e1',
         name: 'Staffing Companies(Ebook)',
-        price: '$25.00',
+        price: 25.00,
         description:
             `After working with over 200 companies across the US, from small business owners to Fortune 500s, l've learned a thing or two about what it takes to reach the next level in your finances
-            .And l'm here sharing my expert coaching, tips and tricks to securing a higher income while establishing a stronger sense of stability in your life`,
+            .And l'm here sharing my expert coaching, tips and tricks to securing a higher income while establishing a stronger sense of stability in your life.`,
         imageSrc: BookCover,
         imageAlt: 'Book Cover',
-        paylink:'',
-        payany:'https://buy.stripe.com/test_28o4gS3Tz9l3eR25kl'
-      },
-
-    {
-        id:2,
-        name: 'Ebook 2',
-        price: '$220',
-        description:
-            'The Application UI Icon Pack comes with over 200 icons in 3 styles: outline, filled, and branded. This playful icon pack is tailored for complex application user interfaces with a friendly and legible look.',
-        imageSrc: BookCover,
-        imageAlt: 'Book Cover',
-        paylink:'',
-        payany:'https://buy.stripe.com/test_28o4gS3Tz9l3eR25kl'
-      },
-    
-
+        payany:'https://buy.stripe.com/6oEbJV5HEfgV3rq3cd'
+      },    
 ]
 
 
@@ -43,10 +34,21 @@ export default function Ebook() {
   const { id } = router.query
   const product = products.find(item => item.id == id);
 
-  console.log("product", product);
+  const dispatch = useDispatch();
+
+   
+
+  const handleCart = (product) => {
+        
+    const { id , name, description, price, imageSrc } = product;
+    if(dispatch(addItem({id: id , name: name, description:description, price:price, image:imageSrc}))) {
+        toast.success('Added to Cart');
+    }
+}
+
     return (
     <div className="bg-white">
-        <div className="pt-5">
+        <div className="sticky top-0 z-50">
             <Header/>
         </div>
       <div className="mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -68,6 +70,7 @@ export default function Ebook() {
                 <h2 id="information-heading" className="sr-only">
                   Product information
                 </h2>
+                <p className="text-3xl tracking-tight text-gray-900 pt-2">${product.price}</p>
               </div>
             </div>
 
@@ -75,6 +78,7 @@ export default function Ebook() {
 
               <div className="mt-10">
                 <button
+                  onClick={() => handleCart(product)}
                   type="submit"
                   className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                 >
@@ -82,15 +86,17 @@ export default function Ebook() {
                 </button>
               </div>
               <div className="mt-5">
-                <button
-                  type="submit"
-                  className="flex w-full items-center justify-center rounded-md border border-blue-900 bg-white to-blue-900 py-3 px-8 text-base font-medium text-blue-900 hover:bg-gradient-to-r from-green-600 to-blue-900 hover:text-white focus:outline-none focus:ring-2 "
+                <Link
+                  href={product.payany}
                 >
-                  Pay What You Can Afford
-                </button>
+                  <a
+                    target="_blank" rel="noopener noreferrer"
+                    className="flex w-full items-center justify-center rounded-md border border-blue-900 bg-white to-blue-900 py-3 px-8 text-base font-medium text-blue-900 hover:bg-gradient-to-r from-green-600 to-blue-900 hover:text-white focus:outline-none focus:ring-2 "
+                  >Pay What You Can Afford</a>
+                </Link>
               </div>
 
-            <div className="mt-10 border-t border-gray-200 pt-10">
+            {/* <div className="mt-10 border-t border-gray-200 pt-10">
               <h3 className="text-sm font-medium text-gray-900">Share</h3>
               <ul role="list" className="mt-4 flex items-center space-x-6">
                 <li>
@@ -126,7 +132,7 @@ export default function Ebook() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
 
 

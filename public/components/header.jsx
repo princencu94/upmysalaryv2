@@ -57,7 +57,7 @@ const Header = () => {
               </div>
               <div className="hidden md:absolute md:inset-y-0 md:right-0 md:flex md:items-center md:justify-end lg:justify-end text-blue-900">
                 <span className="inline-flex h-8">
-                    <p><Link href="shopping-cart">Cart</Link> 
+                    <p><Link  href="/shopping-cart" replace>Cart</Link> 
                     <span className="ml-2 inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
                       {cartTotal}
                     </span>
@@ -107,7 +107,7 @@ const Header = () => {
                     </a>
                   ))}
                 </div>
-                <p className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-blue-900 hover:bg-gray-100"><Link href="shopping-cart">Cart</Link> <span>{cartTotal}</span></p>
+                <p className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-blue-900 hover:bg-gray-100"><Link replace href="/shopping-cart">Cart</Link> <span>{cartTotal}</span></p>
               </div>
             </Popover.Panel>
           </Transition>

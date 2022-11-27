@@ -2,7 +2,8 @@ import { useDispatch } from "react-redux";
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import Image from 'next/image';
-import { addItem, clearCart } from "../redux/cart-reducer";
+import Link from "next/link";
+import { addItem } from "../redux/cart-reducer";
 
 import ResumeIcon from '../public/assets/resume.png';
 import LinkedIcon from '../public/assets/linkedin.png';
@@ -49,6 +50,20 @@ const services = [
       imageUrl:
         MockIcon,
         price:75.00
+    },
+  ]
+
+  const reviewServices = [
+    
+
+    {
+      title: 'Resume Review ($50.00)',
+      id: 7,
+      description:
+        'We’ll take a deep dive look into your background and resume and provide substantial feedback that you can take with you and use to edit or recreate your resume. The feedback will provide guidance that candidates can use throughout their lives whenever they make a career transition.',
+      imageUrl:
+        ResumeIcon,
+        price:50.00
     },
   ]
 
@@ -157,7 +172,53 @@ export default function Services() {
             </div >
         </section>
 
-        <section className=" bg-gray-50 pt-20">
+        <section id="services">
+            <div className="relative px-4 py-26 pt-10 lg:pt-0 sm:px-6 lg:px-10  lg:pb-28">
+                <div className="absolute inset-0">
+                    <div className="h-1/3  sm:h-2/3" />
+                </div>
+                <div className="relative mx-auto max-w-7xl">
+                    <div className="mx-auto  grid max-w-lg gap-10 lg:max-w-none lg:grid-cols-3">
+                    {reviewServices.map((service) => (
+                        <div key={service.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg shadow-blue-900 p-9 hover:bg-blue-50 cursor-auto ">
+                        <div className="flex h-12 w-12 items-center justify-center  text-white">
+                            <Image fill className="h-6 w-6"src={service.imageUrl} alt={service.title} />
+                        </div>
+                        <div className="flex flex-1 flex-col justify-between pt-6">
+                            <div className="flex-1">
+
+                                <p className="text-xl font-semibold text-blue-900">{service.title}</p>
+                                <p className="mt-3 text-base text-black overflow-y-auto h-40">{service.description}</p>
+
+                            </div>
+                        </div>
+                        <div className="inline-flex rounded-md  mt-8">
+                            <button
+                            onClick={() => handleCart(service)}
+                            className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-5 py-2 text-base font-medium text-white hover:bg-white hover:border hover:border-blue-900 hover:text-blue-900"
+                            >
+                            Order Now
+                            </button>
+
+                            <Link
+                            href="https://buy.stripe.com/eVa01d0nk2u9aTSeUU"
+                            
+                            >
+                            <a target="_blank" rel="noopener noreferrer" className="ml-5 inline-flex items-center justify-center rounded-md border border-transparent bg-white text-blue-900 border-blue-900 px-5 py-2 text-base font-medium hover:text-white hover:bg-blue-900">
+                              Pay Any Amount
+                            </a>
+    
+                            </Link>
+                        </div>
+                        </div>
+                        
+                    ))}
+                    </div>
+                </div>
+            </div >
+        </section>
+
+        <section className=" bg-gray-50 pt-20 pb-20 lg:pb-0">
             <div className="relative px-4 py-26 sm:px-6 lg:px-10 lg:pt-10 lg:pb-28">
                 <div className="absolute inset-0">
                     <div className="h-1/3  sm:h-2/3" />

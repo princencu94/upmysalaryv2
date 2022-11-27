@@ -25,8 +25,8 @@ export default function HeroSection() {
             </h1>
             <h1 className='text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl md:text-4xl max-w-3xl mx-auto mt-3'>
               <span className="block xl:inline">Helping people Up Their Value,</span>{'  '}
-              <span className="block xl:inline">Make More Money, </span>{'  '}
-              <span className="block text-blue-900 xl:inline">and Protect Their Income</span>
+              <span className="block xl:inline text-blue-900">Make More Money, </span>{'  '}
+              <span className="block  xl:inline">and Protect Their Income</span>
             </h1>
             
             <div className="mx-auto mt-5 max-w-md sm:flex sm:justify-center md:mt-8">

@@ -52,7 +52,7 @@ export default function ShoppingCart() {
                     <div>
                       <div className="flex justify-between">
                         <h4 className="text-sm">
-                          <a href="#" className="font-medium text-gray-700 hover:text-gray-800">
+                          <a href="#" className=" text-blue-900 font-bold hover:text-gray-800">
                             {product.name}
                           </a>
                         </h4>

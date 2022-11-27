@@ -3,9 +3,9 @@ import Image from 'next/image';
 import BookCover from '../assets/ebook-cover.jpg';
 const products = [
     {
-      id: 1,
+      id: 'e1',
       name: 'Staffing Companies(Ebook)',
-      href: 'staffing-companies/1',
+      href: 'staffing-companies/e1',
       price: '$25.00',
       imageSrc: BookCover,
       imageAlt: 'Staffing Companies',

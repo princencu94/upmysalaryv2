@@ -3,15 +3,13 @@ import clsx from 'clsx'
 
 import Container from './container'
 import Expandable from './expandable'
-import avatarImage3 from '../assets/avatar-3.png'
-import avatarImage4 from '../assets/avatar-3.png'
-import avatarImage5 from '../assets/avatar-3.png'
-import avatarImage6 from '../assets/avatar-3.png'
-import avatarImage7 from '../assets/avatar-3.png'
-import avatarImage8 from '../assets/avatar-3.png'
-import avatarImage9 from '../assets/avatar-3.png'
-import avatarImage10 from '../assets/avatar-3.png'
-import avatarImage11 from '../assets/avatar-3.png'
+import doniquaImage from '../assets/Doniqua.png';
+import estherImage from '../assets/Esther.png';
+import hausiImage from '../assets/hausi.png';
+import safiImage from '../assets/safi.png';
+import shaniaImage from '../assets/Shania.png';
+import vetoyaImage from '../assets/vetoya.png';
+import tatiImage from '../assets/tati.png';
 
 const testimonials = [
   [
@@ -25,7 +23,7 @@ const testimonials = [
       author: {
         name: 'Tatyanna Williams',
         role: 'A month ago',
-        image: avatarImage3,
+        image: tatiImage,
       },
     },
     {
@@ -37,7 +35,7 @@ const testimonials = [
       author: {
         name: 'Deity Lashaa',
         role: 'A week ago',
-        image: avatarImage4,
+        image: '',
       },
     },
     {
@@ -48,7 +46,7 @@ const testimonials = [
       author: {
         name: 'Vetoya Smith',
         role: 'A month ago',
-        image: avatarImage9,
+        image: vetoyaImage,
       },
     },
   ],
@@ -61,7 +59,7 @@ const testimonials = [
       author: {
         name: 'Husain Wakil',
         role: 'A month ago',
-        image: avatarImage7,
+        image: hausiImage,
       },
     },
     {
@@ -72,7 +70,7 @@ const testimonials = [
       author: {
         name: 'Kathleen Pearson',
         role: '8 months ago',
-        image: avatarImage11,
+        image: '',
       },
     },
     {
@@ -85,7 +83,7 @@ const testimonials = [
       author: {
         name: 'Safi Musgrove',
         role: '9 months ago',
-        image: avatarImage8,
+        image: safiImage,
       },
     },
   ],
@@ -98,7 +96,7 @@ const testimonials = [
       author: {
         name: 'Doniqua Keith',
         role: '9 months ago',
-        image: avatarImage5,
+        image: doniquaImage,
       },
     },
     {
@@ -111,7 +109,7 @@ const testimonials = [
       author: {
         name: 'Shania M',
         role: '9 months ago',
-        image: avatarImage10,
+        image: shaniaImage,
       },
     },
     {
@@ -121,7 +119,7 @@ const testimonials = [
       author: {
         name: 'Esther Edwards',
         role: '8 months ago',
-        image: avatarImage6,
+        image: estherImage,
       },
     },
   ],
@@ -137,8 +135,19 @@ function Testimonial({ author, children }) {
       </blockquote>
       <figcaption className="mt-6 flex items-center">
         <div className="overflow-hidden rounded-full bg-blue-900 w-8 h-8">
-          <p className='text-center text-white font-semibold text-lg'>{author.name.charAt(0).toUpperCase()}</p>
-        </div>
+        {
+          author.image !== '' ?
+        <Image
+            className="h-12 w-12 object-cover"
+            src={author.image}
+            alt=""
+            width={48}
+            height={48}
+          />
+          :
+          <p className='text-center text-white font-semibold text-lg rounded-full bg-blue-900 w-8 h-8'>{author.name.charAt(0).toUpperCase()}</p>
+        }
+          </div>
         <div className="ml-4">
           <div className="text-base font-medium leading-6 tracking-tight text-slate-900">
             {author.name}
@@ -157,9 +166,9 @@ export default function Reviews() {
         <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl">
           Some kind words from early clients...
         </h2>
-        <p className="mt-4 text-lg tracking-tight text-slate-600">
-          Being able to have worked with such a group of people and seeing the impact that this business has made
-          in their lives means so much to me and l am grateful
+        <p className="mt-4 text-lg tracking-tight text-slate-600 italic">
+          Being able to have worked with such a passionate group of people and seeing the impact that this business has made
+          in their lives means so much to me and l am grateful.
         </p>
       </Container>
       <Expandable>
