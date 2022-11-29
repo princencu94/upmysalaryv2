@@ -50,8 +50,8 @@ const Header = () => {
               </div>
               <div className="hidden md:flex md:space-x-10">
                 {navigation.map((item) => (
-                  <Link key={item.name} href={item.href} className="font-medium  hover:text-gray-900">
-                    <a className='text-blue-900'>{item.name}</a>
+                  <Link key={item.name} href={item.href} >
+                    <a className='text-blue-900 font-medium  hover:text-green-900'>{item.name}</a>
                   </Link>
                 ))}
               </div>

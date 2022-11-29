@@ -9,7 +9,7 @@ import hausiImage from '../assets/hausi.png';
 import safiImage from '../assets/safi.png';
 import shaniaImage from '../assets/Shania.png';
 import vetoyaImage from '../assets/vetoya.png';
-import tatiImage from '../assets/tati.png';
+import tatiImage from '../assets/Tati.png';
 
 const testimonials = [
   [
