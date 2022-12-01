@@ -60,10 +60,21 @@ const services = [
       title: 'Resume Review ($50.00)',
       id: 7,
       description:
-        'We’ll take a deep dive look into your background and resume and provide substantial feedback that you can take with you and use to edit or recreate your resume. The feedback will provide guidance that candidates can use throughout their lives whenever they make a career transition.',
+        `Rather than doing your resume for you, we're going to give you honest feedback about your current resume. We'll take a deep dive look into your background and provide substancial feedback that you can take with you and use to edit and recreate your resume into a masterpiece. The feedback will provide guidance that you can use throughout your life whenever you make a career transition. You'll send us your resume, along with answers to 5 questions about your background. Within 72 hours, your resume feedback will be sent back to you, where you can then take action and skyrocket.`,
       imageUrl:
         ResumeIcon,
-        price:50.00
+        price:50.00,
+        payLink:'https://buy.stripe.com/eVa01d0nk2u9aTSeUU'
+    },
+    {
+      title: 'Linkedin Review ($50.00)',
+      id:8,
+      description:
+        `How does your online profile compare to others in your job role and industry? LinkedIn is a professional networking site where you want all eyes to be on your profile, (the right eyes!). Our LinkedIn review will allow you to make changes to your profile on your own and you will know exactly what to do to make it the best possible for where you are right now in your career journey. This feedback can be used as guidance as you edit your profile throughout your working life.`,
+      imageUrl:
+        LinkedIcon,
+        price:50.00,
+        payLink:'https://buy.stripe.com/4gw9BN1rofgV4vufZ0'
     },
   ]
 
@@ -105,7 +116,8 @@ const services = [
           `,
         imageUrl:
           GroupIcon,
-          price:0
+          price:0,
+  
     },
   ]
 
@@ -201,8 +213,7 @@ export default function Services() {
                             </button>
 
                             <Link
-                            href="https://buy.stripe.com/eVa01d0nk2u9aTSeUU"
-                            
+                            href={service.payLink}
                             >
                             <a target="_blank" rel="noopener noreferrer" className="ml-5 inline-flex items-center justify-center rounded-md border border-transparent bg-white text-blue-900 border-blue-900 px-5 py-2 text-base font-medium hover:text-white hover:bg-blue-900">
                               Pay Any Amount

@@ -1,6 +1,6 @@
 import Header from './header';
 import Image from 'next/image'
-import headerBg from '../assets/bg-head.jpg'
+import headerBg from '../assets/hero-bg-1.jpg'
 
 
 export default function HeroSection() {

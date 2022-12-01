@@ -34,8 +34,8 @@ const Header = () => {
                     <a>
                     <span className="sr-only">UpMySalary</span>
                     <img
-                      className="mt-5 -ml-7 h-32 w-auto sm:h-36"
-                      src="../assets/logo-1.png"
+                      className="  h-16 w-16  "
+                      src="../assets/logo-2.png"
                       alt=""
                     />
                     </a>
