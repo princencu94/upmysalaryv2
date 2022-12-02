@@ -110,10 +110,10 @@ export default function CheckoutForm() {
             {({ open }) => (
               <>
                 <div className="flex items-center justify-between">
-                  <h2 id="order-heading" className="text-lg font-medium text-gray-900">
+                  <h2 id="order-heading" className="text-lg font-medium text-white">
                     Your Order
                   </h2>
-                  <Disclosure.Button className="font-medium text-indigo-600 hover:text-indigo-500">
+                  <Disclosure.Button className="font-medium text-white hover:text-green-700">
                     {open ? <span>Hide full summary</span> : <span>Show full summary</span>}
                   </Disclosure.Button>
                 </div>
@@ -122,17 +122,11 @@ export default function CheckoutForm() {
                   <ul role="list" className="divide-y divide-gray-200 border-b border-gray-200">
                     {cartItems.map((product) => (
                       <li key={product.id} className="flex space-x-6 py-6">
-                        <Image
-                          src={`/assets/${product.image} `}
-                          alt={product.name}
-                          width={150}
-                          height={150}
-                          className="h-40 w-40 flex-none rounded-md bg-gray-200 object-cover object-center"
-                        />
+                        
                         <div className="flex flex-col justify-between space-y-4">
                           <div className="space-y-1 text-sm font-medium">
                             <h3 className="text-white">{product.name}</h3>
-                            <p className="text-white">{product.price}</p>
+                            <p className="text-white">${product.price}</p>
                             <p className="text-white">{product.description.slice(0, 150)}</p>
                           </div>
 
@@ -140,18 +134,18 @@ export default function CheckoutForm() {
                       </li>
                     ))}
                   </ul>
-                  <dl className="mt-10 space-y-6 text-sm font-medium text-gray-500">
+                  <dl className="mt-10 space-y-6 text-sm font-medium text-white">
                     <div className="flex justify-between">
                       <dt>Subtotal</dt>
-                      <dd className="text-gray-900">{cartTotalPrice}</dd>
+                      <dd className="text-white">${cartTotalPrice}</dd>
                     </div>
                 
                   </dl>
                 </Disclosure.Panel>
 
-                <p className="mt-6 flex items-center justify-between border-t border-gray-200 pt-6 text-sm font-medium text-gray-900">
+                <p className="mt-6 flex items-center justify-between border-t border-white pt-6 text-sm font-medium text-white">
                   <span className="text-base">Total</span>
-                  <span className="text-base">{cartTotalPrice}</span>
+                  <span className="text-base">${cartTotalPrice}</span>
                 </p>
               </>
             )}
