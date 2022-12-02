@@ -156,7 +156,7 @@ export default function Services() {
                 <div className="relative mx-auto max-w-7xl">
                     <div className="mx-auto  grid max-w-lg gap-10 lg:max-w-none lg:grid-cols-3">
                     {services.map((service) => (
-                        <div key={service.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg shadow-blue-900 p-9 hover:bg-blue-50 cursor-auto ">
+                        <div key={service.title} id={service.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg shadow-blue-900 p-9 hover:bg-blue-50 cursor-auto ">
                         <div className="flex h-12 w-12 items-center justify-center  text-white">
                             <Image fill className="h-6 w-6"src={service.imageUrl} alt={service.title} />
                         </div>
@@ -192,7 +192,7 @@ export default function Services() {
                 <div className="relative mx-auto max-w-7xl">
                     <div className="mx-auto  grid max-w-lg gap-10 lg:max-w-none lg:grid-cols-3">
                     {reviewServices.map((service) => (
-                        <div key={service.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg shadow-blue-900 p-9 hover:bg-blue-50 cursor-auto ">
+                        <div key={service.title} id={service.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg shadow-blue-900 p-9 hover:bg-blue-50 cursor-auto ">
                         <div className="flex h-12 w-12 items-center justify-center  text-white">
                             <Image fill className="h-6 w-6"src={service.imageUrl} alt={service.title} />
                         </div>
@@ -237,7 +237,7 @@ export default function Services() {
                 <div className="relative mx-auto max-w-7xl">
                     <div className="mx-auto  grid max-w-lg gap-10 lg:max-w-none lg:grid-cols-3">
                     {enquireServices.map((service) => (
-                        <div key={service.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg p-9 bg-blue-900 hover:bg-green-900 cursor-auto">
+                        <div key={service.title} id={service.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg p-9 bg-blue-900 hover:bg-green-900 cursor-auto">
                         <div className="flex h-12 w-12 items-center justify-center text-white">
                             <Image fill className="h-6 w-6"src={service.imageUrl} alt={service.title} />
                         </div>

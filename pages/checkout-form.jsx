@@ -8,7 +8,7 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 import Image from 'next/image';
-
+import Link from "next/link";
 
 
 export default function CheckoutForm() {
@@ -97,6 +97,8 @@ export default function CheckoutForm() {
     setIsLoading(false);
   };
 
+
+
   return (
     <>
     <main className="lg:flex lg:min-h-full lg:flex-row-reverse lg:overflow-hidden">
@@ -121,7 +123,7 @@ export default function CheckoutForm() {
                     {cartItems.map((product) => (
                       <li key={product.id} className="flex space-x-6 py-6">
                         <Image
-                          src={`../public/assets/${product.image} `}
+                          src={`/assets/${product.image} `}
                           alt={product.name}
                           width={150}
                           height={150}
@@ -164,12 +166,13 @@ export default function CheckoutForm() {
 
           <ul role="list" className="flex-auto divide-y divide-gray-200 overflow-y-auto px-6">
             {cartItems.map((product) => (
+            
               <li key={product.id} className="flex space-x-6 py-6">
                         <Image
-                          src={`/${product.image} `}
+                          src={product.image.src}
                           alt={product.name}
-                          width={300}
-                          height={100}
+                          width="400"
+                          height="300"
                           className="h-40 w-40 flex-none rounded-md bg-gray-200 object-cover object-center"
                         />
                         <div className="flex flex-col justify-between space-y-4">
@@ -178,8 +181,8 @@ export default function CheckoutForm() {
                             <p className="text-white">${product.price}</p>
                             <p className="text-white">{product.description.slice(0, 150)}</p>
                           </div>
-
-                        </div>#1E3A8A,  #16A34A
+                          
+                        </div>
               </li>
             ))}
           </ul>

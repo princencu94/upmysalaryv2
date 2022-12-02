@@ -6,14 +6,14 @@ import headerBg from '../assets/hero-bg-1.jpg'
 export default function HeroSection() {
   return (
     <div className="relative overflow-hidden bg-gray-50 h-screen">
-      <div className="absolute inset-0">
-        <Image
-          className="h-full w-full object-cover"
-          src={headerBg}
-          alt="Header Beams"
-        />
-        <div className="absolute inset-0  mix-blend-multiply" aria-hidden="true" />
-      </div>
+          <div className="absolute inset-0 opacity-100 mix-blend-multiply ">
+            <Image
+              src={headerBg.src}
+              alt="Hero Section beams"
+              layout='fill'
+              className="h-full w-full object-cover"
+            />
+          </div>
 
       
       <div className="relative pt-6 pb-16 sm:pb-24">

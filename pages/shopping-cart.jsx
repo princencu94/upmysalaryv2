@@ -4,6 +4,7 @@ import Footer from "../public/components/footer";
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { removeItem } from '../redux/cart-reducer';
+import Link from 'next/link';
 
 export default function ShoppingCart() {
     
@@ -52,9 +53,9 @@ export default function ShoppingCart() {
                     <div>
                       <div className="flex justify-between">
                         <h4 className="text-sm">
-                          <a href="#" className=" text-blue-900 font-bold hover:text-gray-800">
-                            {product.name}
-                          </a>
+                          <Link href={`services/#${product.id}`} className=" text-blue-900 font-bold hover:text-gray-800">
+                            <a>{product.name}</a>
+                          </Link>
                         </h4>
                         <p className="ml-4 text-sm font-medium text-gray-900">${product.price}</p>
                       </div>
