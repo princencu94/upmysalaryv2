@@ -1,4 +1,4 @@
-import Header from './header';
+import Header from './header1';
 import Image from 'next/image'
 import headerBg from '../assets/hero-bg-1.jpg'
 

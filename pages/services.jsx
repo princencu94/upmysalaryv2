@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import Header from "../public/components/header";
+import Header from "../public/components/header1";
 import Footer from "../public/components/footer";
 import Image from 'next/image';
 import Link from "next/link";
@@ -21,6 +21,7 @@ const services = [
     {
       title: 'Resume Service ($200.00)',
       id: 1,
+      slug:'resume-service',
       description:
         'Our resume writing services assist job applicants in enhancing their image on paper. This is often the first thing a hiring manager or recruiter sees before choosing to give a candidate a call or send an email. We effectively share the accomplishments and unique contributions a person brings to the work environment, and our methodology aids in demonstrating a candidate’s competency and value. Few writing services are like our offering. Because of the deep dive we take to draw out the best in a person, a person will not need multiple different resumes in their job hunt and will rather be able to tweak this masterpiece for years to come. We can provide you with assistance in creating a compelling resume that puts you on path to reaching your career goals. This is a turnkey solution that requires a 30-minute Zoom Consultation.',
         
@@ -31,6 +32,7 @@ const services = [
     {
       title: 'LinkedIn Service ($150.00)',
         id: 2,
+        slug:'linkedin-service',
       description:
         `LinkedIn is a professional service geared toward connecting and engaging business professionals. The site allows active users to create and maintain corporate connections with people across multiple industries, states, and countries. 
 
@@ -43,6 +45,7 @@ const services = [
     {
       title: 'Mock interviews ($75.00)',
       id: 3,
+      slug:'mock-interviews',
       description:
         `The adage is true - practice makes perfect! You can ace your mock interview by practicing with us. We help to boost your confidence by critiquing and improving how you share your value with others. We pair you with the right recruiting peer and give cutthroat feedback so that you understand exact adjustments that need to be made to get you further through the interview process.
 
@@ -59,6 +62,7 @@ const services = [
     {
       title: 'Resume Review ($50.00)',
       id: 7,
+      slug:'resume-review',
       description:
         `Rather than doing your resume for you, we're going to give you honest feedback about your current resume. We'll take a deep dive look into your background and provide substancial feedback that you can take with you and use to edit and recreate your resume into a masterpiece. The feedback will provide guidance that you can use throughout your life whenever you make a career transition. You'll send us your resume, along with answers to 5 questions about your background. Within 72 hours, your resume feedback will be sent back to you, where you can then take action and skyrocket.`,
       imageUrl:
@@ -69,6 +73,7 @@ const services = [
     {
       title: 'Linkedin Review ($50.00)',
       id:8,
+      slug:'linkedin-review',
       description:
         `How does your online profile compare to others in your job role and industry? LinkedIn is a professional networking site where you want all eyes to be on your profile, (the right eyes!). Our LinkedIn review will allow you to make changes to your profile on your own and you will know exactly what to do to make it the best possible for where you are right now in your career journey. This feedback can be used as guidance as you edit your profile throughout your working life.`,
       imageUrl:
@@ -82,6 +87,7 @@ const services = [
     {
       title: 'The Salary Boost Accelerator ($1,249.99)',
       id: 4,
+      slug:'the-salary-boost-accelerator',
       description:
         `We offer these programs because we realize that we cannot serve everyone so we want to make you self-reliant. Yet, many features including, skills and knowledge that we will deliver in this program can benefit anyone who wills to engage in them. Since they are sort of self-guided programs, they are not based on therapeutic relationships of any kind. 
         It involves taking action to improve your physical, spiritual, mental, and emotional well-being and quality of life. Our experts will guide you through all the phases, and you will be better prepared to polish your personality. 
@@ -93,6 +99,7 @@ const services = [
     {
         title: 'Elite Performer Coaching Program',
         id: 5,
+        slug:'elite-performer-coaching-program',
         description:
           `
             The Elite Performer Coaching Program aims to improve and promote contemporary global players. This program has a great deal of flexibility that reconfigures each candidate’s level of professionalism and transforms them into a powerhouse capable of attaining the role of their desire.
@@ -102,11 +109,13 @@ const services = [
           `,
         imageUrl:
             EliteIcon,
-            price:0
+            price:0,
+            email:'info@upmysalary.com'
     },
     {
         title: 'Group Coaching',
         id: 6,
+        slug:'group-coaching',
         description:
           `
             Group coaching is done virtually through Zoom. Live calls are invitation only and allow candidates to ask questions directly according to their area of need. There is an established standard of success to describe what an individual who is successful looks like. And this knowledge is passed on to candidates during these calls. The goal is to transform their understanding of how others are ranking their capabilities and helping deliver the message that adjustment is needed for these individuals to reach their desired outcome.
@@ -117,6 +126,7 @@ const services = [
         imageUrl:
           GroupIcon,
           price:0,
+          email:'info@upmysalary.com'
   
     },
   ]
@@ -169,12 +179,16 @@ export default function Services() {
                             </div>
                         </div>
                         <div className="inline-flex rounded-md  mt-8">
-                            <button
-                            onClick={() => handleCart(service)}
-                            className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-5 py-2 text-base font-medium text-white hover:bg-white hover:border hover:border-blue-900 hover:text-blue-900"
+                            <Link
+                            href={`service/${service.slug}`}
+                            >
+                            <a
+                              className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-5 py-2 text-base font-medium text-white hover:bg-white hover:border hover:border-blue-900 hover:text-blue-900"
                             >
                             Order Now
-                            </button>
+                            </a>
+                           
+                            </Link>
                         </div>
                         </div>
                         
@@ -205,20 +219,17 @@ export default function Services() {
                             </div>
                         </div>
                         <div className="inline-flex rounded-md  mt-8">
-                            <button
-                            onClick={() => handleCart(service)}
+                            <Link
+                            href={`service/${service.slug}`}
                             className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-5 py-2 text-base font-medium text-white hover:bg-white hover:border hover:border-blue-900 hover:text-blue-900"
                             >
-                            Order Now
-                            </button>
+                            <a
+                              className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-5 py-2 text-base font-medium text-white hover:bg-white hover:border hover:border-blue-900 hover:text-blue-900"
 
-                            <Link
-                            href={service.payLink}
                             >
-                            <a target="_blank" rel="noopener noreferrer" className="ml-5 inline-flex items-center justify-center rounded-md border border-transparent bg-white text-blue-900 border-blue-900 px-5 py-2 text-base font-medium hover:text-white hover:bg-blue-900">
-                              Pay Any Amount
+                              Order Now
                             </a>
-    
+                            
                             </Link>
                         </div>
                         </div>
@@ -250,24 +261,17 @@ export default function Services() {
                             </div>
                         </div>
                         <div className="inline-flex rounded-md  mt-8">
-                          {
-                            service.price != 0 ?
-                            <button
-                            onClick={() => handleCart(service)}
+                      
+                            <Link
+                            href={`service/${service.slug}`}
                             className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-2 text-base font-medium text-blue-900  hover:border hover:border-green-900 hover:text-green-900"
                             >
-                            Order Now
-                            </button>
-
-                            :
-                            <button
-                            className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-2 text-base font-medium text-blue-900  hover:border hover:border-green-900 hover:text-green-900"
-                            >
-                                Enquire Now
-                            </button>
-
-                          }
-                            
+                              <a
+                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-2 text-base font-medium text-blue-900  hover:border hover:border-green-900 hover:text-green-900"
+                              >
+                                Order Now
+                              </a>
+                            </Link>                            
                         </div>
                         </div>
                         

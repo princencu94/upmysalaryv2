@@ -53,13 +53,15 @@ export default function ShoppingCart() {
                     <div>
                       <div className="flex justify-between">
                         <h4 className="text-sm">
-                          <Link href={`services/#${product.id}`} className=" text-blue-900 font-bold hover:text-gray-800">
-                            <a>{product.name}</a>
+                          <Link href={`service/${product.slug}`} >
+                            <a className=" text-blue-900 font-medium hover:text-gray-800">{product.name}</a>
                           </Link>
                         </h4>
                         <p className="ml-4 text-sm font-medium text-gray-900">${product.price}</p>
                       </div>
-                      <p className="mt-1 text-sm text-gray-500">{product.description.slice(0, 150)}</p>
+                      <p className="mt-1 text-sm text-gray-500"><div
+                    dangerouslySetInnerHTML={{__html: product.description.slice(0, 150)}}
+                    /></p>
                     </div>
 
                     <div className="mt-4 flex flex-1 items-end justify-between">

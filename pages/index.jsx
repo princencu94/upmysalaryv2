@@ -7,6 +7,7 @@ import ZanaImage from '../public/assets/quote.jpg';
 import Reviews from '../public/components/reviews';
 import Header from '../public/components/header';
 
+
 export default function Home() {
   
   return (

@@ -1,119 +1,250 @@
-import { Fragment } from 'react';
-import { useSelector } from 'react-redux';
+import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon, ShoppingBagIcon } from '@heroicons/react/24/outline';
+import { useSelector } from 'react-redux';
+import {
+
+  Bars3Icon, 
+  XMarkIcon,
+  ShoppingBagIcon,
+
+  ChevronRightIcon,
+} from '@heroicons/react/24/outline'
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
+
 import Link from 'next/link';
 
+const solutions = [
+  {
+    name: 'Resume Service',
+    
+    href: '/service/resume-service',
+    icon: ChevronRightIcon,
+  },
+  {
+    name: 'LinkedIn Service',
+   
+    href: '/service/linkedin-service',
+    icon: ChevronRightIcon,
+  },
+  { name: 'Mock interviews',
+    href: '/service/mock-interviews', 
+    icon: ChevronRightIcon },
+  {
+    name: 'Resume Review',
+    href: '/service/resume-review',
+    icon: ChevronRightIcon,
+  },
+  {
+    name: 'Linkedin Review',
+    href: '/service/linkedin-review',
+    icon: ChevronRightIcon,
+  },
+  {
+    name: 'The Salary Boost Accelerator',
+    href: '/service/the-salary-boost-accelerator',
+    icon: ChevronRightIcon,
+  },
+  {
+    name: 'Elite Performer Coaching Program',
+    href: '/service/elite-performer-coaching-program',
+    icon: ChevronRightIcon,
+  },
+  {
+    name: 'Group Coaching',
+    href: '/service/group-coaching',
+    icon: ChevronRightIcon,
+  },
+  
 
-const navigation = [
-  { name: 'About', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Support Tools', href: '/support-tools' },
-  { name: 'Ebooks', href: '/ebooks' },
-  { name: 'Courses', href: '/courses' },
 ]
 
-const Header = () => {
 
-  const cartItems = useSelector((state) => state.cart.cartItems);
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
+export default function Header() {
+
+    const cartItems = useSelector((state) => state.cart.cartItems);
   
-  const cartTotal = cartItems.reduce(
-    (accumalatedQuantity, cartItem) =>
-      accumalatedQuantity + cartItem.quantity,
-    0
-);
+    const cartTotal = cartItems.reduce(
+      (accumalatedQuantity, cartItem) =>
+        accumalatedQuantity + cartItem.quantity,
+      0
+  );
 
-    return (
-        <div className='bg-white z-50 '>
-        <Popover>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 shadow-sm lg:py-6">
-            <nav className="relative flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
-              <div className="flex flex-1 items-center md:absolute md:inset-y-0 md:left-0">
-                <div className="flex w-full items-center justify-between md:w-auto">
-                  <Link href="/">
-                    <a>
-                    <span className="sr-only">UpMySalary</span>
-                    <img
-                      className="  h-16 w-16  "
-                      src="../assets/logo-2.png"
-                      alt=""
-                    />
-                    </a>
-                  </Link>
-                  <div className="-mr-2 flex items-center md:hidden">
-                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-gray-50 p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-                      <span className="sr-only">Open main menu</span>
-                      <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-                    </Popover.Button>
-                  </div>
-                </div>
-              </div>
-              <div className="hidden md:flex md:space-x-10">
-                {navigation.map((item) => (
-                  <Link key={item.name} href={item.href} >
-                    <a className='text-blue-900 font-medium  hover:text-green-900'>{item.name}</a>
-                  </Link>
-                ))}
-              </div>
-              <div className="hidden md:absolute md:inset-y-0 md:right-0 md:flex md:items-center md:justify-end lg:justify-end text-blue-900">
-                <span className="inline-flex h-8">
-                    <p><Link  href="/shopping-cart" replace>Cart</Link> 
-                    <span className="ml-2 inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
-                      {cartTotal}
-                    </span>
-                    </p>
-                </span>
-              </div>
-            </nav>
+  return (
+    <Popover className="relative bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex items-center justify-between border-b-2 border-gray-100 py-2 md:justify-start md:space-x-10">
+          <div className="flex justify-start lg:w-0 lg:flex-1">
+            <Link href="/">
+                <a>
+              <span className="sr-only">UpMySalary</span>
+              <img
+                className="  h-16 w-16 "
+                src="../assets/logo-2.png"
+                alt="UpMySalaryLogo"
+              />
+              </a>
+            </Link>
           </div>
+          <div className="-my-2 -mr-2 md:hidden">
 
-          <Transition
-            as={Fragment}
-            enter="duration-150 ease-out"
-            enterFrom="opacity-0 scale-95"
-            enterTo="opacity-100 scale-100"
-            leave="duration-100 ease-in"
-            leaveFrom="opacity-100 scale-100"
-            leaveTo="opacity-0 scale-95"
-          >
-            <Popover.Panel
-              focus
-              className="absolute inset-x-0 top-0 z-40 origin-top-right transform p-2 transition md:hidden"
-            >
-              <div className="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
-                <div className="flex items-center justify-between px-5 pt-4">
-                  <div>
-                    <img
-                      className="mt-5 -ml-7 h-32 w-auto sm:h-36"
-                      src="../assets/logo-1.png"
-                      alt=""
+            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-blue-900 hover:bg-gray-100 hover:text-gray-500 ">
+              <span className="sr-only">Open menu</span>
+              <Bars3Icon className="h-6 w-6 text-blue-900" aria-hidden="true" />
+            </Popover.Button>
+          </div>
+          <Popover.Group as="nav" className="hidden space-x-10 md:flex">
+            <Link href="/about" >
+              <a className="text-base font-medium text-blue-900 hover:text-gray-900">About Us</a>
+            </Link>
+            <Popover className="relative">
+              {({ open }) => (
+                <>
+                  <Popover.Button
+                    className={classNames(
+                      open ? 'text-blue-900' : 'text-black',
+                      'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none '
+                    )}
+                  >
+                    <span className='text-blue-900'>Services</span>
+                    <ChevronDownIcon
+                      className={classNames(
+                        open ? 'text-green-600' : 'text-blue-900',
+                        'ml-2 h-5 w-5 group-hover:text-gray-900'
+                      )}
+                      aria-hidden="true"
                     />
-                  </div>
-                  <div className="-mr-2">
-                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-                      <span className="sr-only">Close menu</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </Popover.Button>
-                  </div>
+                  </Popover.Button>
+
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-200"
+                    enterFrom="opacity-0 translate-y-1"
+                    enterTo="opacity-100 translate-y-0"
+                    leave="transition ease-in duration-150"
+                    leaveFrom="opacity-100 translate-y-0"
+                    leaveTo="opacity-0 translate-y-1"
+                  >
+                    <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
+                      <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                          {solutions.map((item) => (
+                            <a
+                              key={item.name}
+                              href={item.href}
+                              className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
+                            >
+                              <item.icon className="h-6 w-6 flex-shrink-0 text-green-600" aria-hidden="true" />
+                              <div className="ml-4">
+                                <p className="text-base font-medium text-blue-900">{item.name}</p>
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </Popover.Panel>
+                  </Transition>
+                </>
+              )}
+            </Popover>
+
+
+            <Link href="/support-tools" >
+                <a className="text-base font-medium text-blue-900 hover:text-gray-900">Support Tools</a>
+            </Link>
+            <Link href="/ebooks" >
+                <a className="text-base font-medium text-blue-900 hover:text-gray-900">Ebooks</a>
+            </Link>
+            <Link href="/courses" className="text-base font-medium text-blue-900 hover:text-gray-900">
+                <a className="text-base font-medium text-blue-900 hover:text-gray-900">Courses</a>
+            </Link>
+          </Popover.Group>
+          <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+            <Link href="/shopping-cart" >
+                <a>
+                <ShoppingBagIcon className='h-6 -mt-1.5 inline-flex text-blue-900'/> 
+                <span className="ml-1 inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+                    {cartTotal}
+                </span>
+                </a>
+            </Link>
+    
+          </div>
+        </div>
+      </div>
+
+      <Transition
+        as={Fragment}
+        enter="duration-200 ease-out"
+        enterFrom="opacity-0 scale-95"
+        enterTo="opacity-100 scale-100"
+        leave="duration-100 ease-in"
+        leaveFrom="opacity-100 scale-100"
+        leaveTo="opacity-0 scale-95"
+      >
+        <Popover.Panel focus className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden">
+          <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="px-5 pt-5 pb-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <img
+                    className="h-12 w-auto"
+                    src="../assets/logo-2.png"
+                    alt="UpMySalary Logo"
+                  />
                 </div>
-                <div className="px-2 pt-2 pb-3">
-                  {navigation.map((item) => (
+                <div className="-mr-2">
+                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-blue-900 hover:bg-gray-100 hover:text-gray-500 ">
+                    <span className="sr-only">Close menu</span>
+                    <XMarkIcon className="h-6 w-6 text-blue-900" aria-hidden="true" />
+                  </Popover.Button>
+                </div>
+              </div>
+              <div className="mt-6">
+                <nav className="grid gap-y-8">
+                  {solutions.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                      className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
                     >
-                      {item.name}
+                      <item.icon className="h-6 w-6 flex-shrink-0 text-green-600" aria-hidden="true" />
+                      <span className="ml-3 text-base font-medium text-blue-900">{item.name}</span>
                     </a>
                   ))}
-                </div>
-                <p className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-blue-900 hover:bg-gray-100"><Link replace href="/shopping-cart">Cart</Link> <span>{cartTotal}</span></p>
+                </nav>
               </div>
-            </Popover.Panel>
-          </Transition>
-        </Popover>
-        </div>
-    )
+            </div>
+            <div className="space-y-6 py-6 px-5">
+              <div className="grid grid-cols-2 gap-y-4 gap-x-8">
+                <Link href="/support-tools" >
+                    <a className="text-base font-medium text-blue-900 hover:text-gray-900">Support Tools</a>
+                </Link>
+                <Link href="/ebooks" >
+                    <a className="text-base font-medium text-blue-900 hover:text-gray-900">Ebooks</a>
+                </Link>
+                <Link href="/courses" >
+                    <a className="text-base font-medium text-blue-900 hover:text-gray-900">Courses</a>
+                </Link>
+              </div>
+              <div className='text-center bg-blue-100 py-3 text-blue-900 rounded-md'>
+                <Link href="/shopping-cart" >
+                    <a>
+                    Cart 
+                    <span className="ml-1 inline-flex items-center rounded-full bg-blue-300 px-2.5 py-0.5 text-xs font-medium text-blue-900">
+                        {cartTotal}
+                    </span>
+                    </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Popover.Panel>
+      </Transition>
+    </Popover>
+  )
 }
-
-export default Header;
