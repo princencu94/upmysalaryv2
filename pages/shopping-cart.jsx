@@ -3,8 +3,9 @@ import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import { removeItem } from '../redux/cart-reducer';
+import { removeItem, addItem } from '../redux/cart-reducer';
 import Link from 'next/link';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 export default function ShoppingCart() {
     
@@ -58,10 +59,14 @@ export default function ShoppingCart() {
                           </Link>
                         </h4>
                         <p className="ml-4 text-sm font-medium text-gray-900">${product.price}</p>
+                      
                       </div>
                       <p className="mt-1 text-sm text-gray-500"><div
                     dangerouslySetInnerHTML={{__html: product.description.slice(0, 150)}}
                     /></p>
+                    <p className="mt-1 text-base font-bold text-gray-500">
+                      <span className='inline-block'><ChevronLeftIcon className="h-6 w-6 text-blue-900 cursor-pointer" onClick={() => dispatch(removeItem(product))}/></span><span className='inline-block mx-3 bg-blue-50 items-center rounded-full px-2.5 py-0.5 text-sm font-medium text-gray-800 align-top'>{product.quantity} Qty</span><span className='inline-block'><ChevronRightIcon className="h-6 w-6 text-blue-900 cursor-pointer" onClick={() => dispatch(addItem(product))}/></span>
+                    </p>
                     </div>
 
                     <div className="mt-4 flex flex-1 items-end justify-between">

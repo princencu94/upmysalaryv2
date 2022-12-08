@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import HeroSection from '../public/components/hero-section';
 import ServiceSection from '../public/components/services-section';
 import Footer from '../public/components/footer';
@@ -6,10 +7,17 @@ import Image from 'next/image';
 import ZanaImage from '../public/assets/quote.jpg';
 import Reviews from '../public/components/reviews';
 import Header from '../public/components/header';
-
+import ReviewPopUp from '../public/components/reviewpopup';
 
 export default function Home() {
-  
+  const [open, setOpen] = useState(false);
+
+  useEffect( () => {
+    setTimeout(() => {
+      setOpen(true);
+    }, 2000)
+  },[])
+
   return (
     <>
       <section className='sticky top-0 z-50'>
@@ -70,6 +78,8 @@ export default function Home() {
           <HowItWorks/>
           <Reviews/>
           <Footer/>
+          <ReviewPopUp show={open} setShow={setOpen} />
+
     </>
     
   )
