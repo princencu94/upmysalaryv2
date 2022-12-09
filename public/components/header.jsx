@@ -153,9 +153,9 @@ export default function Header() {
             </Popover>
 
 
-            <Link href="/support-tools" >
+            {/* <Link href="/support-tools" >
                 <a className="text-base font-medium text-blue-900 hover:text-gray-900">Support Tools</a>
-            </Link>
+            </Link> */}
             <Link href="/ebooks" >
                 <a className="text-base font-medium text-blue-900 hover:text-gray-900">Ebooks</a>
             </Link>
@@ -221,9 +221,9 @@ export default function Header() {
             </div>
             <div className="space-y-6 py-6 px-5">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                <Link href="/support-tools" >
+                {/* <Link href="/support-tools" >
                     <a className="text-base font-medium text-blue-900 hover:text-gray-900">Support Tools</a>
-                </Link>
+                </Link> */}
                 <Link href="/ebooks" >
                     <a className="text-base font-medium text-blue-900 hover:text-gray-900">Ebooks</a>
                 </Link>

@@ -68,7 +68,7 @@ const services = [
         price:75.00
     },
     {
-        title: 'The Salary Boost Accelerator ($1,249.99)',
+        title: 'The Salary Boost Accelerator',
         id: 4,
         slug:'the-salary-boost-accelerator',
         description:
@@ -81,7 +81,8 @@ const services = [
           `,
         imageUrl:
           BoostIcon,
-        price:1249.99
+        price:0,
+        link:'https://calendly.com/zana-m/coaching-with-zana'
       },
       {
           title: 'Elite Performer Coaching Program',
@@ -164,13 +165,6 @@ export default function Service() {
     const { id } = router.query
     const service = services.find(service => service.slug == id);
 
-    const resume = {
-        id:1,
-        name:"Resume Service ($200.00)",
-        price:200,
-        description:'I create a compelling resume that aligns with where you are looking to go. This is a turnkey solution that requires one (1) 30-minute Zoom Consultation within 4 days of booking the service.',
-        image: '../public/assets/resume.jpg',
-    }
 
     const dispatch = useDispatch();
 
@@ -287,6 +281,7 @@ export default function Service() {
                     Order Now
                     </button>
                     :
+                    service.email ?
                     <Link
                             href={`mailto:${service.email}`}
                             >
@@ -294,6 +289,17 @@ export default function Service() {
                                 className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-blue-700 ml-4"
                             target="blank">
                                 Enquire Now
+                            </a>
+                            
+                    </Link>
+                    :
+                    <Link
+                            href={service.link}
+                            >
+                            <a 
+                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-blue-700 ml-4"
+                            target="blank">
+                                Schedule Meeting
                             </a>
                             
                     </Link>

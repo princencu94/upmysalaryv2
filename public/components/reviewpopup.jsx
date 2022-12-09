@@ -1,9 +1,48 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import toast from 'react-hot-toast';
+import { useFormik } from 'formik';
+import emailjs from '@emailjs/browser';
+
+const validate = values => {
+
+    const errors = {};
+ 
+    if (!values.email) {
+      errors.email = 'Required*';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = 'Invalid email address';
+    }
+    return errors;
+ 
+  };
 
 export default function ReviewPopUp({ show , setShow}) {
   
+    const form = useRef();
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const formik = useFormik({
+
+        initialValues: { 
+          email: '',
+        },
+        validate,
+        onSubmit: values => {
+           setIsSubmitting(true);
+            emailjs.sendForm('contact_service', 'popup_template', form.current, '5yp609nAmXIULb-Yf')
+            .then((result) => {
+              toast.success('You are Signed up now!');
+              setIsSubmitting(false);
+              formik.resetForm();
+            }, (error) => {
+                console.log(error.text);
+            });
+        },
+   
+      });
 
   return (
     <Transition.Root show={show} as={Fragment}>
@@ -48,7 +87,7 @@ export default function ReviewPopUp({ show , setShow}) {
                 <div className="mt-2 max-w-xl text-sm text-gray-500">
                 <p>Any prefered email that you view often will work</p>
                 </div>
-                <form className="mt-5 sm:flex sm:items-center">
+                <form onSubmit={formik.handleSubmit} ref={form} className="mt-5 sm:flex sm:items-center">
                 <div className="w-full sm:max-w-xs">
                     <label htmlFor="email" className="sr-only">
                     Email
@@ -57,12 +96,21 @@ export default function ReviewPopUp({ show , setShow}) {
                     type="email"
                     name="email"
                     id="email"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.email}
                     className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                     placeholder="you@example.com"
                     />
+                    {   
+                        formik.touched.email && formik.errors.email ? (
+                            <div><p className="text-red-600 text-sm py-2">{formik.errors.email}</p></div>
+                        ) : null
+                    }
                 </div>
                 <button
                     type="submit"
+                    disabled={isSubmitting}
                     className="mt-3 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-4 py-2 font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                 >
                     Sign Up

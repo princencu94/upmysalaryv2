@@ -10,7 +10,7 @@ import Header from '../public/components/header';
 import ReviewPopUp from '../public/components/reviewpopup';
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   useEffect( () => {
     setTimeout(() => {

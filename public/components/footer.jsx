@@ -3,7 +3,7 @@ const navigation = {
     main: [
       { name: 'About', href: '/about' },
       { name: 'Services', href: '/services' },
-      { name: 'Support Tools', href: '/support-tools' },
+      // { name: 'Support Tools', href: '/support-tools' },
       { name: 'Ebooks', href: '/ebooks' },
       { name: 'Courses', href: '/courses' },
       {name:'Terms of Service', href:'/terms-of-service'}
