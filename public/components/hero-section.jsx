@@ -1,6 +1,6 @@
 import Header from './header1';
 import Image from 'next/image'
-import headerBg from '../assets/hero-bg-1.jpg'
+import headerBg from '../assets/background-beams.jpg'
 
 
 export default function HeroSection() {
@@ -32,20 +32,13 @@ export default function HeroSection() {
             <div className="mx-auto mt-5 max-w-md sm:flex sm:justify-center md:mt-8">
               <div className="rounded-md shadow">
                 <a
-                  href="#"
+                  href="/#services"
                   className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-8 py-3 text-base font-medium text-white hover:bg-blue-700 md:py-4 md:px-10 md:text-lg"
                 >
                   Get started
                 </a>
               </div>
-              <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                <a
-                  href="#"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-blue-900 hover:bg-gray-50 md:py-4 md:px-10 md:text-lg"
-                >
-                  Take a survey
-                </a>
-              </div>
+
             </div>
           </div>
         </main>

@@ -10,7 +10,6 @@ const validate = values => {
     const errors = {};
  
     if (!values.email) {
-      errors.email = 'Required*';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
       errors.email = 'Invalid email address';
     }
@@ -28,6 +27,8 @@ export default function ReviewPopUp({ show , setShow}) {
 
         initialValues: { 
           email: '',
+          phone:'',
+          name:''
         },
         validate,
         onSubmit: values => {
@@ -83,15 +84,35 @@ export default function ReviewPopUp({ show , setShow}) {
                 </div>
 
             <div className="px-4 py-5 sm:p-6">
-                <h3 className="text-lg font-medium leading-6 text-blue-900">Sign up to recieve the latest News and Promotions</h3>
+                <h3 className="text-lg font-medium leading-6 text-blue-900">Sign up to be sure YOU stay awesome</h3>
                 <div className="mt-2 max-w-xl text-sm text-gray-500">
-                <p>Any prefered email that you view often will work</p>
+                <p>We won't send you tons of emails, so share yours below</p>
                 </div>
-                <form onSubmit={formik.handleSubmit} ref={form} className="mt-5 sm:flex sm:items-center">
-                <div className="w-full sm:max-w-xs">
-                    <label htmlFor="email" className="sr-only">
+                <form onSubmit={formik.handleSubmit} ref={form} className="mt-5 ">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    Name
+                  </label>
+                  <div className="mt-1">
+                    <input
+                       type="text"
+                       name="name"
+                       id="name"
+                       onChange={formik.handleChange}
+                       onBlur={formik.handleBlur}
+                       value={formik.values.name}
+                      required
+                      placeholder="John Doe"
+                      className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                     Email
                     </label>
+                    <div className="mt-1">
                     <input
                     type="email"
                     name="email"
@@ -100,21 +121,38 @@ export default function ReviewPopUp({ show , setShow}) {
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
                     className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                    placeholder="you@example.com"
+                    required
+                    placeholder="johndoe@example.com"
                     />
-                    {   
-                        formik.touched.email && formik.errors.email ? (
-                            <div><p className="text-red-600 text-sm py-2">{formik.errors.email}</p></div>
-                        ) : null
-                    }
+                    </div>
                 </div>
-                <button
+                <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                    Phone Number
+                    </label>
+                    <div className="mt-1">
+                    <input
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.phone}
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    placeholder="+1 (555) 123 4567"
+                    />
+                    </div>
+                </div>
+                
+                <div className='mt-4'>
+                  <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="mt-3 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-4 py-2 font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                >
+                    className="flex w-full justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 py-2 px-4 text-sm font-medium text-white shadow-sm "
+                  >
                     Sign Up
-                </button>
+                  </button>
+                </div>
                 </form>
             </div>
               </Dialog.Panel>
