@@ -8,7 +8,7 @@ import { persistor } from '../redux/store';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { Toaster } from 'react-hot-toast';
-
+import { CookiesProvider } from "react-cookie";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
@@ -39,16 +39,18 @@ const options = {
 };
   
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-            {clientSecret && (
-                <Elements options={options} stripe={stripePromise}>
-                  <Toaster position="top-right"/>
-                  <Component {...pageProps} />
-                </Elements>
-            )} 
-      </PersistGate>
-    </Provider>
+    <CookiesProvider>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+              {clientSecret && (
+                  <Elements options={options} stripe={stripePromise}>
+                    <Toaster position="top-right"/>
+                    <Component {...pageProps} />
+                  </Elements>
+              )} 
+        </PersistGate>
+      </Provider>
+    </CookiesProvider>
   )
 }
 

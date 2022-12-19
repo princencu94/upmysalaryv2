@@ -1,9 +1,10 @@
-import { Fragment, useState, useRef } from 'react';
+import { Fragment, useState, useRef, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import toast from 'react-hot-toast';
 import { useFormik } from 'formik';
 import emailjs from '@emailjs/browser';
+import { useCookies } from "react-cookie";
 
 const validate = values => {
 
@@ -20,8 +21,9 @@ const validate = values => {
 export default function ReviewPopUp({ show , setShow}) {
   
     const form = useRef();
-
+    const [cookies, setCookie, removeCookie] = useCookies(["user"]);
     const [isSubmitting, setIsSubmitting] = useState(false);
+
 
     const formik = useFormik({
 
@@ -33,6 +35,7 @@ export default function ReviewPopUp({ show , setShow}) {
         validate,
         onSubmit: values => {
            setIsSubmitting(true);
+           setCookie("user", data, { path: "/" });
             emailjs.sendForm('contact_service', 'popup_template', form.current, '5yp609nAmXIULb-Yf')
             .then((result) => {
               toast.success('You are Signed up now!');
@@ -45,8 +48,9 @@ export default function ReviewPopUp({ show , setShow}) {
    
       });
 
+      console.log('cppkies', cookies.user);
   return (
-    <Transition.Root show={show} as={Fragment}>
+    <Transition.Root show={cookies.user ? !show : show} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setShow}>
         <Transition.Child
           as={Fragment}
