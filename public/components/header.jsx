@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react';
-import { useSelector } from 'react-redux';
+import { Popover, Transition, Menu } from '@headlessui/react';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeCurrentUser } from '../../redux/user-reducer';
 import {
 
   Bars3Icon, 
@@ -12,7 +13,7 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 import Link from 'next/link';
-import navBeams from '../assets/background-hero.jpg'
+
 
 const solutions = [
   {
@@ -32,18 +33,6 @@ const solutions = [
   },
 ]
 
-const resources = [
-  {
-    name: 'Ebooks',
-    href: '/ebooks',
-    icon: ChevronRightIcon,
-  },
-  {
-    name: 'Courses',
-    href: '/courses',
-    icon: ChevronRightIcon,
-  },
-]
 
 const products = [
   {
@@ -70,7 +59,12 @@ const products = [
     name: 'Linkedin Review',
     href: '/service/linkedin-review',
     icon: ChevronRightIcon,
-  }
+  },
+  {
+    name: 'Ebooks',
+    href: '/ebooks',
+    icon: ChevronRightIcon,
+  },
 ]
 
 
@@ -80,8 +74,13 @@ function classNames(...classes) {
 }
 
 export default function Header() {
+    const dispatch = useDispatch();
 
+    const handleSignOut = () => {
+        dispatch(removeCurrentUser());
+    }
     const cartItems = useSelector((state) => state.cart.cartItems);
+    const currentUser = useSelector(state => state.user.currentUser);
   
     const cartTotal = cartItems.reduce(
       (accumalatedQuantity, cartItem) =>
@@ -89,17 +88,18 @@ export default function Header() {
       0
   );
 
+  console.log(currentUser)
   return (
-    <Popover className="relative bg-white ">
+    <Popover className="relative bg-white shadow-md">
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex items-center justify-between border-b-2 border-blue-700 py-2 md:justify-start md:space-x-10">
+        <div className="flex items-center justify-between  py-2 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/">
                 <a>
               <span className="sr-only">UpMySalary</span>
               <img
-                className="  h-16 w-16 "
+                className="h-16 w-16 "
                 src="../assets/logo-2.png"
                 alt="UpMySalaryLogo"
               />
@@ -217,65 +217,80 @@ export default function Header() {
                 </>
               )}
             </Popover>
-            <Popover className="relative">
-              {({ open }) => (
-                <>
-                  <Popover.Button
-                    className={classNames(
-                      open ? 'text-blue-900' : 'text-black',
-                      'group inline-flex items-center rounded-md  text-base font-medium hover:text-gray-900 focus:outline-none '
-                    )}
-                  >
-                    <span className='text-blue-900'>Resources</span>
-                    <ChevronDownIcon
-                      className={classNames(
-                        open ? 'text-green-600' : 'text-blue-900',
-                        'ml-2 h-5 w-5 group-hover:text-gray-900'
-                      )}
-                      aria-hidden="true"
-                    />
-                  </Popover.Button>
 
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-200"
-                    enterFrom="opacity-0 translate-y-1"
-                    enterTo="opacity-100 translate-y-0"
-                    leave="transition ease-in duration-150"
-                    leaveFrom="opacity-100 translate-y-0"
-                    leaveTo="opacity-0 translate-y-1"
-                  >
-                    <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
-                      <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                          {resources.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
-                            >
-                              <item.icon className="h-6 w-6 flex-shrink-0 text-green-600" aria-hidden="true" />
-                              <div className="ml-4">
-                                <p className="text-base font-medium text-blue-900">{item.name}</p>
-                              </div>
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-                    </Popover.Panel>
-                  </Transition>
-                </>
-              )}
-            </Popover>
-
-            {/* <Link href="/support-tools" >
-                <a className="text-base font-medium text-blue-900 hover:text-gray-900">Support Tools</a>
-            </Link> */}
+            <Link href="/faqs" >
+                <a className="text-base font-medium text-blue-900 hover:text-green-900">Faqs</a>
+            </Link>
             <Link href="/contact-us" className="text-base font-medium text-blue-900 hover:text-green-900">
                 <a className="text-base font-medium text-blue-900 hover:text-gray-900">Contact us</a>
             </Link>
           </Popover.Group>
           <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+            {
+                currentUser ?
+                <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mr-3">
+                      <span className="sr-only">Open user menu</span>
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-green-900 ">
+                        <span className="text-sm font-medium leading-none text-white">{currentUser.email.slice(0, 2).toUpperCase()}</span>
+                      </span>
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Your Profile
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Settings
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <button
+                            onClick={handleSignOut}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 w-full text-left')}
+                          >
+                            Sign out
+                          </button>
+                        )}
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+                :
+                <Link href="/login">
+                <a
+                  className="inline-block rounded-lg px-4 py-1 text-base font-semibold leading-7 text-green-900 ring-1 ring-blue-900/10 hover:ring-gray-900/20 mr-3"
+                >
+                  Sign in
+                </a>
+          </Link>
+            }
+           
+            
             <Link href="/shopping-cart" >
                 <a>
                 <ShoppingBagIcon className='h-6 -mt-1.5 inline-flex text-blue-900'/> 
@@ -343,28 +358,37 @@ export default function Header() {
             </div>
             <div className="space-y-6 py-6 px-5">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                {/* <Link href="/support-tools" >
-                    <a className="text-base font-medium text-blue-900 hover:text-gray-900">Support Tools</a>
-                </Link> */}
-                <Link href="/ebooks" >
-                    <a className="text-base font-medium text-blue-900 hover:text-green-900">Ebooks</a>
-                </Link>
-                <Link href="/courses" >
-                    <a className="text-base font-medium text-blue-900 hover:text-green-900">Courses</a>
+                <Link href="/faqs" >
+                    <a className="text-base font-medium text-blue-900 hover:text-green-900">Faqs</a>
                 </Link>
                 <Link href="/contact-us" >
                     <a className="text-base font-medium text-blue-900 hover:text-green-900">Contact</a>
                 </Link>
               </div>
-              <div className='text-center bg-blue-100 py-3 text-blue-900 rounded-md'>
-                <Link href="/shopping-cart" >
-                    <a>
-                    Cart 
-                    <span className="ml-1 inline-flex items-center rounded-full bg-blue-300 px-2.5 py-0.5 text-xs font-medium text-blue-900">
-                        {cartTotal}
-                    </span>
-                    </a>
-                </Link>
+              <div className="mt-6 text-center">
+              {
+                currentUser ?
+                <p className='text-green text-sm'>{currentUser.email !== undefined ? currentUser.email : null}</p>
+                :
+                    <p className="mt-6 text-center text-base font-medium text-gray-500">
+                      Existing customer? 
+                      <Link href="#">
+                        <a className="text-green-900">
+                          Sign in
+                        </a>
+                      </Link>
+                    </p>
+              }
+                    <div className='mt-4 bg-blue-50 py-3 rounded-md'>
+                    <Link href="/shopping-cart" >
+                      <a >
+                      Cart 
+                      <span className="ml-1 inline-flex items-center rounded-full bg-blue-300 px-2.5 py-0.5 text-xs font-medium text-blue-900">
+                          {cartTotal}
+                      </span>
+                      </a>
+                    </Link>
+                </div>
               </div>
             </div>
           </div>

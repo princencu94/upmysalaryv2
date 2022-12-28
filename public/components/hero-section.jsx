@@ -1,10 +1,12 @@
-import Header from './header1';
+import Link from 'next/link'
 import Image from 'next/image'
 import headerBg from '../assets/background-beams.jpg'
-
+import { useSelector } from 'react-redux';
 
 export default function HeroSection() {
+  const currentUser = useSelector(state => state.user.currentUser);
   return (
+    
     <div className="relative overflow-hidden bg-gray-50 h-screen">
           <div className="absolute inset-0 opacity-100 mix-blend-multiply ">
             <Image
@@ -29,17 +31,36 @@ export default function HeroSection() {
               <span className="block  xl:inline">and Protect Their Income</span>
             </h1>
             
-            <div className="mx-auto mt-5 max-w-md sm:flex sm:justify-center md:mt-8">
-              <div className="rounded-md shadow">
-                <a
-                  href="/#services"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-8 py-3 text-base font-medium text-white hover:bg-blue-700 md:py-4 md:px-10 md:text-lg"
-                >
-                  Get started
-                </a>
-              </div>
-
-            </div>
+            <div className="mt-8 flex gap-x-4 sm:justify-center">
+              {
+                currentUser ? 
+                null
+                :
+                <>
+                  <Link href="/register">
+                  <a
+                    className="inline-block rounded-lg bg-blue-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700"
+                  >
+                    Get started
+                    <span className="text-blue-200" aria-hidden="true">
+                      &rarr;
+                    </span>
+                  </a>
+                  </Link>
+                  <Link href="/login">
+                  <a
+                    
+                    className="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-green-900 ring-1 ring-blue-900/10 hover:ring-gray-900/20"
+                  >
+                    Login
+                    <span className="text-green-900" aria-hidden="true">
+                      &rarr;
+                    </span>
+                  </a>
+                  </Link>
+                  </>
+                }
+                </div>
           </div>
         </main>
       </div>

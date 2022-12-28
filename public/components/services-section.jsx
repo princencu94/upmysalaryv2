@@ -60,7 +60,7 @@ const services = [
 export default function ServiceSection() {
   return (
    <>
-          <div className="bg-white py-24" id="services">
+          <div className="bg-white py-20" id="services">
             <div className="mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="text-center">
               <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl">Our Services</h2>
@@ -84,16 +84,6 @@ export default function ServiceSection() {
               </dl>
             </div>
           </div>
-
-      <div className='flex flex-row justify-center -mt-8 mb-14 z-50' >  
-            <Link href="/services">
-        <a
-          className="text-center z-60 rounded-md border border-blue-900 px-5 py-3 text-base font-medium text-blue-900 hover:bg-indigo-50 sm:w-auto"
-        >
-          More Services
-        </a>
-        </Link>
-      </div>  
 
       {/* New Section */}
 

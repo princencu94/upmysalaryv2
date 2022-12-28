@@ -94,7 +94,7 @@ export default function ReviewPopUp({ show , setShow}) {
                 </div>
                 <form onSubmit={formik.handleSubmit} ref={form} className="mt-5 ">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="name" className="block text-sm font-medium text-blue-900">
                     Name
                   </label>
                   <div className="mt-1">
@@ -113,7 +113,7 @@ export default function ReviewPopUp({ show , setShow}) {
                 </div>
                 
                 <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="email" className="block text-sm font-medium text-blue-900">
                     Email
                     </label>
                     <div className="mt-1">
@@ -131,7 +131,7 @@ export default function ReviewPopUp({ show , setShow}) {
                     </div>
                 </div>
                 <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="phone" className="block text-sm font-medium text-blue-900">
                     Phone Number
                     </label>
                     <div className="mt-1">

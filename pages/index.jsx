@@ -7,16 +7,8 @@ import Image from 'next/image';
 import ZanaImage from '../public/assets/quote.jpg';
 import Reviews from '../public/components/reviews';
 import Header from '../public/components/header';
-import ReviewPopUp from '../public/components/reviewpopup';
 
 export default function Home() {
-  const [open, setOpen] = useState(true);
-
-  useEffect( () => {
-    setTimeout(() => {
-      setOpen(true);
-    }, 5000)
-  },[])
 
   return (
     <>
@@ -78,7 +70,6 @@ export default function Home() {
           <HowItWorks/>
           <Reviews/>
           <Footer/>
-          <ReviewPopUp show={open} setShow={setOpen} />
 
     </>
     

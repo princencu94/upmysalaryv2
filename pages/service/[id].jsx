@@ -20,6 +20,37 @@ const services = [
       title: 'Resume Service ($200.00)',
       id: 1,
       slug:'resume-service',
+      otherServices: [
+        {
+          title:'Resume Writing',
+          description:'This service involves working with a professional writer to create a new resume from scratch. The writer will ask you questions about your work history, education, skills, and career goals to create a customized document that showcases your strengths and accomplishments.'
+        },
+        {
+          title:'Resume Editing',
+          description:'This service involves having a professional review your resume and provide feedback on its strengths and weaknesses. The reviewer may suggest changes to make the document more effective, or provide tips on how to tailor it to specific job openings.'
+        },
+        {
+          title:'Resume Design',
+          description:'This service involves working with a professional designer to create a visually appealing resume that stands out from the competition. A designer may use elements such as graphics, fonts, and colors to make the document more visually appealing and easy to read.'
+        },
+        {
+          title:''
+        }
+      ],
+      otherContent: 
+      `
+      <p>
+      When choosing a resume service, it's important to consider the level of expertise and professionalism of the service provider. Look for a service that has a good track record and is willing to work with you to create a document that meets your specific needs and goals.
+      </p>
+
+      <p>
+        It's also a good idea to ask for samples of the service provider's work and to get recommendations from other job seekers who have used the service. This will give you a sense of the quality of work you can expect and help you make an informed decision about which service to use.
+      </p>
+
+      <p>
+        Overall, resume services can be a valuable resource for job seekers who want to improve their chances of getting hired. By working with a professional writer or editor, you can create a document that showcases your strengths and accomplishments in a clear and concise manner, increasing your chances of standing out in a competitive job market.
+      </p>
+      `,
       description:
         `<p>
         Our resume writing services assist job applicants in enhancing their image on paper. This is often the first thing a hiring manager or recruiter sees before choosing to give a candidate a call or send an email. We effectively share the accomplishments and unique contributions a person brings to the work environment, and our methodology aids in demonstrating a candidate’s competency and value. Few writing services are like our offering. Because of the deep dive we take to draw out the best in a person, a person will not need multiple different resumes in their job hunt and will rather be able to tweak this masterpiece for years to come. 
@@ -35,15 +66,38 @@ const services = [
       title: 'LinkedIn Service ($150.00)',
         id: 2,
         slug:'linkedin-service',
-      description:
-        `
+        otherServices:[
+          {
+            title:'LinkedIn profile writing',
+            description:'Our team of professional writers will craft a LinkedIn profile that highlights your strengths, accomplishments, and career goals. This includes writing your summary, experience, education, and skills sections, as well as optimizing your profile for search engines.'
+          },
+          {
+            title:'LinkedIn profile editing',
+            description:'If you already have a LinkedIn profile, we can review and edit it to ensure it is well-written, visually appealing, and tailored to your career goals.'
+          },
+          {
+            title:'LinkedIn profile optimization',
+            description:'We can help you optimize your LinkedIn profile for search engines by identifying key words and phrases that will help you rank higher in search results.'
+          },
+          {
+            title:'LinkedIn profile design',
+            description:'Our team of designers can create a visually appealing and professional LinkedIn profile, including custom header and profile images.'
+          },
+          {
+            title:'LinkedIn profile coaching',
+            description:'We offer coaching sessions to help you make the most of your LinkedIn profile and effectively use it to advance your career. This includes guidance on networking, building connections, and finding job opportunities.'
+          }
+        ],
+        otherContent:`
         <p>
-        LinkedIn is a professional service geared toward connecting and engaging business professionals. The site allows active users to create and maintain corporate connections with people across multiple industries, states, and countries. 
-        </p>
-        <p>
-        The more professional a person’s LinkedIn page is, the more people will want to connect with them. LinkedIn is a space for sharing industry knowledge, expertise, and for connecting to opportunities that may not be listed anywhere else. LinkedIn is the largest networking platform, and if you see yourself advancing your corporate office career, then it increases your likelihood of connecting to opportunities by up to 10X!
+          Overall, our LinkedIn services are designed to help you create a strong online presence and effectively use LinkedIn as a tool for professional development and job search.
         </p>
         `,
+        description:
+          `
+          <p>
+            Our LinkedIn services are designed to help you create a professional and effective LinkedIn profile that showcases your skills, experience, and value to potential employers. Here are the specific services we offer:
+          </p>`,
       imageUrl:
         LinkedIcon,
         price:150.00
@@ -52,14 +106,34 @@ const services = [
       title: 'Mock interviews ($75.00)',
       id: 3,
       slug:'mock-interviews',
+      otherServices:[
+        {
+          title:'One-on-one simulated job interview',
+          description:'You will participate in a simulated job interview with a professional coach, who will ask you a variety of common interview questions.'
+        },
+        {
+          title:'Customized questions and scenarios',
+          description:'You can choose the specific questions you want to be asked during the mock interview, or you can ask our coaches to choose the questions based on their experience and expertise. Either way, the mock interview will be tailored to your specific needs and goals.'
+        },
+        {
+          title:'Feedback and guidance',
+          description:'During the mock interview, you will receive feedback and guidance from your coach on your performance. This will include constructive criticism on areas for improvement, as well as tips and strategies for answering common interview questions.'
+        },
+        {
+          title:'Recorded session',
+          description:'The mock interview will be recorded, so you can review and analyze your performance afterwards. This can be a valuable tool for identifying areas for improvement and fine-tuning your interview skills.'
+        },
+      ],
+      otherContent:`
+      <p>
+        Overall, our mock interview service is designed to help you feel more prepared and confident going into a real job interview, and to give you the tools and techniques you need to succeed.
+      </p>
+      `,
       description:
 
         `
         <p>
-        The adage is true - practice makes perfect! You can ace your mock interview by practicing with us. We help to boost your confidence by critiquing and improving how you share your value with others. We pair you with the right recruiting peer and give cutthroat feedback so that you understand exact adjustments that need to be made to get you further through the interview process.
-        </p>
-        <p>
-        With our feedback, you will be better prepared to ace your next interview. Our mock interview sessions enable you to master the art of interviewing like a Rockstar. 
+          Our mock interview service is designed to help you practice and improve your interview skills in a safe and supportive environment. Here's what you can expect from our mock interview service:
         </p>
         `,
       
@@ -71,6 +145,8 @@ const services = [
         title: 'The Salary Boost Accelerator',
         id: 4,
         slug:'the-salary-boost-accelerator',
+        otherServices:[],
+        otherContent:'',
         description:
           `<p>
           We offer these programs because we realize that we cannot serve everyone so we want to make you self-reliant. Yet, many features including, skills and knowledge that we will deliver in this program can benefit anyone who wills to engage in them. Since they are sort of self-guided programs, they are not based on therapeutic relationships of any kind. 
@@ -88,6 +164,8 @@ const services = [
           title: 'Elite Performer Coaching Program',
           id: 5,
           slug:'elite-performer-coaching-program',
+          otherServices:[],
+          otherContent:'',
           description:
             `
             <p>
@@ -106,6 +184,8 @@ const services = [
           title: 'Group Coaching',
           id: 6,
           slug:'group-coaching',
+          otherServices:[],
+          otherContent:'',
           description:
             `
             <p>
@@ -127,29 +207,35 @@ const services = [
         description:
           `
           <p>
-          Rather than doing your resume for you, we're going to give you honest feedback about your current resume. We'll take a deep dive look into your background and provide substancial feedback that you can take with you and use to edit and recreate your resume into a masterpiece. 
-          </p>
-          <p>
-          The feedback will provide guidance that you can use throughout your life whenever you make a career transition. You'll send us your resume, along with answers to 5 questions about your background. Within 72 hours, your resume feedback will be sent back to you, where you can then take action and skyrocket.
+          Resume services are a type of professional writing service that help job seekers create a document that summarizes their education, experience, skills, and achievements. These services are designed to help individuals stand out in a competitive job market and increase their chances of getting hired.
+          There are several types of resume services available, including:
           </p>
           `,
         imageUrl:
           ResumeIcon,
           price:50.00,
-          payLink:'https://buy.stripe.com/eVa01d0nk2u9aTSeUU'
+          payLink:'https://buy.stripe.com/eVa01d0nk2u9aTSeUU',
+          otherServices: [
+            
+          ],
+          otherContent: 
+          ''
       },
       {
         title: 'Linkedin Review ($50.00)',
         id:8,
         slug:'linkedin-review',
+        otherServices:[
+          
+        ],
+        otherContent:`
+        `,
         description:
           `
           <p>
-          How does your online profile compare to others in your job role and industry? LinkedIn is a professional networking site where you want all eyes to be on your profile, (the right eyes!). Our LinkedIn review will allow you to make changes to your profile on your own and you will know exactly what to do to make it the best possible for where you are right now in your career journey. 
+            Our LinkedIn services are designed to help you create a professional and effective LinkedIn profile that showcases your skills, experience, and value to potential employers. Here are the specific services we offer:
           </p>
-          <p>
-          This feedback can be used as guidance as you edit your profile throughout your working life.
-          </p>
+          
           `,
         imageUrl:
           LinkedIcon,
@@ -243,6 +329,23 @@ export default function Service() {
                 <p>
                     <div
                     dangerouslySetInnerHTML={{__html: service.description}}
+                    />
+                </p>
+                <div>
+                  {
+                    service.otherServices.map((otherService) => (
+                      <>
+                      <h3 className='text-blue-900'>{otherService.title}</h3>
+                      <p>{otherService.description}</p>
+                      </>
+                    ))
+                  }
+                  
+                </div>
+
+                <p>
+                    <div
+                    dangerouslySetInnerHTML={{__html: service.otherContent}}
                     />
                 </p>
                 
