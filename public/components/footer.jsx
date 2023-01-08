@@ -49,7 +49,7 @@ const navigation = {
   
   export default function Footer() {
     return (
-      <footer className="bg-blue-900">
+      <footer className="bg-gradient-to-r from-blue-900 to-blue-500">
         <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
           <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
             {navigation.main.map((item) => (
@@ -68,7 +68,7 @@ const navigation = {
               </a>
             ))}
           </div>
-          <p className="mt-8 text-center text-base text-white">&copy; 2022 UpMySalary. All rights reserved.</p>
+          <p className="mt-8 text-center text-base text-white">&copy; 2023 UpMySalary. All rights reserved.</p>
         </div>
       </footer>
     )

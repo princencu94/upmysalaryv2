@@ -1,7 +1,8 @@
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import Image from 'next/image';
-
+import { Disclosure } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import Stats from "../public/components/stats";
 
 import ZanaImage from '../public/assets/zana-4.jpeg';
@@ -32,14 +33,11 @@ const faqs = [
       },
   ]
 
-  const stats = [
 
-
-    { label: 'Founded', value: '2021' },
-    { label: 'Employees', value: '5' },
-    { label: 'Beta Users', value: '521' },
-    { label: 'Raised', value: '$25M' },
-  ]
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
+  
 
 export default function AboutUs() {
     return (
@@ -54,7 +52,7 @@ export default function AboutUs() {
                     <div className="relative z-10 mb-8 md:mb-2 md:px-6">
                     <div className="max-w-prose text-base lg:max-w-none">
 
-                        <p className="mt-2 text-3xl font-bold leading-8 tracking-tight text-blue-900 sm:text-4xl">
+                        <p className="mt-2 text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl lg:text-6xl">
                             About Us
                         </p>
                     </div>
@@ -139,17 +137,17 @@ export default function AboutUs() {
                         href="#"
                         className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-600 px-5 py-3 text-base font-medium text-white hover:bg-blue-700"
                         >
-                            Our Services
+                            Give us a call
                         </a>
                     </div>
-                    <div className="ml-3 inline-flex">
+                    {/* <div className="ml-3 inline-flex">
                         <a
                         href="#"
                         className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-100 px-5 py-3 text-base font-medium text-blue-900 hover:bg-indigo-200"
                         >
                             Take Survey
                         </a>
-                    </div>
+                    </div> */}
                     </div>
                 </div>
             </div>
@@ -157,7 +155,7 @@ export default function AboutUs() {
 
         {/* Why Choose us */}
         <section>
-            <div className="relative overflow-hidden bg-white pt-24">
+            <div className="relative overflow-hidden bg-white pt-3">
                 <div className="relative">
                 <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
                 <div className="mx-auto max-w-xl px-4 sm:px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-4">
@@ -175,17 +173,33 @@ export default function AboutUs() {
                     </div>
                     
                 </div>
-                <div className="mt-0 sm:mt-16 mx-4">
-                    <div className="mt-8 border-y border-gray-200 py-6">
+                <div className="mt-0 sm:mt-10 mx-4">
+                    <div className="mt-8 py-6">
                         <div className="mt-12 lg:col-span-2 lg:mt-0">
-                            <dl className="space-y-12">
+                        <dl className="mt-6 space-y-6 divide-y divide-blue-900">
                             {faqs.map((faq) => (
-                                <div key={faq.question}>
-                                <dt className="text-lg font-medium leading-6 text-black">{faq.question}</dt>
-                                <dd className="mt-2 text-base text-gray-500">{faq.answer}</dd>
-                                </div>
+                            <Disclosure as="div" key={faq.question} className="pt-6">
+                                {({ open }) => (
+                                <>
+                                    <dt className="text-lg">
+                                    <Disclosure.Button className="flex w-full items-start justify-between text-left text-blue-900">
+                                        <span className="font-medium text-blue-900">{faq.question}</span>
+                                        <span className="ml-6 flex h-7 items-center">
+                                        <ChevronDownIcon
+                                            className={classNames(open ? '-rotate-180' : 'rotate-0', 'h-6 w-6 transform')}
+                                            aria-hidden="true"
+                                        />
+                                        </span>
+                                    </Disclosure.Button>
+                                    </dt>
+                                    <Disclosure.Panel as="dd" className="mt-2 pr-12">
+                                    <p className="text-base text-gray-500">{faq.answer}</p>
+                                    </Disclosure.Panel>
+                                </>
+                                )}
+                            </Disclosure>
                             ))}
-                            </dl>
+                        </dl>
                         </div>
                     </div>
                 </div>

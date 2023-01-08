@@ -78,7 +78,9 @@ export default function ServiceSection() {
                       <p className="mt-5 text-lg font-medium leading-6 text-blue-900">{feature.title}</p>
                     </dt>
                     <dd className="mt-2 mb-5 text-base text-black">{feature.description}</dd>
-                    <Link href={feature.href}><a className='text-blue-900' >Read More</a></Link>
+                    <Link href={feature.href}><a className='text-blue-900' >Read More <span className="text-blue-200" aria-hidden="true">
+                      &rarr;
+                    </span></a></Link>
                   </div>
                 ))}
               </dl>

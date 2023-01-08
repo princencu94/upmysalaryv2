@@ -10,7 +10,17 @@ import {
 
   ChevronRightIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import { ChevronDownIcon, 
+  ClipboardDocumentListIcon, 
+  NewspaperIcon, 
+  WindowIcon, 
+  DocumentMagnifyingGlassIcon,
+  DocumentChartBarIcon,
+  BookOpenIcon,
+  WalletIcon,
+  UserGroupIcon,
+  TrophyIcon
+} from '@heroicons/react/20/solid';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -19,17 +29,17 @@ const solutions = [
   {
     name: 'The Salary Boost Accelerator',
     href: '/service/the-salary-boost-accelerator',
-    icon: ChevronRightIcon,
+    icon: WalletIcon,
   },
   {
     name: 'Elite Performer Coaching Program',
     href: '/service/elite-performer-coaching-program',
-    icon: ChevronRightIcon,
+    icon: TrophyIcon,
   },
   {
     name: 'Group Coaching',
     href: '/service/group-coaching',
-    icon: ChevronRightIcon,
+    icon: UserGroupIcon,
   },
 ]
 
@@ -39,31 +49,21 @@ const products = [
     name: 'Resume Service',
     
     href: '/service/resume-service',
-    icon: ChevronRightIcon,
+    icon:   ClipboardDocumentListIcon,
   },
   {
     name: 'LinkedIn Service',
    
     href: '/service/linkedin-service',
-    icon: ChevronRightIcon,
+    icon: NewspaperIcon,
   },
   { name: 'Mock interviews',
     href: '/service/mock-interviews', 
-    icon: ChevronRightIcon },
-  {
-    name: 'Resume Review',
-    href: '/service/resume-review',
-    icon: ChevronRightIcon,
-  },
-  {
-    name: 'Linkedin Review',
-    href: '/service/linkedin-review',
-    icon: ChevronRightIcon,
-  },
+    icon: WindowIcon },
   {
     name: 'Ebooks',
     href: '/ebooks',
-    icon: ChevronRightIcon,
+    icon: BookOpenIcon,
   },
 ]
 
@@ -147,16 +147,16 @@ export default function Header() {
                   >
                     <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
                       <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <div className="relative grid gap-6 bg-gradient-to-r from-blue-900 to-blue-500 px-5 py-6 sm:gap-8 sm:p-8">
                           {products.map((item) => (
                             <a
                               key={item.name}
                               href={item.href}
-                              className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
+                              className="-m-3 flex items-start rounded-lg p-3 hover:bg-blue-800"
                             >
-                              <item.icon className="h-6 w-6 flex-shrink-0 text-green-600" aria-hidden="true" />
+                              <item.icon className="h-6 w-6 flex-shrink-0 text-blue-50 " aria-hidden="true" />
                               <div className="ml-4">
-                                <p className="text-base font-medium text-blue-900">{item.name}</p>
+                                <p className="text-base font-medium text-white">{item.name}</p>
                               </div>
                             </a>
                           ))}
@@ -197,16 +197,16 @@ export default function Header() {
                   >
                     <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
                       <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <div className="relative grid gap-6 bg-gradient-to-r from-blue-900 to-blue-500 px-5 py-6 sm:gap-8 sm:p-8">
                           {solutions.map((item) => (
                             <a
                               key={item.name}
                               href={item.href}
-                              className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
+                              className="-m-3 flex items-start rounded-lg p-3 hover:bg-blue-800"
                             >
-                              <item.icon className="h-6 w-6 flex-shrink-0 text-green-600" aria-hidden="true" />
+                              <item.icon className="h-6 w-6 flex-shrink-0 text-blue-50" aria-hidden="true" />
                               <div className="ml-4">
-                                <p className="text-base font-medium text-blue-900">{item.name}</p>
+                                <p className="text-base font-medium text-white">{item.name}</p>
                               </div>
                             </a>
                           ))}
@@ -285,7 +285,7 @@ export default function Header() {
                 <a
                   className="inline-block rounded-lg px-4 py-1 text-base font-semibold leading-7 text-green-900 ring-1 ring-blue-900/10 hover:ring-gray-900/20 mr-3"
                 >
-                  Sign in
+                  Login
                 </a>
           </Link>
             }
@@ -374,7 +374,7 @@ export default function Header() {
                       Existing customer? 
                       <Link href="#">
                         <a className="text-green-900">
-                          Sign in
+                          Login
                         </a>
                       </Link>
                     </p>

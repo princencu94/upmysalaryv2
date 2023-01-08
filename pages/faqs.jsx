@@ -111,7 +111,7 @@ export default function Faqs() {
             
             <div className="mt-20">
             <h1>
-                <span className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-blue-900 sm:text-4xl">
+                <span className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-blue-900 sm:text-5xl lg:text-6xl">
                     Faqs
                 </span>
             </h1>

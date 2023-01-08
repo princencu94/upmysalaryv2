@@ -11,13 +11,14 @@ import GroupIcon from '../../public/assets/meeting.png';
 import EliteIcon from '../../public/assets/vip-person.png';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 const services = [
     
 
     {
-      title: 'Resume Service ($200.00)',
+      title: 'Resume Service',
       id: 1,
       slug:'resume-service',
       otherServices: [
@@ -55,15 +56,31 @@ const services = [
         `<p>
         Our resume writing services assist job applicants in enhancing their image on paper. This is often the first thing a hiring manager or recruiter sees before choosing to give a candidate a call or send an email. We effectively share the accomplishments and unique contributions a person brings to the work environment, and our methodology aids in demonstrating a candidate’s competency and value. Few writing services are like our offering. Because of the deep dive we take to draw out the best in a person, a person will not need multiple different resumes in their job hunt and will rather be able to tweak this masterpiece for years to come. 
         </p>
-        <p>
-        We can provide you with assistance in creating a compelling resume that puts you on path to reaching your career goals. This is a turnkey solution that requires a 30-minute Zoom Consultation.
-        </p>`,
+        <div>
+          <h3 class="text-blue-900">How do we do it?</h3>
+          <p class="-mb-4 font-semibold text-blue-900">1.	Learn More About You!</p>
+          <ul role="list">
+            <li>You will describe yourself and your goals through our <strong>Career Questionnaire</strong></li>
+          </ul>
+
+          <p class="-mb-4 font-semibold text-blue-900">2.	Provide Feedback</p>
+          <ul role="list">
+            <li>Have an <strong>existing</strong> resume? We’ll review it and share the changes that are needed to help you shine.</li>
+            <li>If you do not have a resume, we will <strong>create a new resume</strong> for you, and outline the steps that will be taken.</li>
+          </ul>
+
+          <p class="-mb-4 font-semibold text-blue-900">3.	Create Your New Resume/CV!</p>
+          <ul role="list">
+            <li>We will create your resume and make it top-notch, presentable, and attractive to the leaders who hire for your skillset.</li>
+            <li>Schedule a 20-minute video call to express your end goal with our Career & Salary Expert.</li>
+          </ul>
+        </div>`,
       imageUrl:
         ResumeIcon,
         price:200.00
     },
     {
-      title: 'LinkedIn Service ($150.00)',
+      title: 'LinkedIn Service',
         id: 2,
         slug:'linkedin-service',
         otherServices:[
@@ -96,14 +113,34 @@ const services = [
         description:
           `
           <p>
-            Our LinkedIn services are designed to help you create a professional and effective LinkedIn profile that showcases your skills, experience, and value to potential employers. Here are the specific services we offer:
-          </p>`,
+          Online visibility is essential for networking with the right recruiters and hiring managers. Your goal is to be presented with more job opportunities, and LinkedIn is a great place to start! 
+
+          As the most highly used professional networking platform, a professional image can take you far. Our LinkedIn profile service will create, review and transform your LinkedIn page so that you can attract the audience seeking your unique blend of skills and experiences.          
+          </p>
+          <div>
+          <h3 class="text-blue-900">Here’s how we do it</h3>
+          <p class="-mb-4 font-semibold text-blue-900">1.	Review Your Current Profile! <span>(If you do not have a LinkedIn profile currently, skip to step 2)</span></p>
+          <ul role="list">
+            <li>If you already have a LinkedIn profile, we can review and edit it to ensure it is well-written, visually appealing, and tailored to your career goals.</li>
+          </ul>
+
+          <p class="-mb-4 font-semibold text-blue-900">2.	Provide Feedback! </p>
+          <ul role="list">
+            <li>Step by step, one of our LinkedIn experts will tell you what needs to be added and changed on your profile to fit your professional image.</li>
+          </ul>
+
+          <p class="-mb-4 font-semibold text-blue-900">3.	Create (or Update) Your Professional LinkedIn Profile</p>
+          <ul role="list">
+            <li>With a strengthened online profile/image, you are ready to continue your job search with confidence.</li>
+          </ul>
+        </div>
+          `,
       imageUrl:
         LinkedIcon,
         price:150.00
     },
     {
-      title: 'Mock interviews ($75.00)',
+      title: 'Mock interviews',
       id: 3,
       slug:'mock-interviews',
       otherServices:[
@@ -189,19 +226,19 @@ const services = [
           description:
             `
             <p>
-              Group coaching is done virtually through Zoom. Live calls are invitation only and allow candidates to ask questions directly according to their area of need. There is an established standard of success to describe what an individual who is successful looks like. And this knowledge is passed on to candidates during these calls. The goal is to transform their understanding of how others are ranking their capabilities and helping deliver the message that adjustment is needed for these individuals to reach their desired outcome.
+              Group coaching is a great way to hear the feedback and experiences of multiple people. You will have the opportunity to ask questions of experienced salary coaches, recruiters, and human resources professionals and have your questions addressed on the spot. Advice is given in each session so that you have the secret sauce and be able to present yourself professionally and confidently for your job search.             </p>
             </p>
             <p>
-              The coaching team at UpMySalary hosts different live calls for specific areas of professional development that directly impact a candidate’s perceived value to a corporation: Written Communication, Teamwork and Interpersonal Skills Training, Online Visibility before getting hired, , Job Performance,   The groups discuss how to increase knowledge of major issues, act, and be held accountable. The group coaching is the base of coaching abilities that put the coaching discussion into a compact group environment.
+            The goal of group coaching is to spread knowledge in small groups to ensure a smooth transfer of information. You will learn how candidates are ranked and know what you can do to up your value, how to increase your offer rate, ways to draw more eyes to your resume, and learn how to network with others to secure jobs through referrals.            </p>
             </p>
-              `,
+            `,
           imageUrl:
             GroupIcon,
             price:0,
             email:'info@upmysalary.com'
       },
       {
-        title: 'Resume Review ($50.00)',
+        title: 'Resume Review',
         id: 7,
         slug:'resume-review',
         description:
@@ -222,7 +259,7 @@ const services = [
           ''
       },
       {
-        title: 'Linkedin Review ($50.00)',
+        title: 'Linkedin Review',
         id:8,
         slug:'linkedin-review',
         otherServices:[
@@ -271,6 +308,7 @@ export default function Service() {
         <div className="relative overflow-hidden bg-white py-36">
             <div className="hidden lg:absolute lg:inset-y-0 lg:block lg:h-full lg:w-full">
                 <div className="relative mx-auto h-full max-w-prose text-lg" aria-hidden="true">
+                  <p className="absolute top-12 left-full translate-x-32 transform">Hello this is up my Salary</p>
                 <svg
                     className="absolute top-12 left-full translate-x-32 transform"
                     width={404}
@@ -366,7 +404,6 @@ export default function Service() {
             <div className="mx-auto max-w-5xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-3 lg:px-8">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
                 <p>
-                    <span className="">Ready to dive in?</span>
                     <span className="text-blue-900"> Get started today.</span>
                 </p>
                 
@@ -379,7 +416,7 @@ export default function Service() {
                     service.price !== 0 ?
                     <button
                     onClick={() => handleCart(service)}
-                    className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-blue-700 "
+                    className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 "
                     >
                     Order Now
                     </button>
@@ -389,7 +426,7 @@ export default function Service() {
                             href={`mailto:${service.email}`}
                             >
                             <a 
-                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-blue-700 ml-4"
+                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 ml-4"
                             target="blank">
                                 Enquire Now
                             </a>
@@ -400,7 +437,7 @@ export default function Service() {
                             href={service.link}
                             >
                             <a 
-                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-blue-700 ml-4"
+                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 ml-4"
                             target="blank">
                                 Schedule Meeting
                             </a>
@@ -414,7 +451,7 @@ export default function Service() {
                             href={service.payLink}
                             >
                             <a 
-                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-blue-700 ml-4"
+                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 ml-4"
                             target="blank">
                                 Pay what you can Afford
                             </a>
