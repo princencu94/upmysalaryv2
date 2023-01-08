@@ -13,7 +13,6 @@ import toast from 'react-hot-toast';
 import Link from 'next/link';
 import Image from 'next/image';
 
-
 const services = [
     
 
@@ -308,7 +307,6 @@ export default function Service() {
         <div className="relative overflow-hidden bg-white py-36">
             <div className="hidden lg:absolute lg:inset-y-0 lg:block lg:h-full lg:w-full">
                 <div className="relative mx-auto h-full max-w-prose text-lg" aria-hidden="true">
-                  <p className="absolute top-12 left-full translate-x-32 transform">Hello this is up my Salary</p>
                 <svg
                     className="absolute top-12 left-full translate-x-32 transform"
                     width={404}
