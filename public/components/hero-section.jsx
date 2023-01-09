@@ -21,7 +21,7 @@ export default function HeroSection() {
       <div className="relative pt-6 pb-16 sm:pb-24">
       
         <main className="mx-auto mt-16 max-w-7xl px-4 sm:mt-24">
-          <div className="text-center">
+          <div className="text-left lg:text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl max-w-4xl mx-auto">
               <span className="block xl:inline">UpMySalary, Not My Stress!</span>{'  '}
             </h1>
@@ -31,7 +31,7 @@ export default function HeroSection() {
               <span className="block  xl:inline">and Protect Their Income</span>
             </h1>
             
-            <div className="mt-8 flex gap-x-4 sm:justify-center">
+            <div className="mt-8 flex gap-x-4 lg:justify-center justify-start">
               {
                 currentUser ? 
                 null

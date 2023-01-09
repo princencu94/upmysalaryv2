@@ -144,19 +144,19 @@ const services = [
       slug:'mock-interviews',
       otherServices:[
         {
-          title:'One-on-one simulated job interview',
+          title:'One-on-one Simulated Job Interview',
           description:'You will participate in a simulated job interview with a professional coach, who will ask you a variety of common interview questions.'
         },
         {
-          title:'Customized questions and scenarios',
+          title:'Customized Questions and Scenarios',
           description:'You can choose the specific questions you want to be asked during the mock interview, or you can ask our coaches to choose the questions based on their experience and expertise. Either way, the mock interview will be tailored to your specific needs and goals.'
         },
         {
-          title:'Feedback and guidance',
+          title:'Feedback and Guidance',
           description:'During the mock interview, you will receive feedback and guidance from your coach on your performance. This will include constructive criticism on areas for improvement, as well as tips and strategies for answering common interview questions.'
         },
         {
-          title:'Recorded session',
+          title:'Recorded Session',
           description:'The mock interview will be recorded, so you can review and analyze your performance afterwards. This can be a valuable tool for identifying areas for improvement and fine-tuning your interview skills.'
         },
       ],
@@ -302,8 +302,10 @@ export default function Service() {
 
         
         <>
+        <section className='lg:sticky lg:top-0 z-50'>
+          <Header/>
+        </section>
         <div className="">
-        <Header/>
         <div className="relative overflow-hidden bg-white py-36">
             <div className="hidden lg:absolute lg:inset-y-0 lg:block lg:h-full lg:w-full">
                 <div className="relative mx-auto h-full max-w-prose text-lg" aria-hidden="true">
@@ -352,7 +354,7 @@ export default function Service() {
                 
                 </div>
             </div>
-            <div className="relative px-4 sm:px-6 lg:px-8">
+            <div className="relative px-4 sm:px-6 lg:px-8 z-0">
                 <div className="mx-auto max-w-prose text-lg">
                 <h1>
                     <span className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-blue-900 sm:text-4xl">
@@ -398,7 +400,7 @@ export default function Service() {
         {/* End of Section */}
 
         {/* Call to action Button */}
-        <div className="bg-blue-50 fixed bottom-0 left-0 right-0">
+        <div className="bg-blue-50 ">
             <div className="mx-auto max-w-5xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-3 lg:px-8">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
                 <p>

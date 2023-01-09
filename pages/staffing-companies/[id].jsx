@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useDispatch } from "react-redux";
 import toast from 'react-hot-toast';
-import Header from '../../public/components/header1';
+import Header from '../../public/components/header';
 import Footer from '../../public/components/footer';
 import BookCover from '../../public/assets/ebook-cover.jpg';
 import Image from 'next/image';
