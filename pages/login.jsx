@@ -7,7 +7,7 @@ import { setCurrentUser } from '../redux/user-reducer';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image'
-import headerBg from '../public/assets/background-beams.jpg'
+import headerBg from '../public/assets/background-beams.jpg';
 
 export default function Login() {
     const dispatch = useDispatch();
@@ -50,14 +50,15 @@ export default function Login() {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-                dispatch(setCredentials(user));
+                dispatch(setCurrentUser(user));
+                console.log(user);
             }).catch((error) => {
                 // Handle Errors here.
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 // The email of the user's account used.
                 // const email = error.customData.email;
-                console.log(error);
+                console.log("Errors", errorMessage);
                 // The AuthCredential type that was used.
                 const credential = GoogleAuthProvider.credentialFromError(error);
         
@@ -128,22 +129,20 @@ export default function Login() {
                 </div>
   
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <input
-                      id="remember-me"
-                      name="remember-me"
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                    />
-                    <label htmlFor="remember-me" className="ml-2 block text-sm text-blue-600">
-                      Remember me
-                    </label>
+                <div className="text-sm">
+                    <Link href="/register">
+                      <a  className="font-medium text-blue-600 hover:text-blue-500">
+                        Don't have an account
+                      </a>
+                    </Link>
                   </div>
   
                   <div className="text-sm">
-                    <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
-                      Forgot your password?
-                    </a>
+                    <Link href="#">
+                      <a  className="font-medium text-blue-600 hover:text-blue-500">
+                        Forgot your password?
+                      </a>
+                    </Link>
                   </div>
                 </div>
   
@@ -174,7 +173,7 @@ export default function Login() {
                       className="inline-flex w-full justify-center rounded-md border border-blue-300 bg-white py-2 px-4 text-sm font-medium text-blue-500 shadow-sm hover:bg-blue-50"
                     >
                       <span className="sr-only">Sign in with Google</span>
-                        Goggle
+                        Google
 
                     </button>
                   </div>

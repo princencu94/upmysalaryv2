@@ -302,10 +302,10 @@ export default function Service() {
 
         
         <>
-        <section className='lg:sticky lg:top-0 z-50'>
+        <section className="lg:sticky lg:top-0 z-50">
           <Header/>
         </section>
-        <div className="">
+        <div>
         <div className="relative overflow-hidden bg-white py-36">
             <div className="hidden lg:absolute lg:inset-y-0 lg:block lg:h-full lg:w-full">
                 <div className="relative mx-auto h-full max-w-prose text-lg" aria-hidden="true">
@@ -400,7 +400,7 @@ export default function Service() {
         {/* End of Section */}
 
         {/* Call to action Button */}
-        <div className="bg-blue-50 ">
+        <div className="bg-blue-50 fixed bottom-0 left-0 right-0">
             <div className="mx-auto max-w-5xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-3 lg:px-8">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
                 <p>
