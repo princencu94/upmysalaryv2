@@ -64,20 +64,20 @@ export default function ServiceSection() {
             <div className="mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="text-center">
               <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl">Our Services</h2>
-              <p className="mx-auto mt-3 mb-16 max-w-2xl text-lg text-black sm:mt-4">
+              <p className="mx-auto mt-3 mb-16 max-w-2xl text-lg text-gray-600 sm:mt-4">
               On one end, we have our turnkey resume and LinkedIn solutions and mock interview roleplaying. On the other, we have coaching programs and 1:1 coaching opportunities that walk clients step-by-step towards specific monetary and career goals
               </p>
             </div>
               <dl className="space-y-10 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
                 {services.map((feature) => (
-                  <div key={feature.title} className="shadow-lg shadow-blue-900 rounded-md p-5 hover:bg-blue-50">
+                  <div key={feature.title} className="shadow-lg shadow-green-900 rounded-md p-5 hover:bg-blue-50">
                     <dt>
                       <div className="flex h-12 w-12 items-center justify-center  text-white">
                         <Image fill className="h-6 w-6"src={feature.icon} alt={feature.title} />
                       </div>
                       <p className="mt-5 text-lg font-medium leading-6 text-blue-900">{feature.title}</p>
                     </dt>
-                    <dd className="mt-2 mb-5 text-base text-black">{feature.description}</dd>
+                    <dd className="mt-2 mb-5 text-base text-gray-600">{feature.description}</dd>
                     <Link href={feature.href}><a className='text-blue-900' >Read More <span className="text-blue-200" aria-hidden="true">
                       &rarr;
                     </span></a></Link>

@@ -21,21 +21,7 @@ const services = [
       id: 1,
       slug:'resume-service',
       otherServices: [
-        {
-          title:'Resume Writing',
-          description:'This service involves working with a professional writer to create a new resume from scratch. The writer will ask you questions about your work history, education, skills, and career goals to create a customized document that showcases your strengths and accomplishments.'
-        },
-        {
-          title:'Resume Editing',
-          description:'This service involves having a professional review your resume and provide feedback on its strengths and weaknesses. The reviewer may suggest changes to make the document more effective, or provide tips on how to tailor it to specific job openings.'
-        },
-        {
-          title:'Resume Design',
-          description:'This service involves working with a professional designer to create a visually appealing resume that stands out from the competition. A designer may use elements such as graphics, fonts, and colors to make the document more visually appealing and easy to read.'
-        },
-        {
-          title:''
-        }
+        
       ],
       otherContent: 
       `
@@ -325,7 +311,7 @@ export default function Service() {
                         height={20}
                         patternUnits="userSpaceOnUse"
                     >
-                        <rect x={0} y={0} width={4} height={4} className="text-blue-700" fill="currentColor" />
+                        <rect x={0} y={0} width={4} height={4} className="text-gray-400" fill="currentColor" />
                     </pattern>
                     </defs>
                     <rect width={404} height={384} fill="url(#74b3fd99-0a6f-4271-bef2-e80eeafdf357)" />
@@ -346,7 +332,7 @@ export default function Service() {
                         height={20}
                         patternUnits="userSpaceOnUse"
                     >
-                        <rect x={0} y={0} width={4} height={4} className="text-blue-700" fill="currentColor" />
+                        <rect x={0} y={0} width={4} height={4} className="text-gray-400" fill="currentColor" />
                     </pattern>
                     </defs>
                     <rect width={404} height={384} fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)" />
@@ -363,7 +349,7 @@ export default function Service() {
                 </h1>
  
                 </div>
-                <div className="prose prose-lg prose-blue mx-auto mt-6 text-black">
+                <div className="prose prose-lg prose-blue mx-auto mt-6 text-gray-600">
                 <p>
                     <div
                     dangerouslySetInnerHTML={{__html: service.description}}
@@ -374,14 +360,14 @@ export default function Service() {
                     service.otherServices.map((otherService) => (
                       <>
                       <h3 className='text-blue-900'>{otherService.title}</h3>
-                      <p>{otherService.description}</p>
+                      <p className='text-gray-600'>{otherService.description}</p>
                       </>
                     ))
                   }
                   
                 </div>
 
-                <p>
+                <p className='text-gray-600'>
                     <div
                     dangerouslySetInnerHTML={{__html: service.otherContent}}
                     />

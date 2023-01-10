@@ -127,7 +127,7 @@ const testimonials = [
 
 function Testimonial({ author, children }) {
   return (
-    <figure className="rounded-lg p-8 shadow-md shadow-blue-900 ring-1 ring-slate-900/5">
+    <figure className="rounded-lg p-8 shadow-md shadow-green-900 ring-1 ring-slate-900/5">
       <blockquote>
         <p className="text-lg tracking-tight text-slate-900 before:content-['“'] after:content-['”']">
           {children}

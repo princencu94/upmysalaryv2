@@ -7,20 +7,14 @@ import { setCurrentUser } from '../redux/user-reducer';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image'
-import headerBg from '../public/assets/background-beams.jpg';
+import headerBg from '../public/assets/background-beams.jpg'
 
 export default function Login() {
     const dispatch = useDispatch();
     const [credentials, setCredentials] = useState({email:"", password:""});
+    const [message, setMessage] = useState("");
     const router = useRouter();
-    const currentUser = useSelector(state => state.user.currentUser);
 
-    useEffect(() => {
-        if(currentUser) {
-            router.push('/')
-        }
-
-    },[currentUser])
 
     const handleChange = (e) => {
       e.preventDefault();
@@ -30,42 +24,8 @@ export default function Login() {
 
     const handleEmailSubmit = (e) => {
         e.preventDefault();
-        signInWithEmailAndPassword(auth, credentials.email, credentials.password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            dispatch(setCurrentUser(user));
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        });
+        setMessage("Access beyond this point is for students in Zana's coaching program. If you are looking to grow your income and are interested in being considered to be coached by Zana, please schedule a FREE call today to see if we are a fit!")
     }
-
-    const handleGoogleSubmit = () => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                // The signed-in user info.
-                const user = result.user;
-                dispatch(setCurrentUser(user));
-                console.log(user);
-            }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                // const email = error.customData.email;
-                console.log("Errors", errorMessage);
-                // The AuthCredential type that was used.
-                const credential = GoogleAuthProvider.credentialFromError(error);
-        
-        });
-    }
-
-    console.log("Loggedin user", currentUser);
 
     return (
       <>
@@ -79,7 +39,10 @@ export default function Login() {
                 className="h-full w-full object-cover"
               />
           </div>
-          <div className="relative sm:mx-auto sm:w-full sm:max-w-md ">
+
+          <div className="relative mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <div className="bg-white py-8 px-4 shadow-md sm:rounded-lg sm:px-10">
+            <div className="relative sm:mx-auto sm:w-full sm:max-w-md mb-10">
             <Link href="/">
                 <a>
                     <img
@@ -89,10 +52,11 @@ export default function Login() {
                     />
                 </a>
             </Link>
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-blue-900">Sign in to your account</h2>
+            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-blue-900">Sign in</h2>
           </div>
-          <div className="relative mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div className="bg-white py-8 px-4 shadow-md sm:rounded-lg sm:px-10">
+          <div>
+            <p className='text-center text-gray-400 pb-4'>{message}</p>
+          </div>
               <form className="space-y-6" onSubmit={handleEmailSubmit}>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-blue-700">
@@ -130,11 +94,9 @@ export default function Login() {
   
                 <div className="flex items-center justify-between">
                 <div className="text-sm">
-                    <Link href="/register">
-                      <a  className="font-medium text-blue-600 hover:text-blue-500">
-                        Don't have an account
-                      </a>
-                    </Link>
+                      <button  className="font-medium text-blue-600 hover:text-blue-500">
+                        Do not have an account?
+                      </button> 
                   </div>
   
                   <div className="text-sm">
@@ -155,42 +117,6 @@ export default function Login() {
                   </button>
                 </div>
               </form>
-  
-              <div className="mt-6">
-                <div className="relative">
-                  <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-blue-300" />
-                  </div>
-                  <div className="relative flex justify-center text-sm">
-                    <span className="bg-white px-2 text-blue-900">Or continue with</span>
-                  </div>
-                </div>
-  
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  <div>
-                    <button
-                    onClick={handleGoogleSubmit}
-                      className="inline-flex w-full justify-center rounded-md border border-blue-300 bg-white py-2 px-4 text-sm font-medium text-blue-500 shadow-sm hover:bg-blue-50"
-                    >
-                      <span className="sr-only">Sign in with Google</span>
-                        Google
-
-                    </button>
-                  </div>
-  
-                  <div>
-                    <a
-                      href="#"
-                      className="inline-flex w-full justify-center rounded-md border border-blue-300 bg-white py-2 px-4 text-sm font-medium text-blue-500 shadow-sm hover:bg-blue-50"
-                    >
-                      <span className="sr-only">Sign in with Twitter</span>
-                      Facebook
-                    </a>
-                  </div>
-  
-
-                </div>
-              </div>
             </div>
           </div>
         </div>
