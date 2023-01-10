@@ -218,11 +218,11 @@ export default function Header() {
               )}
             </Popover>
 
-            <Link href="/faqs" >
+            {/* <Link href="/faqs" >
                 <a className="text-base font-medium text-blue-900 hover:text-green-900">Faqs</a>
-            </Link>
+            </Link> */}
             <Link href="/contact-us" className="text-base font-medium text-blue-900 hover:text-green-900">
-                <a className="text-base font-medium text-blue-900 hover:text-gray-900">Contact us</a>
+                <a className="text-base font-medium text-blue-900 hover:text-gray-900">Contact Us</a>
             </Link>
           </Popover.Group>
           <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
