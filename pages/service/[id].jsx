@@ -461,7 +461,7 @@ export default function Service() {
                 
                 </div>
                   {
-                    service.faqs !== [] ?
+                    service.faqs.length !== 0 ?
 
                     <div className="mx-auto max-w-2xl py-0 px-4 sm:py-16 pl-7">
                       <div>

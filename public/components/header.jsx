@@ -88,7 +88,6 @@ export default function Header() {
       0
   );
 
-  console.log(currentUser)
   return (
     <Popover className="relative bg-white shadow-md">
 
