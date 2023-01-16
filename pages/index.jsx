@@ -5,10 +5,10 @@ import HowItWorks from '../public/components/howitworks';
 import Image from 'next/image';
 import ZanaImage from '../public/assets/quote.jpg';
 import CtaImage from '../public/assets/background-hero.jpg';
-import { Reviews } from '../public/components/Reviews';
+import Reviews from '../public/components/Reviews';
 import Header from '../public/components/header';
 import Link from 'next/link';
-import CallToAction from '../public/components/CallToAction';
+
 
 export default function Home() {
 

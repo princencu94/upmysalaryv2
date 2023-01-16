@@ -340,7 +340,7 @@ function ReviewGrid() {
   )
 }
 
-export function Reviews() {
+export default function Reviews() {
   return (
     <section
       id="reviews"
