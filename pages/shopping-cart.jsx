@@ -104,7 +104,7 @@ export default function ShoppingCart() {
               <button
                 type="submit"
                 onClick={() => router.push('/checkout-form')}
-                className="w-full rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                className="w-full rounded-md border border-transparent bg-gradient-to-l from-green-600 to-blue-900 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
               >
                 Checkout
               </button>

@@ -127,7 +127,7 @@ export default function LinkedIn() {
                 <div className="inline-flex rounded-md shadow">
                     <button
                     onClick={addToCart}
-                    className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700"
+                    className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700"
                     >
                     Order Now
                     </button>

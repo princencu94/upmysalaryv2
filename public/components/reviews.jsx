@@ -345,7 +345,7 @@ export default function Reviews() {
     <section
       id="reviews"
       aria-labelledby="reviews-title"
-      className="pt-20  sm:pt-32 "
+      className="pt-20  sm:pt-26 "
     >
       <Container >
       <div className='text-center mx-auto max-w-4xl'>

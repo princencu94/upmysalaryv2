@@ -8,6 +8,7 @@ import CtaImage from '../public/assets/background-hero.jpg';
 import Reviews from '../public/components/reviews';
 import Header from '../public/components/header';
 import Link from 'next/link';
+import { motion } from "framer-motion";
 
 
 export default function Home() {
@@ -18,14 +19,35 @@ export default function Home() {
         <Header/>
       </section>
      {/* Hero Section */}
-    <HeroSection/>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 2.0 }}
+    >
+      <HeroSection/>
+    </motion.div>
+    
    
     {/* // Service Section */}
-    <ServiceSection/>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 2.0 }}
+    >
+      <ServiceSection/>
+    </motion.div>
+    
       
     
               {/* Testimonial section */}
-              <div className="bg-gradient-to-r from-green-600 to-blue-900 pb-16 mb-10 mt-32 lg:relative lg:z-10 lg:pb-0">
+              <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 2.0 }}
+              className="bg-gradient-to-l from-green-600 to-blue-900 pb-9 mb-10 mt-20 lg:relative lg:z-10 lg:pb-0">
             <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-8 lg:px-8">
               <div className="relative lg:-my-8">
                 <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden" />
@@ -67,9 +89,17 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <HowItWorks/>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 2.0 }}
+          >
+            <HowItWorks/>
+          </motion.div>
+          
           
           {/* CTA */}
           <div className="relative ">
@@ -81,16 +111,16 @@ export default function Home() {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="mx-auto max-w-7xl py-20 px-4 text-left lg:text-center sm:px-6 lg:py-16 lg:px-8">
-              <h2 className="text-3xl font-bold tracking-tight  text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-500 sm:text-4xl">
+            <div className="relative mx-auto max-w-7xl py-20 px-4 text-left lg:text-center sm:px-6 lg:py-16 lg:px-8">
+              <h2 className="text-3xl font-bold tracking-tight  text-transparent bg-clip-text bg-gradient-to-l from-blue-900 to-blue-500 sm:text-4xl">
                 <span className="block">Ready to make more</span>
                 <span className="block">Contact us today!.</span>
               </h2>
               <div className="mt-8 flex gap-x-4 sm:justify-center justify-start">
-                  <Link href="/login">
+                  <Link href="/contact-us">
                   <a
                     
-                    className="inline-block rounded-lg bg-blue-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700"
+                    className="inline-block rounded-lg bg-gradient-to-l from-green-600 to-blue-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700"
                   >
                     Get started
                     <span className="text-blue-200" aria-hidden="true">
@@ -98,22 +128,18 @@ export default function Home() {
                     </span>
                   </a>
                   </Link>
-                
-                  <Link href="/contact-us">
-                  <a
-                    
-                    className="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-green-900 ring-1 ring-blue-900/10 hover:ring-gray-900/20"
-                  >
-                    Contact us
-                    <span className="text-green-900" aria-hidden="true">
-                      &rarr;
-                    </span>
-                  </a>
-                  </Link>
               </div>
             </div>
           </div>
-          <Reviews/>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 2.0 }}
+          >
+            <Reviews/>
+          </motion.div>
+          
           <Footer/>
 
     </>

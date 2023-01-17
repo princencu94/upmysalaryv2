@@ -7,6 +7,7 @@ import Stats from "../public/components/stats";
 
 import ZanaImage from '../public/assets/zana-4.jpeg';
 import BackCTA from '../public/assets/wave_background_33.jpg';
+import { motion } from "framer-motion";
 
 const faqs = [
 
@@ -47,7 +48,12 @@ export default function AboutUs() {
         </section>
         
         <section>
-            <div className="overflow-hidden bg-white py-16 px-4 sm:px-6 lg:px-8 xl:py-36">
+            <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 2.0 }}
+            className="overflow-hidden bg-white py-16 px-4 sm:px-6 lg:px-8 xl:py-36">
                 <div className="mx-auto max-w-max lg:max-w-7xl">
                     <div className="relative z-10 mb-8 md:mb-2 md:px-6">
                     <div className="max-w-prose text-base lg:max-w-none">
@@ -108,15 +114,20 @@ export default function AboutUs() {
                     </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </section>
 
         {/* CTA */}
-        <section className="-mt-20">
+        <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 2.0 }}
+         className="-mt-20">
             <div className="relative">
                 <div className="absolute inset-0">
                     <Image
-                    fill
+                    layout="fill"
                     className="h-full w-full object-cover "
                     src={BackCTA}
                     alt=""
@@ -132,14 +143,7 @@ export default function AboutUs() {
                         Here at UpMySalary, we up your salary, not your stress, so take this stress-free assessment to see where we might be able to help you or pick from one of our Services
                     </p>
                     <div className="mt-8 flex justify-center">
-                    <div className="inline-flex rounded-md shadow">
-                        <a
-                        href="#"
-                        className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-600 px-5 py-3 text-base font-medium text-white hover:bg-blue-700"
-                        >
-                            Give us a call
-                        </a>
-                    </div>
+
                     {/* <div className="ml-3 inline-flex">
                         <a
                         href="#"
@@ -151,10 +155,15 @@ export default function AboutUs() {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
 
         {/* Why Choose us */}
-        <section>
+        <motion.section
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 2.0 }}
+        >
             <div className="relative overflow-hidden bg-white pt-3">
                 <div className="relative">
                 <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
@@ -207,14 +216,24 @@ export default function AboutUs() {
             </div>
 
             </div>
-        </section>
+        </motion.section>
 
-        <section>
+        <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 2.0 }}
+        >
             <Stats/>
-        </section>
+        </motion.section>
 
          {/* Mission Statement */}
-        <section className="">
+        <motion.section 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 2.0 }}
+        >
             <div className="relative  bg-white py-16 sm:py-0 sm:pb-16">
                 <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-start lg:gap-24 lg:px-10">
                     <div className="relative sm:py-16 lg:py-0">
@@ -287,7 +306,7 @@ export default function AboutUs() {
                     </div>
                 </div>
             </div>                     
-        </section>
+        </motion.section>
         <Footer/>
         </>
     )

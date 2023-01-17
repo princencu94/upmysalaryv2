@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router';
 import { addItem } from '../../redux/cart-reducer';
@@ -12,7 +13,8 @@ import EliteIcon from '../../public/assets/vip-person.png';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { Disclosure } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/24/outline'
+import { ChevronDownIcon, ClipboardDocumentCheckIcon} from '@heroicons/react/24/outline'
+import ServiceOptions from '../../public/components/servicesOptions';
 
 const services = [
     
@@ -95,7 +97,27 @@ const services = [
             answer:
               "In addition to our resume service, we also offer a range of job search resources and support, including career coaching, job search strategy sessions, and interview preparation. These services can be added on to your resume package or purchased separately.",
           },
-        ]
+
+        ],
+        serviceOps: [
+            {
+              title:"Resume Review",
+              id:1.2,
+              price:50.00,
+              slug:'resume-service',
+              imageUrl:ResumeIcon,
+              description:'Rather than doing your resume for you, we are going to give you honest feedback about your current resume.'
+            },
+            {
+              title:"Resume Service",
+              id:1,
+              price:200.00,
+              slug:'resume-service',
+              imageUrl:ResumeIcon,
+              description:'Our resume writing services assist job applicants in enhancing their image on paper.'
+            },
+
+        ]  
     },
     {
       title: 'LinkedIn Service',
@@ -167,7 +189,26 @@ const services = [
             answer:
               "In addition to our LinkedIn service, we also offer a range of job search resources and support, including career coaching, job search strategy sessions, and interview preparation. These services can be added on to your LinkedIn package or purchased separately.",
           },
-        ]
+        ],
+        serviceOps: [
+          {
+            title:"Linkedin Review",
+            id:2.2,
+            price:50.00,
+            slug:'linkedin-service',
+            imageUrl:LinkedIcon,
+            description:'How does your online profile compare to others in your job role and industry? LinkedIn is a professional networking site where you want all eyes to be on your profile, (the right eyes!).'
+          },
+          {
+            title:"Linkedin Service",
+            id:2,
+            price:150.00,
+            slug:'linkedin-service',
+            imageUrl:LinkedIcon,
+            description:'Online visibility is essential for networking with the right recruiters and hiring managers. Your goal is to be presented with more job opportunities, and LinkedIn is a great place to start!'
+          },
+
+      ]
         
     },
     {
@@ -239,7 +280,17 @@ const services = [
             answer:
               "Yes, you can choose the specific questions you want to be asked during the mock interview. Alternatively, you can also ask our coaches to choose the questions based on their experience and expertise. Either way, the mock interview will be tailored to your specific needs and goals.",
           },
-        ]
+        ],
+        serviceOps: [
+          {
+            title:"Mock interviews",
+            id:3,
+            price:75.00,
+            slug:'mock-interviews',
+            imageUrl:MockIcon,
+            description:'Our mock interview service is designed to help you practice and improve your interview skills in a safe and supportive environment.'
+          },
+      ]
     },
     {
         title: 'The Salary Boost Accelerator',
@@ -260,6 +311,8 @@ const services = [
         price:0,
         link:'https://calendly.com/zana-m/coaching-with-zana',
         faqs:[],
+        serviceOps: [
+      ]
       },
       {
           title: 'Elite Performer Coaching Program',
@@ -281,6 +334,9 @@ const services = [
               price:0,
               email:'info@upmysalary.com',
               faqs:[],
+              serviceOps: [
+               
+            ]
       },
       {
           title: 'Group Coaching',
@@ -302,6 +358,9 @@ const services = [
             price:0,
             email:'info@upmysalary.com',
             faqs:[],
+            serviceOps: [
+            
+          ]
       },
       {
         title: 'Resume Review',
@@ -324,6 +383,9 @@ const services = [
           otherContent: 
           '',
           faqs:[],
+          serviceOps: [
+            
+        ]
       },
       {
         title: 'Linkedin Review',
@@ -346,6 +408,8 @@ const services = [
           price:50.00,
           payLink:'https://buy.stripe.com/4gw9BN1rofgV4vufZ0',
           faqs:[],
+          serviceOps: [
+        ]
       },
   ]
 
@@ -355,12 +419,17 @@ const services = [
 
 export default function Service() {
 
+    const [showOptions, setShowOptions] = useState(false);
     const router = useRouter()
     const { id } = router.query
     const service = services.find(service => service.slug == id);
 
 
     const dispatch = useDispatch();
+
+    const handleOptions = () => {
+      setShowOptions(true);
+    }
 
     const handleCart = (service) => {
         
@@ -523,8 +592,8 @@ export default function Service() {
                    
                     service.price !== 0 ?
                     <button
-                    onClick={() => handleCart(service)}
-                    className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 "
+                    onClick={handleOptions}
+                    className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 "
                     >
                     Order Now
                     </button>
@@ -534,7 +603,7 @@ export default function Service() {
                             href={`mailto:${service.email}`}
                             >
                             <a 
-                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 ml-4"
+                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 ml-4"
                             target="blank">
                                 Enquire Now
                             </a>
@@ -545,7 +614,7 @@ export default function Service() {
                             href={service.link}
                             >
                             <a 
-                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 ml-4"
+                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 ml-4"
                             target="blank">
                                 Schedule Meeting
                             </a>
@@ -559,7 +628,7 @@ export default function Service() {
                             href={service.payLink}
                             >
                             <a 
-                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 ml-4"
+                                className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 ml-4"
                             target="blank">
                                 Pay what you can Afford
                             </a>
@@ -575,6 +644,7 @@ export default function Service() {
             </div>
         </div>
         <Footer/>
+        <ServiceOptions showOptions={showOptions} setShowOptions={setShowOptions} items={service.serviceOps}/>
         </>
     )
 }

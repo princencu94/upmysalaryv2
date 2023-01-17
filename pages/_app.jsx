@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import '../styles/globals.css';
 
 import { store } from '../redux/store';
@@ -9,7 +9,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { Toaster } from 'react-hot-toast';
 import { CookiesProvider } from "react-cookie";
-import 'focus-visible';
+import Loading from '../public/components/loading';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
@@ -46,7 +46,9 @@ const options = {
               {clientSecret && (
                   <Elements options={options} stripe={stripePromise}>
                     <Toaster position="top-right"/>
-                    <Component {...pageProps} />
+                   
+                        <Component {...pageProps} />
+      
                   </Elements>
               )} 
         </PersistGate>

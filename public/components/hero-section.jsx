@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import ReviewPopUp from './reviewpopup';
 
 export default function HeroSection() {
-  const currentUser = useSelector(state => state.user.currentUser);
   const [showPopup, setShowPopup] = useState(false);
   return (
     
@@ -31,29 +30,20 @@ export default function HeroSection() {
             </h1>
             <h1 className='text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl md:text-4xl max-w-3xl mx-auto mt-3'>
               <span className="block xl:inline">Helping people Up Their Value,</span>{'  '}
-              <span className="block xl:inline text-blue-900">Make More Money, </span>{'  '}
+              <span className="block xl:inline bg-clip-text text-transparent bg-gradient-to-l from-green-600 to-blue-900">Make More Money, </span>{'  '}
               <span className="block  xl:inline">and Protect Their Income</span>
             </h1>
             
-            <div className="mt-8 flex gap-x-4 lg:justify-center justify-start">
-              {
-                currentUser ? 
-                null
-                :
-                <>
-                  
+                <div className="mt-8 flex gap-x-4 lg:justify-center justify-start">
                   <button
                     onClick={() => setShowPopup(true)}
-                    className=" animate-bounce inline-block rounded-lg bg-blue-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700"
+                    className=" animate-bounce inline-block rounded-lg bg-gradient-to-l from-green-600 to-blue-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700"
                   >
                     Get started
                     <span className="text-blue-200" aria-hidden="true">
                       &rarr;
                     </span>
                   </button>
-                  
-                  </>
-                }
                 </div>
           </div>
         </main>

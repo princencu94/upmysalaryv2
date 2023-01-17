@@ -80,7 +80,7 @@ export default function Ebook() {
                 <button
                   onClick={() => handleCart(product)}
                   type="submit"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-l from-green-600 to-blue-900 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                 >
                   Buy it Now
                 </button>
@@ -91,7 +91,7 @@ export default function Ebook() {
                 >
                   <a
                     target="_blank" rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center rounded-md border border-blue-900 bg-white to-blue-900 py-3 px-8 text-base font-medium text-blue-900 hover:bg-gradient-to-r from-green-600 to-blue-900 hover:text-white focus:outline-none focus:ring-2 "
+                    className="flex w-full items-center justify-center rounded-md border border-blue-900 bg-white to-blue-900 py-3 px-8 text-base font-medium text-blue-900 hover:bg-gradient-to-l from-green-600 to-blue-900 hover:text-white focus:outline-none focus:ring-2 "
                   >Pay What You Can Afford</a>
                 </Link>
               </div>

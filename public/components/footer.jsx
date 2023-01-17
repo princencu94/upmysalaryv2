@@ -2,10 +2,7 @@
 const navigation = {
     main: [
       { name: 'About', href: '/about' },
-      { name: 'Services', href: '/services' },
-      // { name: 'Support Tools', href: '/support-tools' },
       { name: 'Ebooks', href: '/ebooks' },
-      { name: 'Courses', href: '/courses' },
       {name:'Terms of Service', href:'/terms-of-service'}
     ],
     social: [
@@ -49,7 +46,7 @@ const navigation = {
   
   export default function Footer() {
     return (
-      <footer className="bg-gradient-to-r from-blue-900 to-blue-500">
+      <footer className="bg-gradient-to-l from-blue-900 to-blue-500">
         <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
           <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
             {navigation.main.map((item) => (

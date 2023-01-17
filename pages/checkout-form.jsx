@@ -105,7 +105,7 @@ export default function CheckoutForm() {
         <h1 className="sr-only">Checkout</h1>
 
         {/* Mobile order summary */}
-        <section aria-labelledby="order-heading" className="bg-blue-900 px-4 py-6 sm:px-6 lg:hidden">
+        <section aria-labelledby="order-heading" className="bg-gradient-to-l from-blue-900 to-blue-500 px-4 py-6 sm:px-6 lg:hidden">
           <Disclosure as="div" className="mx-auto max-w-lg">
             {({ open }) => (
               <>
@@ -127,7 +127,6 @@ export default function CheckoutForm() {
                           <div className="space-y-1 text-sm font-medium">
                             <h3 className="text-white">{product.name}</h3>
                             <p className="text-white">${product.price}</p>
-                            <p className="text-white">{product.description.slice(0, 150)}</p>
                           </div>
 
                         </div>
@@ -153,7 +152,7 @@ export default function CheckoutForm() {
         </section>
 
         {/* Order summary */}
-        <section aria-labelledby="summary-heading" className="hidden w-full max-w-md flex-col bg-blue-900 lg:flex">
+        <section aria-labelledby="summary-heading" className="hidden w-full max-w-md flex-col bg-gradient-to-l from-blue-900 to-blue-500 lg:flex">
           <h2 id="summary-heading" className="sr-only">
             Order summary
           </h2>
@@ -165,15 +164,14 @@ export default function CheckoutForm() {
                         <Image
                           src={product.image.src}
                           alt={product.name}
-                          width="400"
-                          height="300"
-                          className="h-40 w-40 flex-none rounded-md bg-gray-200 object-cover object-center"
+                          width="60"
+                          height="60"
+                          className="h-20 w-20 flex-none rounded-md bg-gray-200 object-cover object-center"
                         />
                         <div className="flex flex-col justify-between space-y-4">
                           <div className="space-y-1 text-sm font-medium">
                             <h3 className="text-white">{product.name}</h3>
                             <p className="text-white">${product.price}</p>
-                            <p className="text-white">{product.description.slice(0, 150)}</p>
                           </div>
                           
                         </div>
@@ -241,7 +239,7 @@ export default function CheckoutForm() {
               <PaymentElement id="payment-element" />
                 <button type="submit" disabled={isLoading || !stripe || !elements} 
                 id="submit"
-                className=" mt-6 w-full rounded-md border border-transparent bg-gradient-to-r from-green-600 to-blue-900 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                className=" mt-6 w-full rounded-md border border-transparent bg-gradient-to-l from-green-600 to-blue-900 py-3 px-4 text-base font-medium text-white shadow-sm "
                 >
                     <span id="button-text">
                     {isLoading ? <div className="spinner" id="spinner">{message}</div> : "Pay now"}
