@@ -577,7 +577,59 @@ export default function Service() {
         {/* End of Section */}
 
         {/* Call to action Button */}
-        <div className="bg-blue-50 fixed bottom-0 left-0 right-0">
+        <div className='block sm:hidden fixed bottom-0 left-0 right-0'>
+        {
+                   
+                   service.price !== 0 ?
+                   <button
+                   onClick={handleOptions}
+                   className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 "
+                   >
+                   Order Now
+                   </button>
+                   :
+                   service.email ?
+                   <Link
+                           href={`mailto:${service.email}`}
+                           >
+                           <a 
+                               className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 "
+                           target="blank">
+                               Enquire Now
+                           </a>
+                           
+                   </Link>
+                   :
+                   <Link
+                           href={service.link}
+                           >
+                           <a 
+                               className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700"
+                           target="blank">
+                               Schedule Meeting
+                           </a>
+                           
+                   </Link>
+                   }
+
+                   {
+                       service.payLink ?
+                       <Link
+                           href={service.payLink}
+                           >
+                           <a 
+                               className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700"
+                           target="blank">
+                               Pay what you can Afford
+                           </a>
+                           
+                       </Link>
+                       :
+                       null
+                   }
+               
+        </div>
+        <div className="hidden sm:block bg-blue-50 fixed bottom-0 left-0 right-0">
             <div className="mx-auto max-w-5xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-3 lg:px-8">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
                 <p>
