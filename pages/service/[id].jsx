@@ -106,6 +106,7 @@ const services = [
               price:50.00,
               slug:'resume-service',
               imageUrl:ResumeIcon,
+              anyAmount:'https://buy.stripe.com/eVa01d0nk2u9aTSeUU',
               description:'Rather than doing your resume for you, we are going to give you honest feedback about your current resume.'
             },
             {
@@ -114,7 +115,8 @@ const services = [
               price:200.00,
               slug:'resume-service',
               imageUrl:ResumeIcon,
-              description:'Our resume writing services assist job applicants in enhancing their image on paper.'
+              anyAmount:null,
+              description:'Our Top Tier Resume Service provides you with a fully revamped (or entirely new) resume that speaks to your strengths and ability to be a great assert wherever you go.'
             },
 
         ]  
@@ -197,6 +199,7 @@ const services = [
             price:50.00,
             slug:'linkedin-service',
             imageUrl:LinkedIcon,
+            anyAmount:'https://buy.stripe.com/4gw9BN1rofgV4vufZ0',
             description:'How does your online profile compare to others in your job role and industry? LinkedIn is a professional networking site where you want all eyes to be on your profile, (the right eyes!).'
           },
           {
@@ -205,6 +208,7 @@ const services = [
             price:150.00,
             slug:'linkedin-service',
             imageUrl:LinkedIcon,
+            anyAmount:null,
             description:'Online visibility is essential for networking with the right recruiters and hiring managers. Your goal is to be presented with more job opportunities, and LinkedIn is a great place to start!'
           },
 
@@ -288,6 +292,7 @@ const services = [
             price:75.00,
             slug:'mock-interviews',
             imageUrl:MockIcon,
+            anyAmount:null,
             description:'Our mock interview service is designed to help you practice and improve your interview skills in a safe and supportive environment.'
           },
       ]
@@ -431,14 +436,6 @@ export default function Service() {
       setShowOptions(true);
     }
 
-    const handleCart = (service) => {
-        
-        const { id , title, description, price, imageUrl, slug} = service;
-        if(dispatch(addItem({id: id , name: title, description:description, price:price, image:imageUrl, slug:slug}))) {
-            toast.success('Added to Cart');
-        }
-
-    }
     return (
 
         
@@ -583,7 +580,7 @@ export default function Service() {
                    service.price !== 0 ?
                    <button
                    onClick={handleOptions}
-                   className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 "
+                   className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-blue-700 "
                    >
                    Order Now
                    </button>
@@ -593,7 +590,7 @@ export default function Service() {
                            href={`mailto:${service.email}`}
                            >
                            <a 
-                               className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 "
+                               className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-blue-700 "
                            target="blank">
                                Enquire Now
                            </a>
@@ -604,7 +601,7 @@ export default function Service() {
                            href={service.link}
                            >
                            <a 
-                               className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700"
+                               className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-blue-700"
                            target="blank">
                                Schedule Meeting
                            </a>
@@ -618,7 +615,7 @@ export default function Service() {
                            href={service.payLink}
                            >
                            <a 
-                               className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700"
+                               className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-blue-700"
                            target="blank">
                                Pay what you can Afford
                            </a>

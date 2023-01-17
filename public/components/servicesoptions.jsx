@@ -4,6 +4,7 @@ import { XMarkIcon } from '@heroicons/react/20/solid';
 import { addItem } from '../../redux/cart-reducer';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
+import Link from 'next/link';
 
 const OptionsList = ({items}) => {
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const OptionsList = ({items}) => {
 
     }
     return (
-        <div className="divide-y divide-gray-200 mt-4">
+        <div className="divide-y divide-gray-200 ">
         {items.map((service) => (
             <div
             key={service.id}
@@ -30,15 +31,31 @@ const OptionsList = ({items}) => {
                 </div>
             </div>
             <div className="mt-1">
-                <p className="text-sm text-gray-600 line-clamp-2">{service.description.slice(0, 120)}</p>
+                <p className="text-sm text-gray-600 line-clamp-2">{service.description.slice(0, 150)}</p>
             </div>
             <div className="mt-3 flex gap-x-4 justify-start">
                   <button
                     onClick={() => handleCart(service)}
                     className="inline-block rounded-lg bg-gradient-to-l from-green-600 to-blue-900 px-2 py-0.5 text-sm font-medium leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700"
                   >
-                    Order now
+                    Order Now
                   </button>
+                {
+                    service.anyAmount !== null ?
+                     <Link
+                    
+                     href={service.anyAmount}
+                     
+                   >
+                     <a target="_blank" className="inline-block rounded-lg bg-gradient-to-l from-green-600 to-blue-900 px-2 py-0.5 text-sm font-medium leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700">
+                        Pay What You Can Afford
+                     </a>
+                   </Link>
+                   :
+                   null
+                }
+                 
+
             </div>
             </div>
             
