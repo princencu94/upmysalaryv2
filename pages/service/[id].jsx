@@ -14,7 +14,7 @@ import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { Disclosure } from '@headlessui/react';
 import { ChevronDownIcon, ClipboardDocumentCheckIcon} from '@heroicons/react/24/outline'
-import ServiceOptions from '../../public/components/servicesOptions';
+import ServiceOptions from '../../public/components/servicesoptions';
 
 const services = [
     
