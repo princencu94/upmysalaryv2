@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
-import headerBg from '../assets/background-beams.jpg'
-import { useSelector } from 'react-redux';
+import headerBg from '../assets/background-hero.jpg'
 import ReviewPopUp from './reviewpopup';
 
 export default function HeroSection() {
