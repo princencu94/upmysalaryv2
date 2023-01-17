@@ -107,7 +107,7 @@ const services = [
               slug:'resume-service',
               imageUrl:ResumeIcon,
               anyAmount:'https://buy.stripe.com/eVa01d0nk2u9aTSeUU',
-              description:'Rather than doing your resume for you, we are going to give you honest feedback about your current resume.'
+              description:'Rather than doing the resume for you, we give you the detailed feedback you need to enhance your resume on your own!'
             },
             {
               title:"Resume Service",
