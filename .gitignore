@@ -9,7 +9,7 @@
 /coverage
 
 # next.js
-/.next/
+
 /out/
 
 # production
@@ -36,3 +36,14 @@ yarn-error.log*
 next-env.d.ts
 
 upmysalaryv2.zip
+/pages
+/styles
+/redux
+firebase.js
+server.js
+package.json
+package-lock.json
+postcss.config.js
+yarn.lock
+yarn-error.log
+
