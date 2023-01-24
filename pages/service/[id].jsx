@@ -15,6 +15,7 @@ import Link from 'next/link';
 import { Disclosure } from '@headlessui/react';
 import { ChevronDownIcon, ClipboardDocumentCheckIcon} from '@heroicons/react/24/outline'
 import ServiceOptions from '../../public/components/servicesoptions';
+import ReactPlayer from 'react-player/youtube';
 
 const services = [
     
@@ -23,6 +24,7 @@ const services = [
       title: 'Resume Service',
       id: 1,
       slug:'resume-service',
+      videoLink:'https://www.youtube.com/watch?v=q-csIUhFQiA',
       otherServices: [
         
       ],
@@ -125,6 +127,7 @@ const services = [
       title: 'LinkedIn Service',
         id: 2,
         slug:'linkedin-service',
+        videoLink:'https://www.youtube.com/watch?v=zOvRkpuPork',
         otherServices:[
           
         ],
@@ -219,6 +222,7 @@ const services = [
       title: 'Mock interviews',
       id: 3,
       slug:'mock-interviews',
+      videoLink:null,
       otherServices:[
         {
           title:'One-on-one Simulated Job Interview',
@@ -301,6 +305,7 @@ const services = [
         title: 'The Salary Boost Accelerator',
         id: 4,
         slug:'the-salary-boost-accelerator',
+        videoLink:null,
         otherServices:[],
         otherContent:'',
         description:
@@ -323,6 +328,7 @@ const services = [
           title: 'Elite Performer Coaching Program',
           id: 5,
           slug:'elite-performer-coaching-program',
+          videoLink:null,
           otherServices:[],
           otherContent:'',
           description:
@@ -347,6 +353,7 @@ const services = [
           title: 'Group Coaching',
           id: 6,
           slug:'group-coaching',
+          videoLink:null,
           otherServices:[],
           otherContent:'',
           description:
@@ -371,6 +378,7 @@ const services = [
         title: 'Resume Review',
         id: 7,
         slug:'resume-review',
+        videoLink:null,
         description:
           `
           <p>
@@ -396,6 +404,7 @@ const services = [
         title: 'Linkedin Review',
         id:8,
         slug:'linkedin-review',
+        videoLink:null,
         otherServices:[
           
         ],
@@ -525,11 +534,21 @@ export default function Service() {
                     />
                 </p>
                 
+                {
+                  service.videoLink !== null ?
+                    <div className='my-10'>
+                      <ReactPlayer width="100%" url={service.videoLink} />
+                    </div>
+                  :
+                  null
+                }
+               
+                
                 </div>
                   {
                     service.faqs.length !== 0 ?
 
-                    <div className="mx-auto max-w-2xl py-0 px-4 sm:py-16 pl-7">
+                    <div className="mx-auto max-w-2xl py-0 pr-0 sm:pr-2 sm:py-16 pl-0 sm:pl-2">
                       <div>
                       <h3 class="text-blue-900 text-xl font-semibold">FAQs</h3>
                       </div>

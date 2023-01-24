@@ -78,7 +78,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "https://upmysalaryv2.vercel.app/schedule",
+        return_url: "https://upmysalary.com/schedule",
         receipt_email: email,
       },
     });
