@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import Logo from '../public/assets/logo-2.png';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Link from 'next/link';
 import { setCurrentUser } from '../redux/user-reducer';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image'
 import headerBg from '../public/assets/background-hero.jpg';
-import { Formik } from 'formik';
+import { useFormik } from 'formik';
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export default function Register() {
 
   useEffect(() => {
       if(currentUser) {
-          router.push('/')
+          router.push('/dashboard');
       }
 
   },[currentUser])
@@ -31,36 +31,45 @@ export default function Register() {
 
     onSubmit: values => {
 
-      alert(JSON.stringify(values, null, 2));
-
+      createUserWithEmailAndPassword(auth, values.email, values.password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        dispatch(setCurrentUser(user));
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
     },
 
   });
 
-  const [credentials, setCredentials] = useState({email:"", password:""})
+ 
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    setCredentials({...credentials, [name]: value})
-  }
+  // const handleChange = (e) => {
+  //   e.preventDefault();
+  //   const { name, value } = e.target;
+  //   setCredentials({...credentials, [name]: value})
+  // }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    createUserWithEmailAndPassword(auth, credentials.email, credentials.password)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      dispatch(setCurrentUser(user));
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-    });
-  }
-
+  //   createUserWithEmailAndPassword(auth, credentials.email, credentials.password)
+  //   .then((userCredential) => {
+  //     // Signed in 
+  //     const user = userCredential.user;
+  //     dispatch(setCurrentUser(user));
+  //   })
+  //   .catch((error) => {
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     // ..
+  //   });
+  // }
+  const provider = new GoogleAuthProvider();
   const handleGoogleSubmit = () => {
     signInWithPopup(auth, provider)
         .then((result) => {
@@ -84,8 +93,6 @@ export default function Register() {
     });
 }
   
-
-    console.log("Form", credentials.email);
     return (
       <>
         <div className="relative flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -112,7 +119,7 @@ export default function Register() {
   
           <div className="relative mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div className="bg-white py-8 px-4 shadow-md sm:rounded-lg sm:px-10">
-              <form className="space-y-6" onSubmit={handleSubmit} >
+              <form className="space-y-6" onSubmit={formik.handleSubmit} >
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-blue-700">
                     Email address

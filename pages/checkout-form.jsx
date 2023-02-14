@@ -8,8 +8,7 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 import Image from 'next/image';
-import Link from "next/link";
-
+import Head from 'next/head';
 
 export default function CheckoutForm() {
  
@@ -101,6 +100,16 @@ export default function CheckoutForm() {
 
   return (
     <>
+    <Head>
+            <title>
+              Checkout
+            </title>
+            <meta
+            name="description"
+            content="Checkout"
+            key="desc"
+            />
+        </Head>
     <main className="lg:flex lg:min-h-full lg:flex-row-reverse lg:overflow-hidden">
         <h1 className="sr-only">Checkout</h1>
 

@@ -5,6 +5,7 @@ import Footer from "../public/components/footer";
 import { InlineWidget } from "react-calendly";
 import { clearCart } from "../redux/cart-reducer";
 import { useRouter } from 'next/router'
+import Head from 'next/head';
 
 export default function Schedule() {
     const router = useRouter();
@@ -21,6 +22,16 @@ export default function Schedule() {
 
     return (
         <>
+        <Head>
+            <title>
+              Schedule
+            </title>
+            <meta
+            name="description"
+            content="Schedule"
+            key="desc"
+            />
+        </Head>
         <div className="pt-5 pb-20 mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             
             <div className="mt-20">

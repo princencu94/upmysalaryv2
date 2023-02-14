@@ -1,12 +1,22 @@
 import Footer from '../public/components/footer';
 import Header from '../public/components/header';
-import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { PhoneIcon } from '@heroicons/react/24/outline'
 import ContactImage from '../public/assets/contact-us.jpg';
 import Image from 'next/image';
-
+import Head from 'next/head';
 export default function ContactUs() {
     return (
         <>
+        <Head>
+            <title>
+                Contact Us
+            </title>
+            <meta
+            name="description"
+            content="For all your enquiries we have our sales and support people on standby for you, they will get back to you as soon as possible"
+            key="desc"
+            />
+        </Head>
         <section className='sticky top-0 z-50'>
             <Header/>
         </section>

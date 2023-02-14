@@ -1,45 +1,45 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 
-import ReactPlayer from 'react-player/youtube';
+import videojs from 'video.js';
+import { PlayIcon } from '@heroicons/react/20/solid';
 
-  export default function VideoTools() {
+export default function VideoTools() {
+  const [videos, setVideos] = useState([]);
 
-    const [videos, setVideos] = useState([]);
+  var config = {
+    method: 'get',
+    url: 'https://api.vimeo.com/users/157509679/albums/10183038',
+    headers: { 
+      'Authorization': 'Bearer 6ac60c38bbce2312bdf5f2e2a4043969', 
+    }
+  };
 
-    useEffect(() => {
-      axios.get('https://youtube.googleapis.com/youtube/v3/search?', {
-        params: {
-          part: 'snippet',
-          channelId:'UCgSihFkBZPGN2VQAPXgBMLw',
-          key:'AIzaSyCZBC--6XOyC7CCjKqFfNyXgfZ3ITk33rw',
-          videoType:'any',
-          maxResults:'10',
-          order:'date',
-        }
-      })
-      .then(function (response) {
-        setVideos(response.data.items)
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
-    }, [])
+  useEffect(() => {
+    axios(config)
+    .then(function (response) {
+      console.log('Showcase', response);
+      setVideos(response.data.data)
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+  }, [])
+
+
+
    
-    return (
-      <ul role="list" className="grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
-        {videos.filter((data, idx) => idx !== 6).map((videos) => (
-          <li key={videos.id.videoId} className="relative">
-            <div className="group  block overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-                <ReactPlayer width="100%" url={`https://www.youtube.com/watch?v=${videos.id.videoId}`} />
-            </div>
-            <p className="pointer-events-none mt-2 block truncate text-lg font-medium text-blue-900">{videos.snippet.title.replaceAll('&quot;', '')}</p>
-          </li>
-        ))}
-      </ul>
+
+
+    
+   
+    return ( 
+      <section className="mx-auto max-w-4xl">
+        <iframe src="https://vimeo.com/showcase/10183038/embed" width="100%" height="500" frameaBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="Your First 90-Days in a New Role"></iframe>
+      </section>
     )
     
   }

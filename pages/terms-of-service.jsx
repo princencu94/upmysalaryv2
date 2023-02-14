@@ -1,9 +1,19 @@
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
-
+import Head from 'next/head';
 export default function TermsOfService() {
     return (
         <>
+        <Head>
+            <title>
+              Terms of Service
+            </title>
+            <meta
+            name="description"
+            content="Terms of Service"
+            key="desc"
+            />
+        </Head>
         <div className="sticky top-0 z-50">
             <Header/>
         </div>

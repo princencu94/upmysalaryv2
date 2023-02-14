@@ -6,7 +6,7 @@ import Footer from '../../public/components/footer';
 import BookCover from '../../public/assets/ebook-cover.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import Head from 'next/head';
 
 import { addItem } from "../../redux/cart-reducer";
 
@@ -48,6 +48,16 @@ export default function Ebook() {
 
     return (
     <div className="bg-white">
+        <Head>
+            <title>
+               {product.name}
+            </title>
+            <meta
+            name="description"
+            content={product.description}
+            key="desc"
+            />
+        </Head>
         <div className="sticky top-0 z-50">
             <Header/>
         </div>

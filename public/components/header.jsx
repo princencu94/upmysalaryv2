@@ -41,6 +41,11 @@ const solutions = [
     href: '/service/group-coaching',
     icon: UserGroupIcon,
   },
+  {
+    name: 'Videos',
+    href: '/support-tools',
+    icon: UserGroupIcon,
+  },
 ]
 
 
@@ -89,7 +94,7 @@ export default function Header() {
   );
 
   return (
-    <Popover className="relative bg-white shadow-md">
+    <Popover className="relative bg-white ">
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex items-center justify-between  py-2 md:justify-start md:space-x-10">
@@ -358,7 +363,7 @@ export default function Header() {
             <div className="space-y-6 py-6 px-5">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 <Link href="/about" >
-                    <a className="text-base font-medium text-blue-900 hover:text-green-900">Faqs</a>
+                    <a className="text-base font-medium text-blue-900 hover:text-green-900">About us</a>
                 </Link>
                 <Link href="/contact-us" >
                     <a className="text-base font-medium text-blue-900 hover:text-green-900">Contact</a>

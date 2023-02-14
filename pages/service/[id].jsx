@@ -13,9 +13,10 @@ import EliteIcon from '../../public/assets/vip-person.png';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { Disclosure } from '@headlessui/react';
-import { ChevronDownIcon, ClipboardDocumentCheckIcon} from '@heroicons/react/24/outline'
+import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import ServiceOptions from '../../public/components/servicesoptions';
 import ReactPlayer from 'react-player/youtube';
+import Head from 'next/head';
 
 const services = [
     
@@ -449,6 +450,16 @@ export default function Service() {
 
         
         <>
+        <Head>
+            <title>
+              {service.title}
+            </title>
+            <meta
+            name="description"
+            content={service.description}
+            key="desc"
+            />
+        </Head>
         <section className="lg:sticky lg:top-0 z-50">
           <Header/>
         </section>

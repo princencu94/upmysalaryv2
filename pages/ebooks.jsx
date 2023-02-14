@@ -1,10 +1,21 @@
 import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import EbookShop from "../public/components/ebookshop";
+import Head from 'next/head';
 
 export default function Ebooks() {
     return (
         <>
+        <Head>
+            <title>
+                Ebooks
+            </title>
+            <meta
+            name="description"
+            content="A Variety of Ebooks written by Zana herself"
+            key="desc"
+            />
+        </Head>
         <div className="sticky top-0 z-50">
             <Header/>
         </div>

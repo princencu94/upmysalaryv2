@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { removeItem, addItem } from '../redux/cart-reducer';
 import Link from 'next/link';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import Head from 'next/head';
 
 export default function ShoppingCart() {
     
@@ -22,6 +23,16 @@ export default function ShoppingCart() {
 
     return (
         <>
+        <Head>
+            <title>
+              Shopping Cart
+            </title>
+            <meta
+            name="description"
+            content="Shopping Cart"
+            key="desc"
+            />
+        </Head>
         <div className="sticky top-0 z-50">
             <Header/>
         </div>

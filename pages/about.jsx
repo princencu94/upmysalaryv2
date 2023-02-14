@@ -8,7 +8,7 @@ import Stats from "../public/components/stats";
 import ZanaImage from '../public/assets/zana-4.jpeg';
 import BackCTA from '../public/assets/wave_background_33.jpg';
 import { motion } from "framer-motion";
-
+import Head from 'next/head';
 const faqs = [
 
 
@@ -43,6 +43,16 @@ const faqs = [
 export default function AboutUs() {
     return (
         <>
+        <Head>
+            <title>
+                About us
+            </title>
+            <meta
+            name="description"
+            content="UpMySalary is dedicated to transforming the lives of others so that they can achieve their career goals - and our services are effective in helping others reach their salaries globally."
+            key="desc"
+            />
+        </Head>
         <section className="sticky top-0 z-50">
             <Header/>
         </section>

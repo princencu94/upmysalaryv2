@@ -1,4 +1,4 @@
-import HeroSection from '../public/components/hero-section';
+import HeroSection from '../public/components/hero-section2';
 import ServiceSection from '../public/components/services-section';
 import Footer from '../public/components/footer';
 import HowItWorks from '../public/components/howitworks';
@@ -9,12 +9,22 @@ import Reviews from '../public/components/reviews';
 import Header from '../public/components/header';
 import Link from 'next/link';
 import { motion } from "framer-motion";
-
+import Head from 'next/head';
 
 export default function Home() {
 
   return (
     <>
+    <Head>
+        <title>
+          UpMySalary - Home
+        </title>
+        <meta
+          name="description"
+          content="Helping people Up Their Value, Make More Money, and Protect Their Income"
+          key="desc"
+        />
+      </Head>
       <section className='sticky top-0 z-50'>
         <Header/>
       </section>

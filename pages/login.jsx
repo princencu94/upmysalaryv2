@@ -8,27 +8,79 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image'
 import headerBg from '../public/assets/background-beams.jpg'
+import Head from 'next/head';
+
+
 
 export default function Login() {
-    const dispatch = useDispatch();
-    const [credentials, setCredentials] = useState({email:"", password:""});
-    const [message, setMessage] = useState("");
-    const router = useRouter();
+  const dispatch = useDispatch();
+  const [credentials, setCredentials] = useState({email:"", password:""});
+  const router = useRouter();
+  const currentUser = useSelector(state => state.user.currentUser);
 
+  useEffect(() => {
+      if(currentUser) {
+          router.push('/dashboard')
+      }
 
-    const handleChange = (e) => {
+  },[currentUser])
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials({...credentials, [name]: value})
+  }
+
+  const handleEmailSubmit = (e) => {
       e.preventDefault();
-      const { name, value } = e.target;
-      setCredentials({...credentials, [name]: value})
-    }
+      signInWithEmailAndPassword(auth, credentials.email, credentials.password)
+      .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          dispatch(setCurrentUser(user));
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+      });
+  }
 
-    const handleEmailSubmit = (e) => {
-        e.preventDefault();
-        setMessage("Access beyond this point is for students in Zana's coaching program. If you are looking to grow your income and are interested in being considered to be coached by Zana, please schedule a FREE call today to see if we are a fit!")
-    }
+  const handleGoogleSubmit = () => {
+      signInWithPopup(auth, provider)
+          .then((result) => {
+              // This gives you a Google Access Token. You can use it to access the Google API.
+              const credential = GoogleAuthProvider.credentialFromResult(result);
+              const token = credential.accessToken;
+              // The signed-in user info.
+              const user = result.user;
+              dispatch(setCredentials(user));
+          }).catch((error) => {
+              // Handle Errors here.
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              // The email of the user's account used.
+              // const email = error.customData.email;
+              console.log(error);
+              // The AuthCredential type that was used.
+              const credential = GoogleAuthProvider.credentialFromError(error);
+      
+      });
+  }
+
+  console.log("Loggedin user", currentUser);
+
 
     return (
       <>
+        <Head>
+            <title>
+              Login
+            </title>
+            <meta
+            name="description"
+            content="Login page"
+            key="desc"
+            />
+        </Head>
         <div className="relative flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
         
           <div className="absolute inset-0 opacity-80 mix-blend-multiply ">
@@ -53,9 +105,6 @@ export default function Login() {
                 </a>
             </Link>
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-blue-900">Sign in</h2>
-          </div>
-          <div>
-            <p className='text-center text-gray-400 pb-4'>{message}</p>
           </div>
               <form className="space-y-6" onSubmit={handleEmailSubmit}>
                 <div>
@@ -93,10 +142,12 @@ export default function Login() {
                 </div>
   
                 <div className="flex items-center justify-between">
-                <div className="text-sm">
-                      <button  className="font-medium text-blue-600 hover:text-blue-500">
-                        Do not have an account?
-                      </button> 
+                  <div className="text-sm">
+                      <Link href="/register" >
+                        <a className="font-medium text-blue-600 hover:text-blue-500">
+                          Do not have an account?
+                        </a>
+                      </Link> 
                   </div>
   
                   <div className="text-sm">
