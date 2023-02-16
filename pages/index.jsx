@@ -3,13 +3,13 @@ import ServiceSection from '../public/components/services-section';
 import Footer from '../public/components/footer';
 import HowItWorks from '../public/components/howitworks';
 import Image from 'next/image';
-import ZanaImage from '../public/assets/quote.jpg';
 import CtaImage from '../public/assets/background-hero.jpg';
 import Reviews from '../public/components/reviews';
 import Header from '../public/components/header';
 import Link from 'next/link';
 import { motion } from "framer-motion";
 import Head from 'next/head';
+import PlayerScreenshot from '../public/assets/player-app-screenshot.jpg';
 
 export default function Home() {
 
@@ -34,6 +34,7 @@ export default function Home() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 2.0 }}
+      className="z-40"
     >
       <HeroSection/>
     </motion.div>
@@ -45,6 +46,7 @@ export default function Home() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 2.0 }}
+      className="-mt-6 z-50"
     >
       <ServiceSection/>
     </motion.div>
@@ -57,48 +59,64 @@ export default function Home() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 2.0 }}
-              className="bg-gradient-to-l from-green-600 to-blue-900 pb-9 mb-10 mt-20 lg:relative lg:z-10 lg:pb-0">
-            <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-8 lg:px-8">
-              <div className="relative lg:-my-8">
-                <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden" />
-                <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:h-full lg:p-0">
-                  <div className="aspect-w-10 aspect-h-6 overflow-hidden rounded-xl shadow-xl sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-                    <Image
-                      className="object-cover lg:h-full lg:w-full"
-                      src={ZanaImage}
-                      fill
-                      height={1300}
-                      width={1000}
-                      alt=""
-                    />
+              >
+              <div className="bg-white">
+                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                  <div className="relative isolate overflow-hidden bg-blue-800 py-20 px-6 sm:rounded-3xl sm:py-24 sm:px-10 lg:py-24 xl:px-24">
+                    <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-y-0">
+                      <div className="lg:row-start-2 lg:max-w-md">
+                        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                          The Salary Boost Accelerator
+                        </h2>
+                        <p className="mt-6 text-lg leading-8 text-blue-200">
+                        We offer these programs because we realize that we cannot serve everyone so we want to make you self-reliant. Yet, many features including, skills and knowledge that we will deliver in this program can benefit anyone who wills to engage in them.
+                        </p>
+                      </div>
+                      <img
+                        src={PlayerScreenshot.src}
+                        alt="Product screenshot"
+                        className="relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none"
+                        width={2432}
+                        height={1442}
+                      />
+                      <div className="max-w-xl lg:row-start-3 lg:mt-10 lg:max-w-md lg:border-t lg:border-white/10 lg:pt-10">
+                        <Link href="/login">
+                          <a className="inline-block rounded-lg bg-gradient-to-l from-green-600 to-blue-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700">
+                            Watch the course for free
+                            <span className="text-blue-200" aria-hidden="true">
+                              &rarr;
+                            </span>
+                          </a>
+                        </Link>
+                      </div>
+                    </div>
+                    <svg
+                      className="pointer-events-none absolute top-1/2 left-12 -z-10 h-[42.375rem] -translate-y-1/2 transform-gpu blur-3xl lg:top-auto lg:bottom-[-12rem] lg:translate-y-0"
+                      viewBox="0 0 1155 678"
+                      fill="none"
+                    >
+                      <path
+                        fill="url(#c0458c57-1330-459f-9d5c-f0d75c210466)"
+                        fillOpacity=".25"
+                        d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="c0458c57-1330-459f-9d5c-f0d75c210466"
+                          x1="1155.49"
+                          x2="-78.208"
+                          y1=".177"
+                          y2="474.645"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stopColor="#188C58" />
+                          <stop offset={1} stopColor="#fff" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </div>
                 </div>
               </div>
-              <div className="mt-12 lg:col-span-2 lg:m-0 lg:pl-8">
-                <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
-                  <blockquote>
-                    <div>
-                      <svg
-                        className="h-12 w-12 text-white opacity-25"
-                        fill="currentColor"
-                        viewBox="0 0 32 32"
-                        aria-hidden="true"
-                      >
-                        <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                      </svg>
-                      <p className="mt-6 text-4xl italic font-medium text-white">
-                      It takes as much energy to wish  for more money as it does to plan for it.
-
-                      </p>
-                    </div>
-                    <footer className="mt-6">
-                      <p className="text-base font-medium text-white">Zana Mathuthu</p>
-                      <p className="text-base font-medium text-cyan-100">CEO at UpMySalary</p>
-                    </footer>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
           </motion.div>
 
           <motion.div
@@ -106,38 +124,48 @@ export default function Home() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 2.0 }}
+            className="bg-blue-100"
           >
             <HowItWorks/>
           </motion.div>
           
           
           {/* CTA */}
-          <div className="relative ">
-            <div className="absolute inset-0 opacity-100 mix-blend-multiply ">
-              <Image
-                src={CtaImage.src}
-                alt="Hero Section beams"
-                layout='fill'
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="relative mx-auto max-w-7xl py-20 px-4 text-left lg:text-center sm:px-6 lg:py-16 lg:px-8">
-              <h2 className="text-3xl font-bold tracking-tight  text-transparent bg-clip-text bg-gradient-to-l from-blue-900 to-blue-500 sm:text-4xl">
-                <span className="block">Ready to make more</span>
-                <span className="block">Contact us today!.</span>
-              </h2>
-              <div className="mt-8 flex gap-x-4 sm:justify-center justify-start">
-                  <Link href="/contact-us">
-                  <a
-                    
-                    className="inline-block rounded-lg bg-gradient-to-l from-green-600 to-blue-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700"
-                  >
-                    Get started
-                    <span className="text-blue-200" aria-hidden="true">
-                      &rarr;
-                    </span>
-                  </a>
+          <div className="bg-white">
+            <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-0 lg:px-8">
+              <div className="relative isolate overflow-hidden bg-blue-900 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
+                <h2 className="mx-auto max-w-2xl text-4xl font-bold tracking-tight text-white">
+                  Ready to kick start your journey
+                </h2>
+                <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
+                  Schedule a meeting with Zana to find out more on the path you have chosen to take with UpMySalary or call if you need any quick assistance
+                </p>
+                <div className="mt-10 flex items-center justify-center gap-x-6">
+                <Link href="https://calendly.com/upmysalary/coaching">
+                    <a  target="_blank" className="rounded-md bg-gradient-to-l from-green-600 to-blue-900 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    >
+                      Schedule Meeting
+                    </a>
                   </Link>
+                  <Link href="/contact-us">
+                    <a  className="text-base font-semibold leading-7 text-white">
+                      Call us <span aria-hidden="true">→</span>
+                    </a>
+                  </Link>
+                </div>
+                <svg
+                  viewBox="0 0 1024 1024"
+                  className="absolute top-1/2 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+                  aria-hidden="true"
+                >
+                  <circle cx={512} cy={512} r={512} fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fillOpacity="0.7" />
+                  <defs>
+                    <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
+                      <stop stopColor="#188C58" />
+                      <stop offset={1} stopColor="#fff" />
+                    </radialGradient>
+                  </defs>
+                </svg>
               </div>
             </div>
           </div>

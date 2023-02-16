@@ -209,7 +209,7 @@ export default function Register() {
                   </div>
                 </div>
   
-                <div className="mt-6 grid grid-cols-2 gap-3">
+                <div className="mt-6 grid grid-cols-1 gap-3">
                   <div>
                     <button
                     onClick={handleGoogleSubmit}
@@ -221,7 +221,7 @@ export default function Register() {
                     </button>
                   </div>
   
-                  <div>
+                  {/* <div>
                     <a
                       href="#"
                       className="inline-flex w-full justify-center rounded-md border border-blue-300 bg-white py-2 px-4 text-sm font-medium text-blue-500 shadow-sm hover:bg-blue-50"
@@ -229,7 +229,7 @@ export default function Register() {
                       <span className="sr-only">Sign in with Twitter</span>
                       Facebook
                     </a>
-                  </div>
+                  </div> */}
   
 
                 </div>

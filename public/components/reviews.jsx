@@ -349,7 +349,7 @@ export default function Reviews() {
     >
       <Container >
       <div className='text-center mx-auto max-w-4xl'>
-      <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl">
+      <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-4xl">
           Some kind words from early clients...
         </h2>
         <p className="mt-4 text-lg tracking-tight text-slate-600 italic">

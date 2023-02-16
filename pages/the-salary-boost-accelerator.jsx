@@ -6,7 +6,7 @@ import {
 } from '@heroicons/react/24/outline';
 import VideoTools from '../public/components/video-tools';
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../public/assets/logo-2.png';
 import { setCurrentUser } from '../redux/user-reducer';
 import Avatar from '../public/assets/avatardefault.png';
@@ -24,7 +24,8 @@ function classNames(...classes) {
 }
 
 export default function TheSalaryBoostAccelerator() {
-
+    
+  const dispatch = useDispatch(); 
     const currentUser = useSelector(state => state.user.currentUser);
     const router = useRouter();
 

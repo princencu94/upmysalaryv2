@@ -110,7 +110,7 @@ const services = [
               slug:'resume-service',
               imageUrl:ResumeIcon,
               anyAmount:'https://buy.stripe.com/eVa01d0nk2u9aTSeUU',
-              description:'Rather than doing the resume for you, we give you the detailed feedback you need to enhance your resume on your own!'
+              description:'You will receive a 10 minute video of feedback on your resume plus written notes, delivered in 1-3 business days. Rather than doing the resume for you, we give you the detailed feedback you need to enhance your resume on your own!'
             },
             {
               title:"Resume Service",
@@ -383,8 +383,8 @@ const services = [
         description:
           `
           <p>
-          Resume services are a type of professional writing service that help job seekers create a document that summarizes their education, experience, skills, and achievements. These services are designed to help individuals stand out in a competitive job market and increase their chances of getting hired.
-          There are several types of resume services available, including:
+            Resume services are a type of professional writing service that help job seekers create a document that summarizes their education, experience, skills, and achievements. These services are designed to help individuals stand out in a competitive job market and increase their chances of getting hired.
+            There are several types of resume services available, including:
           </p>
           `,
         imageUrl:
