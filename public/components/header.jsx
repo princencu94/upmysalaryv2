@@ -41,11 +41,6 @@ const solutions = [
     href: '/service/group-coaching',
     icon: UserGroupIcon,
   },
-  {
-    name: 'Videos',
-    href: '/support-tools',
-    icon: UserGroupIcon,
-  },
 ]
 
 
