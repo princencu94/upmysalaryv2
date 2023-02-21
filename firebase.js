@@ -22,10 +22,12 @@ const db = getFirestore(app);
 auth.languageCode = 'it';
 const provider = new GoogleAuthProvider(app);
 
-const addUserToDb = async (fullname, email, password) => {
+const addUserToDb = async (firstname, lastname, age, email, password) => {
   try {
     const docRef = await addDoc(collection(db, "users"), {
-      fullname: fullname,
+      firstname: firstname,
+      lastname:lastname,
+      age:age,
       email: email,
       password: password
     });

@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image'
 import headerBg from '../public/assets/background-hero.jpg';
+import Spinner from '../public/assets/spinner.svg';
 import { useFormik } from 'formik';
 
 
@@ -23,8 +24,16 @@ const validate = values => {
     errors.password = 'Required!';
   } 
 
-  if (!values.fullname) {
-    errors.fullname = 'Required!';
+  if (!values.firstname) {
+    errors.firstname = 'Required!';
+  } 
+  
+  if (!values.lastname) {
+    errors.lastname = 'Required!';
+  } 
+
+  if (!values.age) {
+    errors.age = 'Required!';
   } 
 
   if (!values.email) {
@@ -54,7 +63,9 @@ export default function Register() {
   const formik = useFormik({
 
     initialValues: {
-      fullname:'',
+      firstname:'',
+      lastname:'',
+      age:0,
       email: '',
       password:'',
       confirmpassword:'',
@@ -67,7 +78,7 @@ export default function Register() {
       } else {
       createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
-        addUserToDb(values.fullname, values.email, values.password);
+        addUserToDb(values.firstname, values.lastname, values.age, values.email, values.password);
         const user = userCredential.user;
         dispatch(setCurrentUser(user));
         setSubmitForm(false);
@@ -133,29 +144,49 @@ export default function Register() {
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-blue-900">Create an Account</h2>
           </div>
   
-          <div className="relative mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="relative mt-8 sm:mx-auto sm:w-full sm:max-w-2xl">
             <div className="bg-white py-8 px-4 shadow-md sm:rounded-lg sm:px-10">
               <p className='text-red-500 py-5'>{message.confirm || message.firebasemessage}</p>
               <form className="space-y-6" onSubmit={formik.handleSubmit} >
-              <div>
-                  <label htmlFor="fullname" className="block text-sm font-medium text-blue-700">
-                    Full Name
+              <div className="mt-0 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+              <div className='sm:col-span-3'>
+                  <label htmlFor="name" className="block text-sm font-medium text-blue-700">
+                    First Name
                   </label>
                   <div className="mt-1">
                     <input
-                      id="fullname"
-                      name="fullname"
+                      id="name"
+                      name="firstname"
                       type="text"
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={formik.values.fullname}
+                      value={formik.values.firstname}
                       required
                       className="block w-full appearance-none rounded-md border border-blue-300 px-3 py-2 placeholder-blue-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                     />
                   </div>
-                  {formik.errors.fullname ? <div className=' text-red-500 text-sm'>{formik.errors.fullname}</div> : null}
+                  {formik.errors.firstname ? <div className=' text-red-500 text-sm'>{formik.errors.firstname}</div> : null}
                 </div>
-                <div>
+                <div className='sm:col-span-3'>
+                  <label htmlFor="lastname" className="block text-sm font-medium text-blue-700">
+                    Last Name
+                  </label>
+                  <div className="mt-1">
+                    <input
+                      id="lastname"
+                      name="lastname"
+                      type="text"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.lastname}
+                      required
+                      className="block w-full appearance-none rounded-md border border-blue-300 px-3 py-2 placeholder-blue-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                    />
+                  </div>
+                  {formik.errors.lastname ? <div className=' text-red-500 text-sm'>{formik.errors.lastname}</div> : null}
+                </div>
+
+                <div className='sm:col-span-3'>
                   <label htmlFor="email" className="block text-sm font-medium text-blue-700">
                     Email address
                   </label>
@@ -174,8 +205,27 @@ export default function Register() {
                   </div>
                   {formik.errors.email ? <div className=' text-red-500 text-sm'>{formik.errors.email}</div> : null}
                 </div>
-  
-                <div>
+                <div className='sm:col-span-3'>
+                  <label htmlFor="age" className="block text-sm font-medium text-blue-700">
+                    Age {formik.values.age}
+                  </label>
+                  <div className="mt-1">
+                    <input
+                      id="age"
+                      name="age"
+                      type="range"
+                      min="17" 
+                      max="80"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.age}
+                      required
+                      className="block w-full px-3 py-2  focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                    />
+                  </div>
+                  {formik.errors.age ? <div className=' text-red-500 text-sm'>{formik.errors.age}</div> : null}
+                </div>
+                <div className='sm:col-span-3'>
                   <label htmlFor="password" className="block text-sm font-medium text-blue-700">
                     Password
                   </label>
@@ -195,7 +245,7 @@ export default function Register() {
                   {formik.errors.password ? <div className=' text-red-500 text-sm'>{formik.errors.password}</div> : null}
                 </div>
 
-                <div>
+                <div className='sm:col-span-3'>
                   <label htmlFor="password" className="block text-sm font-medium text-blue-700">
                     Confirm Passowrd
                   </label>
@@ -213,7 +263,7 @@ export default function Register() {
                   </div>
                   {formik.errors.confirmpassword ? <div className=' text-red-500 text-sm'>{formik.errors.confirmpassword}</div> : null}
                 </div>
-  
+              </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     
@@ -240,7 +290,7 @@ export default function Register() {
                 </div>
               </form>
 
-              <div className="mt-6">
+              {/* <div className="mt-6">
                 <div className="relative">
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t border-blue-300" />
@@ -262,7 +312,7 @@ export default function Register() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

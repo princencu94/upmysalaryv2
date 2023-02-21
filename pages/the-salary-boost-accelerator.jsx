@@ -52,7 +52,7 @@ export default function TheSalaryBoostAccelerator() {
     },[currentUser])
 
     const user = {
-      name: dbUser ? dbUser.fullname : null,
+      name: dbUser ? dbUser.firstname + " " + dbUser.lastname : null,
       email: dbUser ? dbUser.email : null,
       imageUrl:Avatar   
     }

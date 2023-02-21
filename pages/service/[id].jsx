@@ -320,7 +320,7 @@ const services = [
         imageUrl:
           BoostIcon,
         price:0,
-        link:'https://calendly.com/zana-m/coaching-with-zana',
+        link:'https://calendly.com/upmysalary/coaching',
         faqs:[],
         serviceOps: [
       ]
@@ -622,7 +622,7 @@ export default function Service() {
                            <a 
                                className="inline-flex items-center justify-center w-full border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-3 text-base font-medium text-white hover:bg-blue-700 "
                            target="blank">
-                               Enquire Now
+                               Inquire Now
                            </a>
                            
                    </Link>
@@ -684,7 +684,7 @@ export default function Service() {
                             <a 
                                 className="inline-flex items-center justify-center rounded-md border border-transparent bg-gradient-to-l from-green-600 to-blue-900 px-5 py-1.5 text-base font-medium text-white hover:bg-blue-700 ml-4"
                             target="blank">
-                                Enquire Now
+                                Inquire Now
                             </a>
                             
                     </Link>
