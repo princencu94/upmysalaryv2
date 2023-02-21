@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Menu, Popover, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
@@ -10,12 +10,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../public/assets/logo-2.png';
 import { setCurrentUser } from '../redux/user-reducer';
 import Avatar from '../public/assets/avatardefault.png';
+import { collection, query, where, getDocs  } from "firebase/firestore";
+import { db } from '../firebase';
 
 
 
 const navigation = [
-  { name: 'Dashboard', href: '/dashboard', current: true },
-  { name: 'Resources', href: '#', current: false },
+  { name: 'Dashboard', href: '/dashboard', current: false },
+  { name: 'Resources', href: '/resources', current: false },
 ]
 
 
@@ -28,18 +30,33 @@ export default function TheSalaryBoostAccelerator() {
   const dispatch = useDispatch(); 
     const currentUser = useSelector(state => state.user.currentUser);
     const router = useRouter();
+    const [dbUser, setDbUser] = useState();
+
+
+    async function  getUser(){
+      const q = query(collection(db, "users"), where("email", "==", currentUser ? currentUser.email : ""));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        setDbUser(doc.data());
+      });
+    }
+
 
     useEffect(() => {
         if(!currentUser) {
             router.push('/');
         }
+        getUser();
     },[currentUser])
 
     const user = {
-      name: '',
-      email: currentUser ? currentUser.email : null,
+      name: dbUser ? dbUser.fullname : null,
+      email: dbUser ? dbUser.email : null,
       imageUrl:Avatar   
     }
+
   return (
     <>
       {/*
@@ -121,7 +138,7 @@ export default function TheSalaryBoostAccelerator() {
                       </div>
                       <div className="px-12 lg:px-0">
                         {/* Search */}
-                       <p className='text-white text-sm'>Welcome { currentUser ? currentUser.email : null}</p>
+                       <p className='text-white text-sm'>Welcome { user.name }</p>
                       </div>
                     </div>
                   </div>

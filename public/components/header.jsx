@@ -249,31 +249,11 @@ export default function Header() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/dashboard"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Your Profile
+                            Dashboard
                           </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <button
-                            onClick={handleSignOut}
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 w-full text-left')}
-                          >
-                            Sign out
-                          </button>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -371,7 +351,7 @@ export default function Header() {
                 :
                     <p className="mt-6 text-center text-base font-medium text-gray-500">
                       Existing customer? 
-                      <Link href="#">
+                      <Link href="/login">
                         <a className="text-green-900">
                           Login
                         </a>

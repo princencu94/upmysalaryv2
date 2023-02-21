@@ -38,7 +38,7 @@ export default function VideoTools() {
    
     return ( 
       <section className="mx-auto max-w-4xl">
-        <iframe src="https://vimeo.com/showcase/10183038/embed" width="100%" height="500" frameaBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="Your First 90-Days in a New Role"></iframe>
+        <iframe src="https://vimeo.com/showcase/10183038/embed" width="100%" height="500" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="Your First 90-Days in a New Role"></iframe>
       </section>
     )
     

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Logo from '../public/assets/logo-2.png';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { addUserToDb } from '../firebase';
 import Link from 'next/link';
 import { setCurrentUser } from '../redux/user-reducer';
 import { useRouter } from 'next/router';
@@ -10,10 +11,38 @@ import Image from 'next/image'
 import headerBg from '../public/assets/background-hero.jpg';
 import { useFormik } from 'formik';
 
+
+const validate = values => {
+  const errors = {};
+
+  if (!values.confirmpassword) {
+    errors.confirmpassword = 'Required!';
+  } 
+
+  if (!values.password) {
+    errors.password = 'Required!';
+  } 
+
+  if (!values.fullname) {
+    errors.fullname = 'Required!';
+  } 
+
+  if (!values.email) {
+    errors.email = 'Required!';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
+
+  return errors;
+};
+
+
 export default function Register() {
   const dispatch = useDispatch();
   const router = useRouter();
   const currentUser = useSelector(state => state.user.currentUser);
+  const [message, setMessage] = useState({confirm:'', firebasemessage:''});
+  const [submitForm, setSubmitForm] = useState(false);
 
   useEffect(() => {
       if(currentUser) {
@@ -25,50 +54,37 @@ export default function Register() {
   const formik = useFormik({
 
     initialValues: {
+      fullname:'',
       email: '',
       password:'',
+      confirmpassword:'',
     },
-
+    validate,
     onSubmit: values => {
-
+      setSubmitForm(true);
+      if(values.password !== values.confirmpassword) {
+        setMessage({ confirm:"Ooops passwords don't match"});
+      } else {
       createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
-        // Signed in 
+        addUserToDb(values.fullname, values.email, values.password);
         const user = userCredential.user;
         dispatch(setCurrentUser(user));
+        setSubmitForm(false);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setMessage({ firebasemessage:errorMessage});
         // ..
       });
-    },
-
+    }
+  }
   });
 
  
 
-  // const handleChange = (e) => {
-  //   e.preventDefault();
-  //   const { name, value } = e.target;
-  //   setCredentials({...credentials, [name]: value})
-  // }
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   createUserWithEmailAndPassword(auth, credentials.email, credentials.password)
-  //   .then((userCredential) => {
-  //     // Signed in 
-  //     const user = userCredential.user;
-  //     dispatch(setCurrentUser(user));
-  //   })
-  //   .catch((error) => {
-  //     const errorCode = error.code;
-  //     const errorMessage = error.message;
-  //     // ..
-  //   });
-  // }
   const provider = new GoogleAuthProvider();
   const handleGoogleSubmit = () => {
     signInWithPopup(auth, provider)
@@ -95,7 +111,7 @@ export default function Register() {
   
     return (
       <>
-        <div className="relative flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="relative flex min-h-screen flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="absolute inset-0 opacity-80 mix-blend-multiply ">
               <Image
                 src={headerBg.src}
@@ -119,7 +135,26 @@ export default function Register() {
   
           <div className="relative mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div className="bg-white py-8 px-4 shadow-md sm:rounded-lg sm:px-10">
+              <p className='text-red-500 py-5'>{message.confirm || message.firebasemessage}</p>
               <form className="space-y-6" onSubmit={formik.handleSubmit} >
+              <div>
+                  <label htmlFor="fullname" className="block text-sm font-medium text-blue-700">
+                    Full Name
+                  </label>
+                  <div className="mt-1">
+                    <input
+                      id="fullname"
+                      name="fullname"
+                      type="text"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.fullname}
+                      required
+                      className="block w-full appearance-none rounded-md border border-blue-300 px-3 py-2 placeholder-blue-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                    />
+                  </div>
+                  {formik.errors.fullname ? <div className=' text-red-500 text-sm'>{formik.errors.fullname}</div> : null}
+                </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-blue-700">
                     Email address
@@ -130,12 +165,14 @@ export default function Register() {
                       name="email"
                       type="email"
                       onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                       value={formik.values.email}
                       autoComplete="email"
                       required
                       className="block w-full appearance-none rounded-md border border-blue-300 px-3 py-2 placeholder-blue-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                     />
                   </div>
+                  {formik.errors.email ? <div className=' text-red-500 text-sm'>{formik.errors.email}</div> : null}
                 </div>
   
                 <div>
@@ -148,12 +185,14 @@ export default function Register() {
                       name="password"
                       type="password"
                       onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                       value={formik.values.password}
                       autoComplete="current-password"
                       required
                       className="block w-full appearance-none rounded-md border border-blue-300 px-3 py-2 placeholder-blue-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                     />
                   </div>
+                  {formik.errors.password ? <div className=' text-red-500 text-sm'>{formik.errors.password}</div> : null}
                 </div>
 
                 <div>
@@ -162,16 +201,17 @@ export default function Register() {
                   </label>
                   <div className="mt-1">
                     <input
-                      id="password"
-                      name="password"
+                      id="confirmpassword"
+                      name="confirmpassword"
                       type="password"
                       onChange={formik.handleChange}
-                      value={formik.values.confirmPassword}
-                      autoComplete="current-password"
+                      onBlur={formik.handleBlur}
+                      value={formik.values.confirmpassword}
                       required
                       className="block w-full appearance-none rounded-md border border-blue-300 px-3 py-2 placeholder-blue-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                     />
                   </div>
+                  {formik.errors.confirmpassword ? <div className=' text-red-500 text-sm'>{formik.errors.confirmpassword}</div> : null}
                 </div>
   
                 <div className="flex items-center justify-between">
@@ -192,6 +232,7 @@ export default function Register() {
                 <div>
                   <button
                     type="submit"
+                    disabled={submitForm}
                     className="flex w-full justify-center rounded-md border border-transparent bg-gradient-to-l from-green-600 to-blue-900 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                     Sign up
@@ -220,18 +261,6 @@ export default function Register() {
 
                     </button>
                   </div>
-  
-                  {/* <div>
-                    <a
-                      href="#"
-                      className="inline-flex w-full justify-center rounded-md border border-blue-300 bg-white py-2 px-4 text-sm font-medium text-blue-500 shadow-sm hover:bg-blue-50"
-                    >
-                      <span className="sr-only">Sign in with Twitter</span>
-                      Facebook
-                    </a>
-                  </div> */}
-  
-
                 </div>
               </div>
             </div>

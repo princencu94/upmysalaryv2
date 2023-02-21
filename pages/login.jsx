@@ -9,12 +9,28 @@ import Link from 'next/link';
 import Image from 'next/image'
 import headerBg from '../public/assets/background-beams.jpg'
 import Head from 'next/head';
+import { useFormik } from 'formik';
 
+const validate = values => {
+  const errors = {};
+
+  if (!values.password) {
+    errors.password = 'Required!';
+  } 
+
+  if (!values.email) {
+    errors.email = 'Required!';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
+
+  return errors;
+};
 
 
 export default function Login() {
   const dispatch = useDispatch();
-  const [credentials, setCredentials] = useState({email:"", password:""});
+  const [message, setMessage] = useState('');
   const router = useRouter();
   const currentUser = useSelector(state => state.user.currentUser);
 
@@ -25,14 +41,15 @@ export default function Login() {
 
   },[currentUser])
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCredentials({...credentials, [name]: value})
-  }
+  const formik = useFormik({
 
-  const handleEmailSubmit = (e) => {
-      e.preventDefault();
-      signInWithEmailAndPassword(auth, credentials.email, credentials.password)
+    initialValues: {
+      email: '',
+      password:'',
+    },
+    validate,
+    onSubmit: values => {
+      signInWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
@@ -41,8 +58,11 @@ export default function Login() {
       .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          setMessage(errorMessage);
       });
-  }
+    }
+  });
+
 
   const handleGoogleSubmit = () => {
       signInWithPopup(auth, provider)
@@ -52,7 +72,7 @@ export default function Login() {
               const token = credential.accessToken;
               // The signed-in user info.
               const user = result.user;
-              dispatch(setCredentials(user));
+              dispatch(setCurrentUser(user));
           }).catch((error) => {
               // Handle Errors here.
               const errorCode = error.code;
@@ -66,9 +86,6 @@ export default function Login() {
       });
   }
 
-  console.log("Loggedin user", currentUser);
-
-
     return (
       <>
         <Head>
@@ -81,7 +98,7 @@ export default function Login() {
             key="desc"
             />
         </Head>
-        <div className="relative flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="relative flex min-h-screen flex-col justify-center py-12 sm:px-6 lg:px-8">
         
           <div className="absolute inset-0 opacity-80 mix-blend-multiply ">
               <Image
@@ -106,7 +123,8 @@ export default function Login() {
             </Link>
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-blue-900">Sign in</h2>
           </div>
-              <form className="space-y-6" onSubmit={handleEmailSubmit}>
+              <form className="space-y-6" onSubmit={formik.handleSubmit}>
+                <p className='text-red-500 text-base'>{message}</p>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-blue-700">
                     Email address
@@ -116,12 +134,15 @@ export default function Login() {
                       id="email"
                       name="email"
                       type="email"
-                      onChange={handleChange}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.email}
                       autoComplete="email"
                       required
                       className="block w-full appearance-none rounded-md border border-blue-300 px-3 py-2 placeholder-blue-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                     />
                   </div>
+                  {formik.errors.email ? <div className=' text-red-500 text-sm'>{formik.errors.email}</div> : null}
                 </div>
   
                 <div>
@@ -133,12 +154,15 @@ export default function Login() {
                       id="password"
                       name="password"
                       type="password"
-                      onChange={handleChange}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.password}
                       autoComplete="current-password"
                       required
                       className="block w-full appearance-none rounded-md border border-blue-300 px-3 py-2 placeholder-blue-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                     />
                   </div>
+                  {formik.errors.password ? <div className=' text-red-500 text-sm'>{formik.errors.password}</div> : null}
                 </div>
   
                 <div className="flex items-center justify-between">
@@ -167,6 +191,29 @@ export default function Login() {
                     Sign in
                   </button>
                 </div>
+                <div className="mt-6">
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-blue-300" />
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="bg-white px-2 text-blue-900">Or continue with</span>
+                  </div>
+                </div>
+  
+                <div className="mt-6 grid grid-cols-1 gap-3">
+                  <div>
+                    <button
+                    onClick={handleGoogleSubmit}
+                      className="inline-flex w-full justify-center rounded-md border border-blue-300 bg-white py-2 px-4 text-sm font-medium text-blue-500 shadow-sm hover:bg-blue-50"
+                    >
+                      <span className="sr-only">Sign in with Google</span>
+                        Google
+
+                    </button>
+                  </div>
+                </div>
+              </div>
               </form>
             </div>
           </div>

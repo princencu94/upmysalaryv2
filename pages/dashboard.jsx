@@ -1,9 +1,14 @@
-import { Fragment, useEffect } from 'react'
-import { Menu, Popover, Transition } from '@headlessui/react'
+import { Fragment, useEffect, useState } from 'react'
+import { Menu, Popover, Transition } from '@headlessui/react';
+import { collection, query, where, getDocs  } from "firebase/firestore";
+import { db } from '../firebase';
+
 import {
   Bars3Icon,
   XMarkIcon,
-  WalletIcon
+  WalletIcon,
+  BookOpenIcon,
+  ChatBubbleLeftIcon
 } from '@heroicons/react/24/outline';
 
 import { useRouter } from 'next/router';
@@ -14,7 +19,7 @@ import { setCurrentUser } from '../redux/user-reducer';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', current: true },
-  { name: 'Resources', href: '#', current: false },
+  { name: 'Resources', href: '/resources', current: false },
 ]
 
 const actions = [
@@ -22,8 +27,28 @@ const actions = [
     icon: WalletIcon,
     name: 'The Salary Boost Accelerator Course (Free)',
     href: '/the-salary-boost-accelerator',
-    iconForeground: 'text-teal-700',
-    iconBackground: 'bg-teal-50',
+    target:"",
+    iconForeground: 'text-blue-900',
+    iconBackground: 'bg-blue-50',
+    description:"We offer these programs because we realize that we cannot serve everyone so we want to make you self-reliant. Yet, many features including, skills and knowledge that we will deliver in this program can benefit anyone who wills to engage in them. Since they are sort of self-guided programs, they are not based on therapeutic relationships of any kind. "
+  },
+  {
+    icon: BookOpenIcon,
+    name: 'TSBAC Course Resources',
+    href: '/resources',
+    target:"",
+    iconForeground: 'text-blue-900',
+    iconBackground: 'bg-blue-50',
+    description:"These resources will help you through out the course, for now we have only made these available as read only files, if you wish to have them kindly contact Zana who will Guide you on how best you can maximize on these resources with what you got from the course"
+  },
+  {
+    icon: ChatBubbleLeftIcon,
+    name: 'Schedule Strategy Call',
+    href: 'https://calendly.com/upmysalary/coaching',
+    target:"_blank",
+    iconForeground: 'text-green-900',
+    iconBackground: 'bg-green-50',
+    description:"You have more questions? Schedule a free call with Zana and have all that you need answered"
   },
 ]
 
@@ -35,16 +60,32 @@ export default function Dashboard() {
     const dispatch = useDispatch();
     const currentUser = useSelector(state => state.user.currentUser);
     const router = useRouter();
+    const [dbUser, setDbUser] = useState();
+
+
+    async function  getUser(){
+      const q = query(collection(db, "users"), where("email", "==", currentUser ? currentUser.email : ""));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        setDbUser(doc.data());
+      });
+    }
 
     useEffect(() => {
         if(!currentUser) {
             router.push('/');
         }
+        getUser();
     },[currentUser])
 
+    
+    
+
     const user = {
-        name: '',
-        email: currentUser ? currentUser.email : null,
+        name: dbUser ? dbUser.fullname : null,
+        email: dbUser ? dbUser.email : null,
         imageUrl:Avatar   
     }
 
@@ -121,7 +162,7 @@ export default function Dashboard() {
                       </div>
                       <div className="px-12 lg:px-0">
                         {/* Search */}
-                       <p className='text-white text-sm'>Welcome { currentUser ? currentUser.email : null}</p>
+                       <p className='text-white text-sm'>Welcome { user.name}</p>
                       </div>
                     </div>
                   </div>
@@ -246,7 +287,7 @@ export default function Dashboard() {
                           actionIdx === 1 ? 'sm:rounded-tr-lg' : '',
                           actionIdx === actions.length - 2 ? 'sm:rounded-bl-lg' : '',
                           actionIdx === actions.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '',
-                          'relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-500'
+                          'relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500'
                         )}
                       >
                         <div>
@@ -261,15 +302,15 @@ export default function Dashboard() {
                           </span>
                         </div>
                         <div className="mt-8">
-                          <h3 className="text-lg font-medium">
-                            <a href={action.href} className="focus:outline-none">
+                          <h3 className="text-lg font-medium text-blue-900">
+                            <a target={action.target} href={action.href} className="focus:outline-none">
                               {/* Extend touch target to entire panel */}
                               <span className="absolute inset-0" aria-hidden="true" />
                               {action.name}
                             </a>
                           </h3>
                           <p className="mt-2 text-sm text-gray-500">
-                          We offer these programs because we realize that we cannot serve everyone so we want to make you self-reliant. Yet, many features including, skills and knowledge that we will deliver in this program can benefit anyone who wills to engage in them. Since they are sort of self-guided programs, they are not based on therapeutic relationships of any kind. 
+                              {action.description}
                           </p>
                         </div>
                         <span
