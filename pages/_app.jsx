@@ -10,6 +10,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { Toaster } from 'react-hot-toast';
 import { CookiesProvider } from "react-cookie";
 import Loading from '../public/components/loading';
+import Head from 'next/head';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
