@@ -40,6 +40,10 @@ const options = {
 };
   
   return (
+    <>
+    <Head>
+          <link rel="shortcut icon" href="../public/assets/favicon.ico" />
+    </Head>
     <CookiesProvider>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
@@ -54,6 +58,7 @@ const options = {
         </PersistGate>
       </Provider>
     </CookiesProvider>
+    </>
   )
 }
 
