@@ -369,7 +369,7 @@ const services = [
           imageUrl:
             GroupIcon,
             price:0,
-            email:'info@upmysalary.com',
+            link:'https://calendly.com/upmysalary/coaching',
             faqs:[],
             serviceOps: [
             
