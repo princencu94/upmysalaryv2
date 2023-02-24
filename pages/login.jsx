@@ -33,6 +33,7 @@ export default function Login() {
   const [message, setMessage] = useState('');
   const router = useRouter();
   const currentUser = useSelector(state => state.user.currentUser);
+  const [submitForm, setSubmitForm] = useState(false);
 
   useEffect(() => {
       if(currentUser) {
@@ -49,11 +50,13 @@ export default function Login() {
     },
     validate,
     onSubmit: values => {
+      setSubmitForm(true);
       signInWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
           dispatch(setCurrentUser(user));
+          setSubmitForm(false);
       })
       .catch((error) => {
           const errorCode = error.code;
@@ -185,6 +188,7 @@ export default function Login() {
   
                 <div>
                   <button
+                    disabled={submitForm}
                     type="submit"
                     className="flex w-full justify-center rounded-md border border-transparent bg-gradient-to-l from-green-600 to-blue-900 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >

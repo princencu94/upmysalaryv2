@@ -1,9 +1,7 @@
-import HeroSection from '../public/components/hero-section2';
+import HeroSection from '../public/components/hero-section';
 import ServiceSection from '../public/components/services-section';
 import Footer from '../public/components/footer';
 import HowItWorks from '../public/components/howitworks';
-import Image from 'next/image';
-import CtaImage from '../public/assets/background-hero.jpg';
 import Reviews from '../public/components/reviews';
 import Header from '../public/components/header';
 import Link from 'next/link';
@@ -60,6 +58,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 2.0 }}
               >
+              
               <div className="bg-white">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                   <div className="relative isolate overflow-hidden bg-blue-800 py-20 px-6 sm:rounded-3xl sm:py-24 sm:px-10 lg:py-24 xl:px-24">
@@ -75,8 +74,8 @@ export default function Home() {
                       <img
                         src={PlayerScreenshot.src}
                         alt="Product screenshot"
-                        className="relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[64rem] lg:max-w-none"
-                        width={2432}
+                        className="relative -z-20 min-w-full max-w-xl rounded-xl shadow-xl ring-1 ring-white/10 lg:row-span-4 lg:w-[48rem] lg:max-w-none"
+                        width={1903}
                         height={1442}
                       />
                       <div className="max-w-xl lg:row-start-3 lg:mt-10 lg:max-w-md lg:border-t lg:border-white/10 lg:pt-10">

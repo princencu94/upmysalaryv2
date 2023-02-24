@@ -1,6 +1,7 @@
 import { Disclosure } from '@headlessui/react';
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline';
-import HowItWorksImage from '../assets/howitwork.jpg'
+import HowItWorksImage from '../assets/howitwork.jpg';
+import Image from 'next/image';
 
 const faqs = [
     {
@@ -80,12 +81,12 @@ const faqs = [
                 aria-hidden="true"
               />
               <div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-                <img
+                <Image
                   src={HowItWorksImage.src}
                   alt="Beautiful Female on the Phone"
-                  width={1280}
-                  height={720}
-                  className="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10"
+                  width={1452}
+                  height={1442}
+                  className="-mb-12 w-auto max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10"
                 />
               </div>
               <div

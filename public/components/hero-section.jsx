@@ -1,53 +1,50 @@
-import { useState } from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
-import headerBg from '../assets/background-hero.jpg'
+import headerBg from '../assets/Hero-trans.png'
 import ReviewPopUp from './reviewpopup';
+import heroImage from '../assets/upmysalaryHero.png';
+
+
 
 export default function HeroSection() {
-  const [showPopup, setShowPopup] = useState(false);
+
   return (
     
-    <div className="relative overflow-hidden bg-gray-50 h-screen">
-          <div className="absolute inset-0 opacity-100 mix-blend-multiply ">
+    <div className="relative  sm:overflow-hidden h-4/6">
+        <div className="absolute inset-0 opacity-70">
             <Image
               src={headerBg.src}
               alt="Hero Section beams"
-              layout='fill'
-              className="h-full w-full object-cover"
+              width={1280}
+              height={720}
+              className="object-cover"
             />
+        </div>
+      <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-14">
+        <div className="mx-auto max-w-xl lg:mx-0 lg:flex-auto">
+          <h1 className="mt-0 max-w-lg text-3xl font-bold tracking-tight text-black sm:text-4xl">
+              <span className="block xl:inline">Helping people up their value,</span>{'  '}
+              <span className="block xl:inline bg-clip-text text-transparent bg-gradient-to-l from-green-600 to-blue-900">make more money, </span>{'  '}
+              <span className="block  xl:inline">and protect their Income</span>
+          </h1>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+          UpMySalary is dedicated to transforming the lives of others so that they can achieve their career goals - and our services are effective in helping others reach their salaries globally. We strive to remove the academic limits that have stagnated folks for years.
+          </p>
+          <div className="mt-10 flex items-center gap-x-6">
+            <Link href="/register">
+            <a
+              
+              className="rounded-md bg-gradient-to-l from-green-600 to-blue-900 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm "
+            >
+              Get started &rarr;
+            </a>
+            </Link>
           </div>
-
-      
-      <div className="relative pt-6 pb-16 sm:pb-24">
-      
-        <main className="mx-auto mt-16 max-w-7xl px-4 sm:mt-24">
-
-          <div className="text-left lg:text-center pt-0">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl max-w-4xl mx-auto">
-              <span className="block xl:inline">UpMySalary, Not My Stress!</span>{'  '}
-            </h1>
-            <h1 className='text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl md:text-4xl max-w-3xl mx-auto mt-3'>
-              <span className="block xl:inline">Helping people Up Their Value,</span>{'  '}
-              <span className="block xl:inline bg-clip-text text-transparent bg-gradient-to-l from-green-600 to-blue-900">Make More Money, </span>{'  '}
-              <span className="block  xl:inline">and Protect Their Income</span>
-            </h1>
-            
-                <div className="mt-8 flex gap-x-4 lg:justify-center justify-start">
-                  <button
-                    onClick={() => setShowPopup(true)}
-                    className=" animate-bounce inline-block rounded-lg bg-gradient-to-l from-green-600 to-blue-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700"
-                  >
-                    Get started
-                    <span className="text-blue-200" aria-hidden="true">
-                      &rarr;
-                    </span>
-                  </button>
-                </div>
-          </div>
-        </main>
+        </div>
+        <div className="mt-0 sm:mt-10 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">
+          <Image width={550} height={400} src={heroImage} alt="3 pictures showing different people" className='h-96 w-full' />
+        </div>
       </div>
-      <ReviewPopUp show={showPopup} setShow={setShowPopup}/>
     </div>
   )
 }

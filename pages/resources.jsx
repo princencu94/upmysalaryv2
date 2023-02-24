@@ -13,6 +13,7 @@ import Avatar from '../public/assets/avatardefault.png';
 import PDF from '../public/assets/pdf.png';
 import { collection, query, where, getDocs  } from "firebase/firestore";
 import { db } from '../firebase';
+import Link from 'next/link';
 
 
 const files = [
@@ -288,9 +289,10 @@ export default function Resources() {
                       <div className="hidden lg:col-span-2 lg:block">
                         <nav className="flex space-x-4">
                           {navigation.map((item) => (
+                            <Link  key={item.name}
+                            href={item.href}>
                             <a
-                              key={item.name}
-                              href={item.href}
+                              
                               className={classNames(
                                 item.current ? 'text-white' : 'text-blue-100',
                                 'text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10'
@@ -299,12 +301,13 @@ export default function Resources() {
                             >
                               {item.name}
                             </a>
+                            </Link>
                           ))}
                         </nav>
                       </div>
                       <div className="px-12 lg:px-0">
                         {/* Search */}
-                       <p className='text-white text-sm'>Welcome { user.name }</p>
+                       <p className='text-white text-sm'>Welcome { user.name}</p>
                       </div>
                     </div>
                   </div>
@@ -362,7 +365,7 @@ export default function Resources() {
                               />
                             </div>
                             <div className="-mr-2">
-                              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500">
+                              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-blue-900 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-900">
                                 <span className="sr-only">Close menu</span>
                                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                               </Popover.Button>
@@ -370,13 +373,13 @@ export default function Resources() {
                           </div>
                           <div className="mt-3 space-y-1 px-2">
                             {navigation.map((item) => (
-                              <a
-                                key={item.name}
-                                href={item.href}
-                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
+                              <Link key={item.name}
+                              href={item.href}>
+                              <a className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
                               >
                                 {item.name}
                               </a>
+                              </Link>
                             ))}
                           </div>
                         </div>
@@ -405,7 +408,7 @@ export default function Resources() {
             </>
           )}
         </Popover>
-        <main className="mt-10 pb-8 mx-auto max-w-5xl">
+        <main className="mt-10 pb-8 px-5 sm:px-0 mx-auto max-w-5xl">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {files.map((file) => (
             <div

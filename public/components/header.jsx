@@ -347,7 +347,13 @@ export default function Header() {
               <div className="mt-6 text-center">
               {
                 currentUser ?
-                <p className='text-green text-sm'>{currentUser.email !== undefined ? currentUser.email : null}</p>
+                <p className='text-green text-sm'>
+                  <Link href="/dashboard">
+                    <a className='text-blue-900'>
+                        {currentUser.email !== undefined ? currentUser.email : null}
+                    </a>
+                  </Link>
+                </p>
                 :
                     <p className="mt-6 text-center text-base font-medium text-gray-500">
                       Existing customer? 

@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { Menu, Popover, Transition } from '@headlessui/react';
 import { collection, query, where, getDocs  } from "firebase/firestore";
 import { db } from '../firebase';
+import Link from 'next/link';
 
 import {
   Bars3Icon,
@@ -146,9 +147,10 @@ export default function Dashboard() {
                       <div className="hidden lg:col-span-2 lg:block">
                         <nav className="flex space-x-4">
                           {navigation.map((item) => (
+                            <Link  key={item.name}
+                            href={item.href}>
                             <a
-                              key={item.name}
-                              href={item.href}
+                              
                               className={classNames(
                                 item.current ? 'text-white' : 'text-blue-100',
                                 'text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10'
@@ -157,6 +159,7 @@ export default function Dashboard() {
                             >
                               {item.name}
                             </a>
+                            </Link>
                           ))}
                         </nav>
                       </div>
@@ -228,13 +231,13 @@ export default function Dashboard() {
                           </div>
                           <div className="mt-3 space-y-1 px-2">
                             {navigation.map((item) => (
-                              <a
-                                key={item.name}
-                                href={item.href}
-                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
+                              <Link key={item.name}
+                              href={item.href}>
+                              <a className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
                               >
                                 {item.name}
                               </a>
+                              </Link>
                             ))}
                           </div>
                         </div>
@@ -265,7 +268,7 @@ export default function Dashboard() {
         </Popover>
         <main className="mt-10 pb-8">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            <h1 className="sr-only">Profile</h1>
+            <h1 className="sr-only">Dashboard</h1>
             {/* Main 3 column grid */}
             <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
               {/* Left column */}
@@ -303,11 +306,13 @@ export default function Dashboard() {
                         </div>
                         <div className="mt-8">
                           <h3 className="text-lg font-medium text-blue-900">
-                            <a target={action.target} href={action.href} className="focus:outline-none">
-                              {/* Extend touch target to entire panel */}
-                              <span className="absolute inset-0" aria-hidden="true" />
-                              {action.name}
-                            </a>
+                            <Link href={action.href}>
+                              <a target={action.target}  className="focus:outline-none">
+                                {/* Extend touch target to entire panel */}
+                                <span className="absolute inset-0" aria-hidden="true" />
+                                {action.name}
+                              </a>
+                            </Link>
                           </h3>
                           <p className="mt-2 text-sm text-gray-500">
                               {action.description}
