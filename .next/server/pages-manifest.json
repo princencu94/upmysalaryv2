@@ -3,8 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/service/[id]": "pages/service/[id].js",
-  "/dashboard": "pages/dashboard.js",
-  "/the-salary-boost-accelerator": "pages/the-salary-boost-accelerator.js",
-  "/": "pages/index.js",
-  "/resources": "pages/resources.js"
+  "/api/create-payment-intent": "pages/api/create-payment-intent.js",
+  "/": "pages/index.js"
 }

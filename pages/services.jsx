@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import Header from "../public/components/header1";
+import Header from "../public/components/header";
 import Footer from "../public/components/footer";
 import Image from 'next/image';
 import Link from "next/link";
