@@ -10,14 +10,14 @@ export default function HeroSection() {
 
   return (
     
-    <div className="relative  sm:overflow-hidden h-4/6">
-        <div className="absolute inset-0 opacity-70">
+    <div className="relative overflow-hidden ">
+        <div className="absolute inset-0 opacity-70 -z-10 h-screen w-full object-cover">
             <Image
               src={headerBg.src}
               alt="Hero Section beams"
               width={1280}
               height={720}
-              className="object-cover"
+              className=""
             />
         </div>
       <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-14">
@@ -41,8 +41,8 @@ export default function HeroSection() {
             </Link>
           </div>
         </div>
-        <div className="mt-0 sm:mt-10 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">
-          <Image width={550} height={400} src={heroImage} alt="3 pictures showing different people" className='h-96 w-full' />
+        <div className="mt-10 sm:mt-10 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">
+          <img width={300} height={500} src={heroImage.src} alt="3 pictures showing different people" className='sm:h-96 sm:w-11/12 w-full h-auto' />
         </div>
       </div>
     </div>

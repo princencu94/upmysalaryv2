@@ -4,5 +4,5 @@
   "/_document": "pages/_document.js",
   "/service/[id]": "pages/service/[id].js",
   "/api/create-payment-intent": "pages/api/create-payment-intent.js",
-  "/": "pages/index.js"
+  "/about": "pages/about.js"
 }

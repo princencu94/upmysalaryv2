@@ -14,6 +14,7 @@ import PDF from '../public/assets/pdf.png';
 import { collection, query, where, getDocs  } from "firebase/firestore";
 import { db } from '../firebase';
 import Link from 'next/link';
+import Head from 'next/head';
 
 
 const files = [

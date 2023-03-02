@@ -68,7 +68,7 @@ export default function Home() {
                           The Salary Boost Accelerator
                         </h2>
                         <p className="mt-6 text-lg leading-8 text-blue-200">
-                        We offer these programs because we realize that we cannot serve everyone so we want to make you self-reliant. Yet, many features including, skills and knowledge that we will deliver in this program can benefit anyone who wills to engage in them.
+                          We have happily dedicated ourselves to improving the lives of others by providing expert coaching to help professionals increase their income as quickly as possible. We do this by upping the value they offer to others, and as such, they are packaged to being higher value candidates. We help increase the pay of professionals by 25% in as little as 90 days. Confidently, we provide the steps professionals need to get visible in the market and hone in on opportunities that will satisfy and exceed their income needs.
                         </p>
                       </div>
                       <img
@@ -134,10 +134,10 @@ export default function Home() {
             <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-0 lg:px-8">
               <div className="relative isolate overflow-hidden bg-blue-900 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
                 <h2 className="mx-auto max-w-2xl text-4xl font-bold tracking-tight text-white">
-                  Ready to kick start your journey
+                  Ready to kickstart your journey?
                 </h2>
-                <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-                  Schedule a meeting with Zana to find out more on the path you have chosen to take with UpMySalary or call if you need any quick assistance
+                <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-100">
+                  Schedule a free 30-minute consultation call with Zana, THE salary coach, to see if you are a fit to join one of our coaching programs.
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                 <Link href="https://calendly.com/upmysalary/coaching">

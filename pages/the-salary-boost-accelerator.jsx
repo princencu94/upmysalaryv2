@@ -13,7 +13,7 @@ import Avatar from '../public/assets/avatardefault.png';
 import { collection, query, where, getDocs  } from "firebase/firestore";
 import { db } from '../firebase';
 import Link from 'next/link';
-
+import Head from 'next/head';
 
 
 const navigation = [
@@ -60,14 +60,16 @@ export default function TheSalaryBoostAccelerator() {
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
+        <Head>
+            <title>
+                The Salary Boost Accelerator Course
+            </title>
+            <meta
+            name="description"
+            content="UpMySalary The Salary Boost Accelerator Course"
+            key="desc"
+            />
+        </Head>
       <div className="min-h-full">
       <Popover as="header" className="bg-gradient-to-r from-blue-900 to-blue-600 pb-0">
           {({ open }) => (

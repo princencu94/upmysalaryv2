@@ -3,6 +3,7 @@ import { Menu, Popover, Transition } from '@headlessui/react';
 import { collection, query, where, getDocs  } from "firebase/firestore";
 import { db } from '../firebase';
 import Link from 'next/link';
+import Head from 'next/head';
 
 import {
   Bars3Icon,
@@ -35,7 +36,7 @@ const actions = [
   },
   {
     icon: BookOpenIcon,
-    name: 'TSBAC Course Resources',
+    name: 'TSBA Course Resources',
     href: '/resources',
     target:"",
     iconForeground: 'text-blue-900',
@@ -92,6 +93,16 @@ export default function Dashboard() {
 
   return (
     <>
+        <Head>
+            <title>
+                Dashboard
+            </title>
+            <meta
+            name="description"
+            content="UpMySalary Dashboard"
+            key="desc"
+            />
+        </Head>
       <div className="min-h-full">
         <Popover as="header" className="bg-gradient-to-r from-blue-900 to-blue-600 pb-0">
           {({ open }) => (
