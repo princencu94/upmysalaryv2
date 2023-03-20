@@ -79,9 +79,9 @@ export default function Home() {
                         height={1442}
                       />
                       <div className="max-w-xl lg:row-start-3 lg:mt-10 lg:max-w-md lg:border-t lg:border-white/10 lg:pt-10">
-                        <Link href="/login">
-                          <a className="inline-block rounded-lg bg-gradient-to-l from-green-600 to-blue-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700">
-                            Watch the course for free
+                        <Link href="https://buy.stripe.com/9AQ01d6LI6Kp7HG8wz">
+                          <a target="_blank" className="inline-block rounded-lg bg-gradient-to-l from-green-600 to-blue-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700">
+                            Buy the course for $699.00
                             <span className="text-blue-200" aria-hidden="true">
                               &rarr;
                             </span>

@@ -30,7 +30,7 @@ const validate = values => {
 
 export default function Login() {
   const dispatch = useDispatch();
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState();
   const router = useRouter();
   const currentUser = useSelector(state => state.user.currentUser);
   const [submitForm, setSubmitForm] = useState(false);
@@ -61,33 +61,11 @@ export default function Login() {
       .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setMessage(errorMessage);
+          setMessage("Ooops sorry Email and Password do not match!");
       });
     }
   });
 
-
-  const handleGoogleSubmit = () => {
-      signInWithPopup(auth, provider)
-          .then((result) => {
-              // This gives you a Google Access Token. You can use it to access the Google API.
-              const credential = GoogleAuthProvider.credentialFromResult(result);
-              const token = credential.accessToken;
-              // The signed-in user info.
-              const user = result.user;
-              dispatch(setCurrentUser(user));
-          }).catch((error) => {
-              // Handle Errors here.
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              // The email of the user's account used.
-              // const email = error.customData.email;
-              console.log(error);
-              // The AuthCredential type that was used.
-              const credential = GoogleAuthProvider.credentialFromError(error);
-      
-      });
-  }
 
     return (
       <>
@@ -178,7 +156,7 @@ export default function Login() {
                   </div>
   
                   <div className="text-sm">
-                    <Link href="#">
+                    <Link href="/forgot-password">
                       <a  className="font-medium text-blue-600 hover:text-blue-500">
                         Forgot your password?
                       </a>

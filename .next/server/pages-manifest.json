@@ -2,7 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/service/[id]": "pages/service/[id].js",
-  "/api/create-payment-intent": "pages/api/create-payment-intent.js",
   "/about": "pages/about.js"
 }

@@ -31,7 +31,7 @@ export default function HeroSection() {
           UpMySalary is dedicated to transforming the lives of others so that they can achieve their career goals - and our services are effective in helping others reach their salaries globally. We strive to remove the academic limits that have stagnated folks for years.
           </p>
           <div className="mt-10 flex items-center gap-x-6">
-            <Link href="/register">
+            <Link href="/login">
             <a
               
               className="rounded-md bg-gradient-to-l from-green-600 to-blue-900 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm "

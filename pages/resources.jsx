@@ -227,14 +227,16 @@ export default function Resources() {
     }
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
+        <Head>
+            <title>
+                Resources
+            </title>
+            <meta
+            name="description"
+            content="UpMySalary Resources Page"
+            key="desc"
+            />
+        </Head>
       <div className="min-h-full">
       <Popover as="header" className="bg-gradient-to-r from-blue-900 to-blue-600 pb-0">
           {({ open }) => (
