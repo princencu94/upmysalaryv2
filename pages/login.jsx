@@ -148,11 +148,11 @@ export default function Login() {
   
                 <div className="flex items-center justify-between">
                   <div className="text-sm">
-                      <Link href="/register" >
+                      {/* <Link href="/register" >
                         <a className="font-medium text-blue-600 hover:text-blue-500">
                           Do not have an account?
                         </a>
-                      </Link> 
+                      </Link>  */}
                   </div>
   
                   <div className="text-sm">

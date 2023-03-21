@@ -66,7 +66,7 @@ export default function ForgotPassword() {
             </title>
             <meta
             name="description"
-            content="Login page"
+            content="Reset Password"
             key="desc"
             />
         </Head>
@@ -115,6 +115,19 @@ export default function ForgotPassword() {
                     />
                   </div>
                   {formik.errors.email ? <div className=' text-red-500 text-sm'>{formik.errors.email}</div> : null}
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="text-sm">
+                      <Link href="/login" >
+                        <a className="font-medium text-blue-600 hover:text-blue-500">
+                          Sign in
+                        </a>
+                      </Link> 
+                  </div>
+  
+                  <div className="text-sm">
+        
+                  </div>
                 </div>
   
                 <div>

@@ -19,7 +19,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 // const analytics = getAnalytics(app);
-auth.languageCode = 'it';
+auth.languageCode = 'eng';
 const provider = new GoogleAuthProvider(app);
 
 const addUserToDb = async (firstname, lastname, age, email, password) => {
