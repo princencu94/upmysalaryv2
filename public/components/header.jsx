@@ -23,7 +23,7 @@ import { ChevronDownIcon,
 } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import Logo from '../assets/logo-2.png';
 
 const solutions = [
   {
@@ -99,7 +99,7 @@ export default function Header() {
               <span className="sr-only">UpMySalary</span>
               <img
                 className="h-16 w-16 "
-                src="../assets/logo-2.png"
+                src={Logo.src}
                 alt="UpMySalaryLogo"
               />
               </a>
