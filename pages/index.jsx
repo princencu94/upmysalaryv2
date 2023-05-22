@@ -68,7 +68,7 @@ export default function Home() {
                           The Salary Boost Accelerator
                         </h2>
                         <p className="mt-6 text-lg leading-8 text-blue-200">
-                          We have happily dedicated ourselves to improving the lives of others by providing expert coaching to help professionals increase their income as quickly as possible. We do this by upping the value they offer to others, and as such, they are packaged to being higher value candidates. We help increase the pay of professionals by 25% in as little as 90 days. Confidently, we provide the steps professionals need to get visible in the market and hone in on opportunities that will satisfy and exceed their income needs.
+                          We have happily dedicated ourselves to improving the lives of others by providing expert coaching to help professionals increase their income as quickly as possible. We do this by upping the value they offer to others, and as such, they are packaged to being higher value candidates. We help increase the pay of professionals by 25% in as little as 90 days. Confidently, we provide the steps professionals need to get visible in the market and hone in on opportunities that will satisfy and exceed their income needs.
                         </p>
                       </div>
                       <img
@@ -81,7 +81,7 @@ export default function Home() {
                       <div className="max-w-xl lg:row-start-3 lg:mt-10 lg:max-w-md lg:border-t lg:border-white/10 lg:pt-10">
                         <Link href="https://buy.stripe.com/9AQ01d6LI6Kp7HG8wz">
                           <a target="_blank" className="inline-block rounded-lg bg-gradient-to-l from-green-600 to-blue-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-blue-600 hover:bg-blue-700 hover:ring-blue-700">
-                            Buy the course for $699.00
+                            Buy the course for $197.00
                             <span className="text-blue-200" aria-hidden="true">
                               &rarr;
                             </span>

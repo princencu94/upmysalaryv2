@@ -11,8 +11,8 @@ const OptionsList = ({items}) => {
 
     const handleCart = (service) => {
         
-        const { id , title, description, price, imageUrl, slug} = service;
-        if(dispatch(addItem({id: id , name: title, description:description, price:price, image:imageUrl, slug:slug}))) {
+        const { id , title, description, price, imageUrl, slug, type} = service;
+        if(dispatch(addItem({id: id , name: title, description:description, price:price, image:imageUrl, slug:slug, type:type}))) {
             toast.success('Added to Cart');
         }
 

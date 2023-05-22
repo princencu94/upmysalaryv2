@@ -25,6 +25,7 @@ const services = [
       title: 'Resume Service',
       id: 1,
       slug:'resume-service',
+      type:"service",
       videoLink:'https://www.youtube.com/watch?v=q-csIUhFQiA',
       otherServices: [
         
@@ -108,6 +109,7 @@ const services = [
               id:1.2,
               price:50.00,
               slug:'resume-service',
+              type:"service",
               imageUrl:ResumeIcon,
               anyAmount:'https://buy.stripe.com/eVa01d0nk2u9aTSeUU',
               description:'You will receive a 10 minute video of feedback on your resume plus written notes, delivered in 1-3 business days. Rather than doing the resume for you, we give you the detailed feedback you need to enhance your resume on your own!'
@@ -117,6 +119,7 @@ const services = [
               id:1,
               price:200.00,
               slug:'resume-service',
+              type:"service",
               imageUrl:ResumeIcon,
               anyAmount:null,
               description:'Our Top Tier Resume Service provides you with a fully revamped (or entirely new) resume that speaks to your strengths and ability to be a great assert wherever you go.'
@@ -128,6 +131,7 @@ const services = [
       title: 'LinkedIn Service',
         id: 2,
         slug:'linkedin-service',
+        type:"service",
         videoLink:'https://www.youtube.com/watch?v=zOvRkpuPork',
         otherServices:[
           
@@ -202,6 +206,7 @@ const services = [
             id:2.2,
             price:50.00,
             slug:'linkedin-service',
+            type:"service",
             imageUrl:LinkedIcon,
             anyAmount:'https://buy.stripe.com/4gw9BN1rofgV4vufZ0',
             description:'How does your online profile compare to others in your job role and industry? LinkedIn is a professional networking site where you want all eyes to be on your profile, (the right eyes!).'
@@ -211,6 +216,7 @@ const services = [
             id:2,
             price:150.00,
             slug:'linkedin-service',
+            type:"service",
             imageUrl:LinkedIcon,
             anyAmount:null,
             description:'Online visibility is essential for networking with the right recruiters and hiring managers. Your goal is to be presented with more job opportunities, and LinkedIn is a great place to start!'
@@ -223,6 +229,7 @@ const services = [
       title: 'Mock interviews',
       id: 3,
       slug:'mock-interviews',
+      type:"service",
       videoLink:null,
       otherServices:[
         {
@@ -251,7 +258,10 @@ const services = [
 
         `
         <p>
-          Our mock interview service is designed to help you practice and improve your interview skills in a safe and supportive environment. Here's what you can expect from our mock interview service:
+          There's an old saying that <span class="italic">"practice makes perfect"</span>, and we believe it!  Our team of human resources and hiring experts can help you gain realistic interview experiences so that you can stand out in the hiring process. This in turn increases your placement percentage, and leads to another success story for us.
+        </p>
+        <p>
+          Our mock interview service is designed to help you practice and improve your interview skills in a safe and supportive environment.
         </p>
         `,
       
@@ -296,6 +306,7 @@ const services = [
             id:3,
             price:75.00,
             slug:'mock-interviews',
+            type:"service",
             imageUrl:MockIcon,
             anyAmount:null,
             description:'Our mock interview service is designed to help you practice and improve your interview skills in a safe and supportive environment.'
@@ -306,6 +317,7 @@ const services = [
         title: 'The Salary Boost Accelerator',
         id: 4,
         slug:'the-salary-boost-accelerator',
+        type:"service",
         videoLink:null,
         otherServices:[],
         otherContent:'',
@@ -329,6 +341,7 @@ const services = [
           title: 'Elite Performer Coaching Program',
           id: 5,
           slug:'elite-performer-coaching-program',
+          type:"service",
           videoLink:null,
           otherServices:[],
           otherContent:'',
@@ -354,6 +367,7 @@ const services = [
           title: 'Group Coaching',
           id: 6,
           slug:'group-coaching',
+          type:"service",
           videoLink:null,
           otherServices:[],
           otherContent:'',
@@ -379,6 +393,7 @@ const services = [
         title: 'Resume Review',
         id: 7,
         slug:'resume-review',
+        type:"service",
         videoLink:null,
         description:
           `
@@ -405,6 +420,7 @@ const services = [
         title: 'Linkedin Review',
         id:8,
         slug:'linkedin-review',
+        type:"service",
         videoLink:null,
         otherServices:[
           

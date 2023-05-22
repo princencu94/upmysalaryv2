@@ -20,7 +20,7 @@ const faqs = [
         id: 3,
         question: "Receive a resume tailored to your goals",
         answer:
-          "Our team of expert writers will work closely with you to craft a custom resume that fits your unique needs and career aspirations like a glove. Once you're satisfied with the final product, we'll send you the updated resume, giving you the confidence to apply for new opportunities and accelerate your job search. We understand that a well-written resume is essential to making a strong impression on potential employers, which is why our writers take the time to understand your career goals and craft a personalized document that highlights your skills, accomplishments, and experiences in the best possible light.",
+          "Our team of expert writers will work closely with you to craft a custom resume that fits your unique needs and career aspirations like a glove. Once you're satisfied with the final product, we'll send you the updated resume, giving you the confidence to apply for new opportunities and accelerate your job search. We understand that a well-written resume is essential to making a strong impression on potential employers, which is why our writers take the time to understand your career goals and craft a personalized document that highlights your skills, accomplishments, and experiences in the best possible light.",
       },
       {
         id: 4,
@@ -29,7 +29,7 @@ const faqs = [
 
         Our team of experts will carefully review your profile and provide tailored recommendations to enhance your visibility and engagement on LinkedIn. From optimizing your headline and summary to fine-tuning your skills and endorsements, we'll help you make the most of this powerful networking platform.
         
-        Don't let an underperforming LinkedIn profile hold you back in your job search. Upgrade your online presence today and take your career to the next level with our LinkedIn Optimization service.`
+        Don't let an underperforming LinkedIn profile hold you back in your job search. Upgrade your online presence today and take your career to the next level with our LinkedIn Optimization service."`
       },
       {
         id: 5,

@@ -1,14 +1,23 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import BookCover from '../assets/ebook-cover.jpg';
+import ChatGptCover from '../assets/Chatgpt.jpg';
 const products = [
     {
-      id: 'e1',
+      id: 'staffing-companies',
       name: 'Staffing Companies(Ebook)',
-      href: 'staffing-companies/e1',
-      price: '$25.00',
+      href: 'ebooks/staffing-companies',
+      price: '$19.99',
       imageSrc: BookCover,
       imageAlt: 'Staffing Companies',
+    },
+    {
+      id: 'supercharge-your-income-with-chatgpt',
+      name: 'Supercharge Your Income With ChatGPT(Ebook)',
+      href: 'ebooks/supercharge-your-income-with-chatgpt',
+      price: '$9.99',
+      imageSrc: ChatGptCover,
+      imageAlt: 'Staffing CompaniesSupercharge Your Income With ChatGPT(Ebook)',
     },
   ]
   

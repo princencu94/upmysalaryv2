@@ -102,7 +102,7 @@ export default function AboutUs() {
                         <div className="lg:grid lg:grid-cols-2 lg:gap-6">
                         <div className="prose prose-lg prose-indigo text-gray-700 lg:max-w-none">
                             <p>
-                                At UpMySalary, our mission is to empower individuals to achieve their career goals and secure better salaries globally. We understand the academic and professional limitations that have hindered many individuals from reaching their full potential. That's why we offer customized resume services that showcase your skills and experience in a way that lands you job interviews and opens doors to new opportunities.
+                                At UpMySalary, our mission is to empower individuals to achieve their career goals and secure better salaries globally. We understand the academic and professional limitations that have hindered many individuals from reaching their full potential. That's why we offer customized resume services that showcase your skills and experience in a way that lands you job interviews and opens doors to new opportunities. 
                             </p>
                             <p>
                                 Our team stays up to date with the latest trends and challenges in the corporate world, providing professional development services that help individuals attain the highest level of professionalism. We provide a range of resources and activities that cater to the unique needs of each member of our community, from students and entry-level job seekers to experienced professionals seeking career transitions. With our expert guidance and informative resources, we help professionals increase their visibility, secure more interviews, and negotiate higher pay within a reasonable amount of time.
@@ -113,7 +113,7 @@ export default function AboutUs() {
                                 Our strategies and solutions have been endorsed by recruiters and hiring managers, and our success stories speak for themselves. We take a personal approach to ensure that our clients receive tailored solutions that are backed by data-driven insights. Our team of experts, all of whom have experience as hiring managers in the USA, are committed to delivering exceptional service and results.
                             </p>
                             <p>
-                                At UpMySalary, we don't believe in a one-size-fits-all approach. We work with each client to understand their unique needs and goals, and provide customized solutions that help them succeed. Our goal is to help you stand out from the crowd and land your dream job with a salary that reflects your true value. With our proven track record, we're confident that we can help you boost your salary in as little as 90 days.
+                                At UpMySalary, we don't believe in a one-size-fits-all approach. We work with each client to understand their unique needs and goals, and provide customized solutions that help them succeed. Our goal is to help you stand out from the crowd and land your dream job with a salary that reflects your true value. With our proven track record, we're confident that we can help you boost your salary in as little as 90 days.
                             </p>
 
                         </div>
